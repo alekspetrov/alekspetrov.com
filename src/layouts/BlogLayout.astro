@@ -1,0 +1,77 @@
+---
+import { log } from 'astro/dist/core/logger/core'
+import BaseHead from '../components/BaseHead.astro'
+import PageHeader from '../components/PageHeader.astro'
+import Footer from '../components/ShellFooter.astro'
+import Header from '../components/ShellHeader.astro'
+
+export interface Props {
+  content: {
+    title: string
+    description: string
+    created_at?: string
+    updated_at?: string
+  }
+}
+
+const {
+  content: { title, description },
+} = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+    <style is:global lang="postcss">
+      .blog-content {
+        @apply space-y-8 px-6;
+      }
+
+      .blog-content > * {
+        @apply max-w-xl mx-auto;
+      }
+
+      .blog-content h2,
+      .blog-content h3 {
+        @apply text-neutral-900 dark:text-neutral-200;
+      }
+
+      .blog-content a {
+        @apply text-neutral-900 dark:text-neutral-200;
+      }
+
+      .blog-content img {
+        @apply rounded;
+      }
+
+      .blog-content figcaption {
+        @apply text-center text-sm mt-2 md:pt-0;
+      }
+
+      .blog-content ul,
+      .blog-content ol {
+        @apply pl-5 md:pl-0;
+      }
+
+      .blog-content ul li {
+        @apply mb-2 list-disc;
+      }
+
+      .blog-content ol li {
+        @apply mb-2 list-decimal;
+      }
+
+      .content-wide {
+        @apply max-w-7xl mx-auto;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main class="blog-content">
+      <PageHeader title={title} description={description} />
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

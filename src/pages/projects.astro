@@ -1,0 +1,26 @@
+---
+import PageHeader from '../components/PageHeader.astro'
+import ProjectList from '../components/ProjectList.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const isDev = import.meta.env.DEV ? true : false
+
+const projects = (await Astro.glob('./projects/*.{md,mdx}'))
+  .filter((project) => {
+    if (isDev) {
+      return true
+    } else {
+      return !project.frontmatter.draft
+    }
+  })
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.created_at).valueOf() -
+      new Date(a.frontmatter.created_at).valueOf()
+  )
+---
+
+<BaseLayout>
+  <PageHeader title="Projects" />
+  <ProjectList projects={projects} />
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const { title, description } = Astro.props
+---
+
+<header class="mb-16">
+  <h1 class="text-neutral-900 dark:text-neutral-200">
+    {title}
+  </h1>
+  {description && <p>{description}</p>}
+</header>

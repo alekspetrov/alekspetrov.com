@@ -1,0 +1,48 @@
+---
+layout: '../../layouts/BlogLayout.astro'
+title: 'Status Monitoring'
+is_pet: false
+is_featured: true
+draft: false
+description: 'Internal usage monitoring for websites, endpoints and API.'
+created_at: '2019'
+---
+
+<figure class="content-wide">
+  <img
+    src="https://res.cloudinary.com/alekspetrov/image/upload/v1665594447/website/web-monitoring-1_difrzm.png"
+    alt="Web monitoring UI"
+  />
+  <figcaption>
+    Monitoring Dashboard, release candidate.
+  </figcaption>
+</figure>
+
+### The problem
+
+There are many microservices, websites and hosts owning by different teams. The only way to know if service available or to find existing open endpoints is to contact with another owners. This adds load and unnecessary actions.
+
+We can’t use third-party to solve this, because of security, the network is close, and we have our own checklist to find why it is not working.
+
+### Success measure
+
+Decrease requests of service availability during 6 month:
+
+- 1 month: 10-20%
+- 3 month: 60%
+- 6 month: 96%
+
+### Solution
+
+Dashboard with monitoring for all api, data-endpoints and websites and represent it in a simple way. It helps all the company see if endpoint works or web-service is available and grab more info.
+
+I create a simple design to show all the nodes with a memory and cpu usage and availability. Unavailable and issued nodes goes first.
+
+Admins and owners has “Stop" button to disconnect container from the cloud and stop website in emergency way. This option is related to business specific with regulators who can issue new rules unexpectedly and sometimes it’s better to stop web-service or website works than lose you license.
+
+Launch
+After launch we got positive feedback and decreased load on incident managers, product owners and developers as expected. Now all new endpoints connected to monitoring are available in out dashboard for all the authorized users.
+
+### Conclusions
+
+Platform product are very important and help to decrease load from specialists on different levels. This types of products underestimated in positive effort that they can bring.

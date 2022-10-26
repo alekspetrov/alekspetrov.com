@@ -1,0 +1,30 @@
+---
+import { dateToLocale } from '../utils/date'
+
+const { projects } = Astro.props
+---
+
+<ul>
+  {
+    projects.map((post) => (
+      <li>
+        <a
+          href={post.url}
+          class="link flex justify-between -mx-4 px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded"
+        >
+          <h3 class="dark:text-neutral-200">
+            {post.frontmatter.title}
+            <span class="text-neutral-500">
+              {post.frontmatter.is_pet && '— pet project'}
+            </span>
+          </h3>
+          <time datetime={post.frontmatter.created_at}>
+            {dateToLocale(post.frontmatter.created_at, {
+              year: 'numeric',
+            })}
+          </time>
+        </a>
+      </li>
+    ))
+  }
+</ul>
