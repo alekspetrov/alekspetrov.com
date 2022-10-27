@@ -9,24 +9,23 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 const projects = (await Astro.glob('./projects/*.{md,mdx}'))
   .filter(
     (project) =>
-      project.frontmatter.is_featured &&
-      !project.frontmatter.draft
+      project.frontmatter.featured && !project.frontmatter.draft
   )
   .sort(
     (b, a) =>
-      new Date(a.frontmatter.created_at).valueOf() -
-      new Date(b.frontmatter.created_at).valueOf()
+      new Date(a.frontmatter.pubDate).valueOf() -
+      new Date(b.frontmatter.pubDate).valueOf()
   )
 
 const posts = (await Astro.glob('./blog/*.{md,mdx}'))
   .filter(
     (post) =>
-      post.frontmatter.is_featured && !post.frontmatter.draft
+      post.frontmatter.featured && !post.frontmatter.draft
   )
   .sort(
     (b, a) =>
-      new Date(b.frontmatter.created_at).valueOf() -
-      new Date(a.frontmatter.created_at).valueOf()
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
   )
 ---
 

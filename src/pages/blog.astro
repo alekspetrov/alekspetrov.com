@@ -1,7 +1,6 @@
 ---
 import PostList from '../components/PostList.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
-import { dateToLocale } from '../utils/date'
 
 const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
   (a, b) =>
@@ -11,7 +10,5 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
 ---
 
 <BaseLayout>
-  <section>
-    <PostList posts={posts} />
-  </section>
+  <PostList posts={posts} />
 </BaseLayout>

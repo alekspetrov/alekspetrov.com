@@ -15,8 +15,8 @@ const { posts } = Astro.props
           <h3 class="dark:text-neutral-200">
             {post.frontmatter.title}
           </h3>
-          <time datetime={post.frontmatter.created_at}>
-            {dateToLocale(post.frontmatter.created_at, {
+          <time datetime={post.frontmatter.pubDate}>
+            {dateToLocale(post.frontmatter.pubDate, {
               year: 'numeric',
             })}
           </time>

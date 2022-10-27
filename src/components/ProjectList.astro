@@ -18,8 +18,8 @@ const { projects } = Astro.props
               {post.frontmatter.is_pet && '— pet project'}
             </span>
           </h3>
-          <time datetime={post.frontmatter.created_at}>
-            {dateToLocale(post.frontmatter.created_at, {
+          <time datetime={post.frontmatter.pubDate}>
+            {dateToLocale(post.frontmatter.pubDate, {
               year: 'numeric',
             })}
           </time>
