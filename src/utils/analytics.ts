@@ -1,5 +1,8 @@
 import splitbee from '@splitbee/web'
 
-splitbee.init({
-  token: 'EZ6WESUWRVAJ',
-})
+// This initiliazes Splitbee.js
+// splitbee.init({
+//   token: 'EZ6WESUWRVAJ',
+// })
+
+splitbee.init()

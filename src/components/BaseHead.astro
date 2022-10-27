@@ -2,7 +2,6 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.pcss'
-import '../utils/analytics'
 
 export interface Props {
   title: string
@@ -47,3 +46,6 @@ const {
   property="twitter:image"
   content={new URL(image, Astro.url)}
 />
+
+<!-- Analytics -->
+<script async src="https://cdn.splitbee.io/sb.js"></script>
