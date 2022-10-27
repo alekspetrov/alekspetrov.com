@@ -7,6 +7,7 @@ specifiers:
   '@astrojs/rss': ^1.0.2
   '@astrojs/sitemap': ^1.0.0
   '@astrojs/tailwind': ^2.1.1
+  '@splitbee/web': ^0.3.0
   astro: ^1.5.2
   autoprefixer: ^10.4.12
   postcss: ^8.4.18
@@ -21,6 +22,7 @@ dependencies:
   '@astrojs/rss': 1.0.2
   '@astrojs/sitemap': 1.0.0
   '@astrojs/tailwind': 2.1.1_tailwindcss@3.2.1
+  '@splitbee/web': 0.3.0
   astro: 1.5.3
   sharp: 0.31.1
   tailwindcss: 3.2.1_postcss@8.4.18
@@ -628,6 +630,10 @@ packages:
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
+    dev: false
+
+  /@splitbee/web/0.3.0:
+    resolution: {integrity: sha512-jNPDKg0GQGa4jCaBc6JQsv0NHmBA80WCwZE49nFyhcbo32WF0GyqXeice7ZApy7OUHI16bAUAzm4MOQw3gvxfQ==}
     dev: false
 
   /@types/acorn/4.0.6:
