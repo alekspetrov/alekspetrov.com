@@ -1,7 +1,9 @@
 ---
 import BaseBanner from '../components/BaseBanner.astro'
+import BaseLink from '../components/BaseLink.astro'
 import PostList from '../components/PostList.astro'
 import ProjectList from '../components/ProjectList.astro'
+import TitledContainer from '../components/TitledContainer.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
 const projects = (await Astro.glob('./projects/*.{md,mdx}'))
@@ -29,18 +31,15 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}'))
 ---
 
 <BaseLayout>
-  <section role="banner" class="mb-16">
-    <h2 class="mb-8">About</h2>
+  <TitledContainer title="About">
     <BaseBanner />
-  </section>
-  <section class="mb-16 space-y-8">
-    <h2>Projects</h2>
+  </TitledContainer>
+  <TitledContainer title="Projects">
     <ProjectList projects={projects} />
-    <a href="/projects" class="block">Show all →</a>
-  </section>
-  <section class="mb-16 space-y-8">
-    <h2>Posts</h2>
+    <BaseLink to="/projects">Show all →</BaseLink>
+  </TitledContainer>
+  <TitledContainer title="Posts">
     <PostList posts={posts} />
-    <a href="/blog" class="block">Read all →</a>
-  </section>
+    <BaseLink to="/projects">Read all →</BaseLink>
+  </TitledContainer>
 </BaseLayout>
