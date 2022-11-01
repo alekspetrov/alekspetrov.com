@@ -23,8 +23,11 @@
     "tailwindcss": "^3.2.1"
   },
   "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "prettier-plugin-astro": "^0.7.0",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
-    "postcss-nested": "^6.0.0"
+    "postcss-nested": "^6.0.0",
+    "prettier": "^2.7.1"
   }
 }

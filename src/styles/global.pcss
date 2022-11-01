@@ -16,7 +16,13 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-  @apply text-base leading-base text-neutral-500 dark:bg-dark dark:text-neutral-500 antialiased;
+  @apply text-base leading-base text-neutral-500 dark:bg-dark dark:text-neutral-500;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply antialiased;
+  }
 }
 
 .link {
@@ -29,4 +35,9 @@ h2,
 h3,
 .title {
   @apply text-neutral-900 dark:text-neutral-200;
+}
+
+/* Content body utils classes */
+.callout {
+  @apply rounded-md bg-neutral-100 px-4 py-3 dark:bg-neutral-900;
 }

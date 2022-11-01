@@ -1,48 +1,90 @@
 ---
-layout: '../../layouts/BlogLayout.astro'
-title: 'Status Monitoring'
+layout: "../../layouts/BlogLayout.astro"
+title: "Availability monitor"
 is_pet: false
 featured: true
 draft: false
-description: 'Internal usage monitoring for websites, endpoints and API.'
-pubDate: '2019'
+description: "Web application made for various specialist. It shows service online status, memory and CPU usage issues."
+pubDate: "2019"
 ---
 
-<figure class="content-wide">
-  <img
+import { Picture } from "@astrojs/image/components";
+
+<figure class="wide-content">
+  <Picture
     src="https://res.cloudinary.com/alekspetrov/image/upload/v1665594447/website/web-monitoring-1_difrzm.png"
     alt="Web monitoring UI"
+    widths={[480, 860, 1080]}
+    aspectRatio="7:5"
   />
-  <figcaption>
-    Monitoring Dashboard, release candidate.
-  </figcaption>
+  <figcaption>Monitoring Dashboard, minimal and easy to read UI</figcaption>
 </figure>
 
-### The problem
+### Objective
 
-There are many microservices, websites and hosts owning by different teams. The only way to know if service available or to find existing open endpoints is to contact with another owners. This adds load and unnecessary actions.
+Client wanted to see availability status in realtime for API endpoints, websites, internal IPs.
 
-We can’t use third-party to solve this, because of security, the network is close, and we have our own checklist to find why it is not working.
+### Success metrics
 
-### Success measure
+Together with a customer we next metrics of the project. (Do not switch with product metrics!)
 
-Decrease requests of service availability during 6 month:
+- Deliver at least 80% of ideas from the MVP's backlog;
+- Release application on time and budget;
 
-- 1 month: 10-20%
-- 3 month: 60%
-- 6 month: 96%
+### Research and design
 
-### Solution
+After research among future users and stakeholders I fund that mostly people wanted to open some instrument in the browser when needed and see if their projects has issues with availability.
 
-Dashboard with monitoring for all api, data-endpoints and websites and represent it in a simple way. It helps all the company see if endpoint works or web-service is available and grab more info.
+{/* Image of the research results */}
 
-I create a simple design to show all the nodes with a memory and cpu usage and availability. Unavailable and issued nodes goes first.
+I designed a dashboard with simple, universal and scalable design inspired by data centers full of blinking lights on the servers shells. Configurable filters help you make your own view.
 
-Admins and owners has “Stop" button to disconnect container from the cloud and stop website in emergency way. This option is related to business specific with regulators who can issue new rules unexpectedly and sometimes it’s better to stop web-service or website works than lose you license.
+{/* server_images */}
 
-Launch
-After launch we got positive feedback and decreased load on incident managers, product owners and developers as expected. Now all new endpoints connected to monitoring are available in out dashboard for all the authorized users.
+Stop button stops the endpoint service. This button is available only for websites and some services and exists because of the business specific.
 
-### Conclusions
+{/* show the schema how red button works */}
 
-Platform product are very important and help to decrease load from specialists on different levels. This types of products underestimated in positive effort that they can bring.
+### Development
+
+Frontend part based on WebSockets and JSON structure we pre-discussed with the client's backend team in remote format. Final plan was short and clear.
+
+{/* Show the plan */}
+
+Using "Fail Fast" and "HADI" methodoligies for product development I found some points to improve and some to left for the future updates.
+
+Selected tasks added on the roadmap to the beta version.
+
+### Stack
+
+Customer's stack mostly based on JavaScript architecture.
+
+Frontend application:
+
+- Vue 3
+- TypeScript
+- TailwindCSS
+- WebSockets
+
+Backend service
+
+- Node.js
+- Hapi
+- TypeScript
+- WebSockets
+
+This stack consists of JS developers they easy to find and there are many full-stack dev who can maintain this project. Used modern, easy to use frameworks having excellent DX ratings.
+
+### Results
+
+The application became in demand within the company and help product managers, admins, dev ops, incident managers and marketing department specialists to see in real time what is happening with the services and react faster.
+
+### Insights
+
+Looking for some product insights after lunch and find out that loading peak on the application is on release rolling out and friday second part of the day =) which is expected and funny at the same time.
+
+### Reflections
+
+It is so inspiring when your application used by people to do some job in a better way.
+
+{/* Image: a man in front of the monitor looking to filtered interface adashboard --> */}

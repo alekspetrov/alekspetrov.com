@@ -6,6 +6,8 @@ import ProjectList from '../components/ProjectList.astro'
 import TitledContainer from '../components/TitledContainer.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
+// Projects
+
 const projects = (await Astro.glob('./projects/*.{md,mdx}'))
   .filter(
     (project) =>
@@ -17,6 +19,9 @@ const projects = (await Astro.glob('./projects/*.{md,mdx}'))
       new Date(b.frontmatter.pubDate).valueOf()
   )
 
+
+// Posts
+
 const posts = (await Astro.glob('./blog/*.{md,mdx}'))
   .filter(
     (post) =>
@@ -27,18 +32,45 @@ const posts = (await Astro.glob('./blog/*.{md,mdx}'))
       new Date(b.frontmatter.pubDate).valueOf() -
       new Date(a.frontmatter.pubDate).valueOf()
   )
+
+
+// Books
+// Status types
+
+type BookStatusType = 'In progress' | 'Published'
+
+type Book = {
+  id: string,
+  title: string,
+  url: string,
+  text: string
+  status: BookStatusType,
+}
+
+const books: Array<Book> = [
+  {
+    id: '1',
+    title: 'Who is Product Manager?',
+    url: 'books/who-is-product-manager',
+    status: 'In progress',
+    text: 'typeing'
+  },
+]
 ---
 
 <BaseLayout>
-  <TitledContainer title="About">
+  <TitledContainer>
     <BaseBanner />
+  </TitledContainer>
+  <TitledContainer title="Books">
+    <PostList posts={books} />
   </TitledContainer>
   <TitledContainer title="Projects">
     <ProjectList projects={projects} />
-    <BaseLink to="/projects">Show all →</BaseLink>
+    <BaseLink to="/projects">show all →</BaseLink>
   </TitledContainer>
   <TitledContainer title="Posts">
     <PostList posts={posts} />
-    <BaseLink to="/projects">Read all →</BaseLink>
+    <BaseLink to="/projects">read all →</BaseLink>
   </TitledContainer>
 </BaseLayout>

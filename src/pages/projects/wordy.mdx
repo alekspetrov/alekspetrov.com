@@ -1,12 +1,14 @@
 ---
-layout: '../../layouts/BlogLayout.astro'
-title: 'Wordy'
+layout: "../../layouts/BlogLayout.astro"
+title: "Wordy"
 is_pet: true
 draft: false
 featured: true
-description: 'Boost your vocab fast and free!'
-pubDate: '2022'
+description: "Boost your vocab fast and free!"
+pubDate: "2022"
 ---
+
+import { Picture } from "@astrojs/image/components";
 
 The idea came to me when I was looking for extension to collect words I want to remember to improve my vocab in english. Found some free ways of doing collections + translations but they all was awful and useless.
 
@@ -14,11 +16,14 @@ I started with small extension to save terms to the cloud data base, but then I 
 
 Ebbinghaus investigated human memory to find out how the learning mechanics work in our brain. He was pretty productive and his researches used worldwide to create learning products including school and universities programs.
 
-<figure>
-  <img src="https://res.cloudinary.com/alekspetrov/image/upload/v1666726876/website/wrody-image-1_otxcgb.png" />
-  <figcaption>
-    Hermann Ebbinghaus' forgeting curve graph
-  </figcaption>
+<figure class="wide-content">
+  <Picture
+    src="https://res.cloudinary.com/alekspetrov/image/upload/v1666726876/website/wrody-image-1_otxcgb.png"
+    alt="Hermann Ebbinghaus' forgeting curve graph"
+    widths={[480, 860, 1080]}
+    aspectRatio="7:5"
+  />
+  <figcaption>Hermann Ebbinghaus' forgeting curve graph</figcaption>
 </figure>
 
 Here you can see that we need to repeat information to remember it, and first week is very important. So the only thing needed is to set list into collections and run notification to repeat information. The best way to learn is flipping card, but I don’t need to flip something just show translation or terminology and use shortcuts to decrease time loss.

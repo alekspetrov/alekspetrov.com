@@ -1,9 +1,22 @@
 ---
-const today = new Date()
+const today = new Date();
 ---
 
 <footer>
   <div class="max-w-xl mx-auto px-6 md:px-0 mb-12 mt-16">
-    &copy;Aleksei Petrov {today.getFullYear()}
+    <div class="flex justify-between">
+      <span>
+        &copy;Aleksei Petrov {today.getFullYear()}
+      </span>
+      <div>
+        <span>
+          <a href="/stack" class="link">Stack</a>
+        </span>
+        <span>•</span>
+        <span>
+          <a href="/cv" class="link">CV</a>
+        </span>
+      </div>
+    </div>
   </div>
 </footer>
