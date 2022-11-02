@@ -8,52 +8,34 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 // Projects
 
-const projects = (
-  await Astro.glob(
-    "./projects/*.{md,mdx}"
-  )
-)
+const projects = (await Astro.glob("./projects/*.{md,mdx}"))
   .filter(
     (project) =>
-      project.frontmatter.featured &&
-      !project.frontmatter.draft
+      project.frontmatter.featured && !project.frontmatter.draft
   )
   .sort(
     (b, a) =>
-      new Date(
-        a.frontmatter.pubDate
-      ).valueOf() -
-      new Date(
-        b.frontmatter.pubDate
-      ).valueOf()
+      new Date(a.frontmatter.pubDate).valueOf() -
+      new Date(b.frontmatter.pubDate).valueOf()
   );
 
 // Posts
 
-const posts = (
-  await Astro.glob("./blog/*.{md,mdx}")
-)
+const posts = (await Astro.glob("./blog/*.{md,mdx}"))
   .filter(
     (post) =>
-      post.frontmatter.featured &&
-      !post.frontmatter.draft
+      post.frontmatter.featured && !post.frontmatter.draft
   )
   .sort(
     (a, b) =>
-      new Date(
-        b.frontmatter.pubDate
-      ).valueOf() -
-      new Date(
-        a.frontmatter.pubDate
-      ).valueOf()
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
   );
 
 // Books
 // Status types
 
-type BookStatusType =
-  | "In progress"
-  | "Published";
+type BookStatusType = "In progress" | "Published";
 
 type Book = {
   id: string;
@@ -83,14 +65,10 @@ const books: Array<Book> = [
   </TitledContainer>
   <TitledContainer title="Projects">
     <ProjectList projects={projects} />
-    <BaseLink to="/projects"
-      >show all →</BaseLink
-    >
+    <BaseLink to="/projects">show all &rarr;</BaseLink>
   </TitledContainer>
   <TitledContainer title="Posts">
     <PostList posts={posts} />
-    <BaseLink to="/projects"
-      >read all →</BaseLink
-    >
+    <BaseLink to="/projects">read all &rarr;</BaseLink>
   </TitledContainer>
 </BaseLayout>

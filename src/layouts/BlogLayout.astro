@@ -20,49 +20,6 @@ const {
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
-    <style is:global lang="postcss">
-      .blog-content {
-        @apply space-y-8 px-6;
-      }
-
-      .blog-content > * {
-        @apply max-w-xl mx-auto;
-      }
-
-      .blog-content h2,
-      .blog-content h3 {
-        @apply text-neutral-900 dark:text-neutral-200;
-      }
-
-      .blog-content a {
-        @apply text-neutral-900 dark:text-neutral-200;
-      }
-
-      .blog-content img {
-        @apply rounded-lg;
-      }
-
-      .blog-content figcaption {
-        @apply text-center text-sm mt-2 md:pt-0;
-      }
-
-      .blog-content ul,
-      .blog-content ol {
-        @apply pl-5 md:pl-0;
-      }
-
-      .blog-content ul li {
-        @apply mb-2 list-disc;
-      }
-
-      .blog-content ol li {
-        @apply mb-2 list-decimal;
-      }
-
-      .blog-content > .wide {
-        @apply max-w-4xl mx-auto;
-      }
-    </style>
   </head>
   <body>
     <Header />
@@ -73,3 +30,47 @@ const {
     <Footer />
   </body>
 </html>
+
+<style is:global lang="postcss">
+  .blog-content {
+    @apply space-y-8;
+  }
+
+  .blog-content > * {
+    @apply mx-auto max-w-xl px-6;
+  }
+
+  .blog-content > h2,
+  .blog-content > h3 {
+    @apply text-neutral-900 dark:text-neutral-200;
+  }
+
+  .blog-content > a {
+    @apply text-neutral-900 dark:text-neutral-200;
+  }
+
+  .blog-content > img {
+    @apply rounded-lg;
+  }
+
+  .blog-content > figure figcaption {
+    @apply text-center text-sm mt-2 md:pt-0;
+  }
+
+  .blog-content > ul,
+  .blog-content > ol {
+    @apply pl-10;
+  }
+
+  .blog-content ul li {
+    @apply mb-2 list-disc;
+  }
+
+  .blog-content ol li {
+    @apply mb-2 list-decimal;
+  }
+
+  .blog-content > .wide {
+    @apply max-w-4xl mx-auto;
+  }
+</style>

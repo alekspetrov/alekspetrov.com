@@ -1,3 +1,7 @@
+---
+import EmailText from "./EmailText.astro";
+---
+
 <div>
   <div class="leading-7 space-y-6" role="banner">
     <p>
@@ -7,11 +11,7 @@
     </p>
     <p>
       Reach me at
-      <a
-        class="link"
-        href="mailto:hello@alekspetrov.com?subject=Sent from website"
-        >hello@alekspetrov.com</a
-      >
+      <EmailText />
     </p>
   </div>
 </div>

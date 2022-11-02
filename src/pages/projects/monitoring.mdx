@@ -10,7 +10,7 @@ pubDate: "2019"
 
 import { Picture } from "@astrojs/image/components";
 
-<figure class="wide-content">
+<figure class="wide">
   <Picture
     src="https://res.cloudinary.com/alekspetrov/image/upload/v1665594447/website/web-monitoring-1_difrzm.png"
     alt="Web monitoring UI"
@@ -26,18 +26,18 @@ Client wanted to see availability status in realtime for API endpoints, websites
 
 ### Success metrics
 
-Together with a customer we next metrics of the project. (Do not switch with product metrics!)
+We set next success metrics for this project (do not switch with product metrics):
 
-- Deliver at least 80% of ideas from the MVP's backlog;
-- Release application on time and budget;
+1. Deliver at least 80% of ideas from the MVP's backlog.
+2. Release application on time and budget.
 
 ### Research and design
 
-After research among future users and stakeholders I fund that mostly people wanted to open some instrument in the browser when needed and see if their projects has issues with availability.
+After research among future users and stakeholders we fund that people wanted to see a dashboard to know if their projects (endpoints, websites etc.) have issues with availability.
 
 {/* Image of the research results */}
 
-I designed a dashboard with simple, universal and scalable design inspired by data centers full of blinking lights on the servers shells. Configurable filters help you make your own view.
+I designed a dashboard using simple, universal and scalable design inspired by data centers full of blinking lights. Configurable filter helps to set your view and store it's state in LocalStorage.
 
 {/* server_images */}
 
@@ -47,33 +47,36 @@ Stop button stops the endpoint service. This button is available only for websit
 
 ### Development
 
-Frontend part based on WebSockets and JSON structure we pre-discussed with the client's backend team in remote format. Final plan was short and clear.
-
 {/* Show the plan */}
 
-Using "Fail Fast" and "HADI" methodoligies for product development I found some points to improve and some to left for the future updates.
+Using "Fail Fast" and "HADI" methodoligies for product development we got insights for improvements and future updates.
 
-Selected tasks added on the roadmap to the beta version.
+Frontend part based on Vue.js, WebSockets and JSON API which was pre-discussed with the a backend team. Final plan was short and clear, for async work I used a local JSON server mocking data from the server.
 
 ### Stack
 
-Customer's stack mostly based on JavaScript architecture.
+<div class="flex gap-3">
+  <div class="flex-1">
+    <p class="mb-3">Frontend application</p>
+    <ul class="pl-4">
+      <li>Vue 3</li>
+      <li>TailwindCSS</li>
+      <li>WebSockets</li>
+    </ul>
+  </div>
+  <div class="flex-1">
+    <p class="mb-3">Backend service</p>
+    <ul class="pl-4">
+      <li>Node.js</li>
+      <li>Hapi</li>
+      <li>TypeScript</li>
+      <li>WebSockets</li>
+      <li>PostgreSQL</li>
+    </ul>
+  </div>
+</div>
 
-Frontend application:
-
-- Vue 3
-- TypeScript
-- TailwindCSS
-- WebSockets
-
-Backend service
-
-- Node.js
-- Hapi
-- TypeScript
-- WebSockets
-
-This stack consists of JS developers they easy to find and there are many full-stack dev who can maintain this project. Used modern, easy to use frameworks having excellent DX ratings.
+This stack consists of JS developers who are easy to find nowdays and there are many full-stack dev who can maintain this project. Main focus was made on DX, security and performance.
 
 ### Results
 

@@ -1,27 +1,19 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import Footer from '../components/ShellFooter.astro'
-import Header from '../components/ShellHeader.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config'
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/ShellFooter.astro";
+import Header from "../components/ShellHeader.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../config";
 ---
 
 <html lang="en">
   <head>
-    <BaseHead
-      title={SITE_TITLE}
-      description={SITE_DESCRIPTION}
-    />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
     <Header />
-    <main class="base-layout">
+    <main class="layout-wrapper">
       <slot />
     </main>
     <Footer />
-    <style is:global lang="postcss">
-      .base-layout {
-        @apply max-w-xl mx-auto px-6 md:px-0;
-      }
-    </style>
   </body>
 </html>

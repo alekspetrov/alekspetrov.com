@@ -1,8 +1,10 @@
 ---
+import BaseLink from "../components/BaseLink.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
-  <div class="text-neutral-900 dark:text-neutral-200 mr-2">404</div>
-  <div>Page not found.<a href="/" class="link">Go back</a></div>
+  <p class="text-neutral-900 dark:text-neutral-200 mr-2">404</p>
+  <p>Page not found.</p>
+  <BaseLink to="/">go back &rarr;</BaseLink>
 </BaseLayout>
