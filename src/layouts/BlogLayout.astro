@@ -23,7 +23,7 @@ const {
   </head>
   <body>
     <Header />
-    <main class="blog-content">
+    <main class="blog-content layout-wrapper">
       <PageHeader title={title} description={description} />
       <slot />
     </main>
@@ -34,10 +34,6 @@ const {
 <style is:global lang="postcss">
   .blog-content {
     @apply space-y-8;
-  }
-
-  .blog-content > * {
-    @apply mx-auto max-w-xl px-6;
   }
 
   .blog-content > h2,
@@ -59,7 +55,7 @@ const {
 
   .blog-content > ul,
   .blog-content > ol {
-    @apply pl-10;
+    @apply pl-4;
   }
 
   .blog-content ul li {
@@ -71,6 +67,6 @@ const {
   }
 
   .blog-content > .wide {
-    @apply max-w-4xl mx-auto;
+    @apply md:max-w-full;
   }
 </style>

@@ -1,15 +1,14 @@
 ---
+import BaseLink from "./BaseLink.astro";
+import EmailText from "./EmailText.astro";
+
 const today = new Date();
 ---
 
 <footer>
   <div class="layout-wrapper mb-12 mt-16">
-    <div class="mb-4">
-      &copy; Aleksei Petrov {today.getFullYear()}
-    </div>
-    <nav class="space-y-4">
-      <a href="/stack" class="link block">My stack</a>
-      <a href="/cv" class="link block">Experience</a>
-    </nav>
+    <p>
+      &copy; Aleksi Petrov {today.getFullYear()}. All right reserved.
+    </p>
   </div>
 </footer>
