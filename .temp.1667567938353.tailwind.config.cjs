@@ -7,19 +7,10 @@ module.exports = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
-        light: {
-          title: "#121113",
-          text: "#8f9292",
-          bg: "#f5f4f5",
-          outline: "#e8e8e9",
-          card: "#ffffff",
-        },
         dark: {
-          title: "#e7e8e8",
-          text: "#8f9292",
-          bg: "#121113",
-          outline: "#29282a",
-          card: "#1a181b",
+          bg: "#121113"
+          outline: "#29282A",
+          card: "#1A181B",
         },
       },
       lineHeight: {

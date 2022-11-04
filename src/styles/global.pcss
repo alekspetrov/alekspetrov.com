@@ -4,19 +4,19 @@
 }
 
 html::-webkit-scrollbar {
-  @apply bg-neutral-900;
+  @apply bg-dark-bg;
   width: 6px;
   height: 8px;
 }
 
 html::-webkit-scrollbar-thumb {
-  @apply bg-neutral-700;
+  @apply bg-dark-outline;
   border-radius: 10px;
   overflow: hidden;
 }
 
 body {
-  @apply text-base leading-base text-neutral-500 dark:bg-dark dark:text-neutral-400;
+  @apply bg-light-bg text-base leading-base text-light-text dark:bg-dark-bg dark:text-dark-text;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -36,19 +36,31 @@ h1,
 h2,
 h3,
 .title {
-  @apply text-neutral-900 dark:text-neutral-200;
+  @apply text-light-title dark:text-dark-title;
 }
 
 b,
 strong {
-  @apply font-normal text-neutral-900 dark:text-neutral-200;
+  @apply font-normal text-light-title dark:text-dark-title;
 }
 
 .link {
-  @apply text-neutral-900 dark:text-neutral-200;
+  @apply text-light-title dark:text-dark-title;
 }
 
 /* Global Layout */
 .layout-wrapper {
   @apply mx-auto max-w-xl px-4;
+}
+
+.title {
+  @apply text-light-title dark:text-dark-title;
+}
+
+.link {
+  @apply inline-block text-light-title transition-all duration-200 ease-in-out hover:underline dark:text-dark-title;
+}
+
+.card {
+  @apply flex justify-between rounded py-2 outline-none transition-all duration-200 ease-in-out hover:-mx-3 hover:px-2 focus:-mx-3 focus:px-2;
 }

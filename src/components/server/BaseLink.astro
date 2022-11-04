@@ -6,9 +6,6 @@ export interface Props {
 const { to } = Astro.props;
 ---
 
-<a
-  href={to}
-  class="inline-block hover:text-neutral-900 dark:hover:text-neutral-200"
->
+<a href={to} class="link">
   <slot />
 </a>

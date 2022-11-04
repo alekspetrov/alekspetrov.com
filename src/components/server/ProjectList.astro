@@ -8,11 +8,8 @@ const { projects } = Astro.props;
   {
     projects.map((post) => (
       <li>
-        <a
-          href={post.url}
-          class="link flex justify-between -mx-4 px-4 py-3 hover:bg-neutral-100 dark:hover:bg-neutral-900 rounded"
-        >
-          <h3 class="dark:text-neutral-200">
+        <a href={post.url} class="card">
+          <h3 class="text-light-title dark:text-dark-title">
             {post.frontmatter.title}
             <span class=" text-neutral-500 dark:text-neutral-400">
               {post.frontmatter.is_pet && "— pet project"}
