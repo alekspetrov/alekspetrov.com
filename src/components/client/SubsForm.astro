@@ -1,4 +1,4 @@
-<div class="card flex-col">
+<div class="card">
   <h3 class="title">Subscribe for updates</h3>
   <form id="js-form" class="relative" novalidate>
     <input
@@ -7,7 +7,7 @@
       placeholder="Enter your email..."
       type="email"
     />
-    <p id="js-form-message-text"></p>
+    <p id="js-form-message"></p>
     <button
       class="absolute bottom-0 right-0 px-2 rounded bg-light-outline bg-opacity-40 dark:bg-white dark:bg-opacity-5 focus:outline-none focus:text-dark-title"
       >&crarr;</button
@@ -23,7 +23,7 @@
   const MSG_USER_SUBSCRIBED = "Welcome! You just made me happier &hearts;";
   const ID_FORM = "js-form";
   const ID_FORM_INPUT_EMAIL = "js-form-email";
-  const ID_FORM_MESSAGE = "js-form-messsage-text";
+  const ID_FORM_MESSAGE = "js-form-message";
   const ERR_MSG_NO_EMAIL = "Where should I send updates? Enter email please.";
   const ERR_MSG_INVALID_EMAIL = "Is this an email? Check it please.";
   const ERR_MSG_USER_EXISTS = "Hey, looks like you already subcribed!";
@@ -41,7 +41,7 @@
   const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
 
   function showMessage(message) {
-    document.getElementById("js-form-message-text").innerHTML = message;
+    document.getElementById(ID_FORM_MESSAGE).innerHTML = message;
   }
 
   // Validate and submit

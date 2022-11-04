@@ -5,6 +5,7 @@ import Header from "../components/server/ShellHeader.astro";
 import PageHeader from "../components/server/PageHeader.astro";
 import SubsForm from "../components/client/SubsForm.astro";
 import Container from "../components/server/BaseContainer.astro";
+import ReadMore from "../components/server/PageReamMore.astro";
 
 export interface Props {
   content: {
@@ -30,6 +31,7 @@ const {
         <PageHeader title={title} description={description} />
         <slot />
         <SubsForm />
+        <!-- <ReadMore /> -->
       </article>
       <Footer />
     </Container>
@@ -42,7 +44,7 @@ const {
   }
 
   .blog-content > *:not(.wide) {
-    @apply mx-auto max-w-xl px-4;
+    @apply mx-auto max-w-xl pl-4 pr-4;
   }
 
   .blog-content > .wide {
@@ -54,7 +56,7 @@ const {
   }
 
   .blog-content > .card {
-    @apply rounded-md border border-light-outline bg-light-card py-4 px-6 md:py-6 dark:border-dark-outline dark:bg-dark-card;
+    @apply rounded-md  bg-light-outline py-4 px-6 md:py-6 dark:border-dark-outline dark:bg-dark-card;
   }
 
   .blog-content a {
@@ -69,16 +71,11 @@ const {
     @apply text-center text-sm mt-2 md:pt-0;
   }
 
-  .blog-content > ul,
-  .blog-content > ol {
-    @apply pl-4;
+  .blog-content ul > li {
+    @apply mb-2 list-disc ml-5;
   }
 
-  .blog-content ul li {
-    @apply mb-2 list-disc;
-  }
-
-  .blog-content ol li {
-    @apply mb-2 list-decimal;
+  .blog-content ol > li {
+    @apply mb-2 list-decimal ml-5 pl-4;
   }
 </style>
