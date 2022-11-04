@@ -3,6 +3,8 @@ import BaseHead from "../components/server/BaseHead.astro";
 import Footer from "../components/server/ShellFooter.astro";
 import Header from "../components/server/ShellHeader.astro";
 import PageHeader from "../components/server/PageHeader.astro";
+import SubsForm from "../components/client/SubsForm.astro";
+import Container from "../components/server/BaseContainer.astro";
 
 export interface Props {
   content: {
@@ -22,12 +24,15 @@ const {
     <BaseHead title={title} description={description} />
   </head>
   <body>
-    <Header />
-    <article class="blog-content">
-      <PageHeader title={title} description={description} />
-      <slot />
-    </article>
-    <Footer />
+    <Container>
+      <Header />
+      <article class="blog-content">
+        <PageHeader title={title} description={description} />
+        <slot />
+        <SubsForm />
+      </article>
+      <Footer />
+    </Container>
   </body>
 </html>
 
@@ -48,9 +53,8 @@ const {
     @apply rounded-md py-6 px-6 md:py-6 border border-light-outline dark:border-dark-outline bg-light-card dark:bg-dark-card;
   }
 
-  .blog-content > h2,
-  .blog-content > h3 {
-    @apply text-light-title dark:text-dark-title;
+  .blog-content > .card {
+    @apply rounded-md border border-light-outline bg-light-card py-4 px-6 md:py-6 dark:border-dark-outline dark:bg-dark-card;
   }
 
   .blog-content a {

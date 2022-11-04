@@ -9,7 +9,7 @@ const { posts } = Astro.props;
   {
     posts.map((post) => (
       <li>
-        <a href={post.url} class="card">
+        <a href={post.url} class="link-stack">
           <h3>{post.title || post.frontmatter?.title}</h3>
           <div>
             {post.frontmatter?.pubDate ? (
