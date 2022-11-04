@@ -1,17 +1,14 @@
 ---
-import BaseBanner from "../components/BaseBanner.astro";
-import BaseLink from "../components/BaseLink.astro";
-import PostList from "../components/PostList.astro";
-import ProjectList from "../components/ProjectList.astro";
-import TitledContainer from "../components/TitledContainer.astro";
+import BaseBanner from "../components/server/BaseBanner.astro";
+import BaseLink from "../components/server/BaseLink.astro";
+import PostList from "../components/server/PostList.astro";
+import ProjectList from "../components/server/ProjectList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-// Projects
+import TitledContainer from "../components/server/TitledContainer.astro";
 
 const projects = (await Astro.glob("./projects/*.{md,mdx}"))
   .filter(
-    (project) =>
-      project.frontmatter.featured && !project.frontmatter.draft
+    (project) => project.frontmatter.featured && !project.frontmatter.draft
   )
   .sort(
     (b, a) =>
@@ -19,13 +16,8 @@ const projects = (await Astro.glob("./projects/*.{md,mdx}"))
       new Date(b.frontmatter.pubDate).valueOf()
   );
 
-// Posts
-
 const posts = (await Astro.glob("./blog/*.{md,mdx}"))
-  .filter(
-    (post) =>
-      post.frontmatter.featured && !post.frontmatter.draft
-  )
+  .filter((post) => post.frontmatter.featured && !post.frontmatter.draft)
   .sort(
     (a, b) =>
       new Date(b.frontmatter.pubDate).valueOf() -
@@ -65,10 +57,10 @@ const books: Array<Book> = [
   </TitledContainer>
   <TitledContainer title="Projects">
     <ProjectList projects={projects} />
-    <BaseLink to="/projects">show all &rarr;</BaseLink>
+    <BaseLink to="/projects">Show all</BaseLink>
   </TitledContainer>
   <TitledContainer title="Posts">
     <PostList posts={posts} />
-    <BaseLink to="/projects">read all &rarr;</BaseLink>
+    <BaseLink to="/projects">Read all</BaseLink>
   </TitledContainer>
 </BaseLayout>

@@ -1,0 +1,69 @@
+<form id="js-form">
+  <input id="js-form-email" type="email" novalidate />
+  <p id="js-form-message-text"></p>
+  <button id="js-form-button">Submit</button>
+</form>
+
+<script>
+  import { formValidation, emailValidator } from "../../utils/formValidation";
+  import { createClient } from "@supabase/supabase-js";
+  import { SUPABASE_PUBLIC_KEY, SUPABASE_PUBLIC_URL } from "../../config";
+
+  const ERR_MSG_NO_EMAIL = "Where should I send updates? Enter email please.";
+  const ERR_MSG_INVALID_EMAIL = "Is this an email? Check it please.";
+  const ERR_MSG_SERVER_ERROR =
+    "Ops, seems like server issue but also check your internet connection.";
+
+  const emailInputElement = document.getElementById(
+    "js-form-email"
+  ) as HTMLFormElement;
+  const formElement = document.getElementById("js-form");
+
+  if (!formElement)
+    throw new Error(
+      "You missed or use different ids on the form and for the script"
+    );
+
+  // Show messages on the form
+  const showMessage = (message) => {
+    document.getElementById("js-form-message-text").innerHTML = message;
+  };
+
+  // Create supabase client
+  const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
+
+  // Validate and submit
+  const onSubmit = async (e) => {
+    showMessage(""); // Clear error message in HTML
+
+    if (!emailInputElement.value) {
+      showMessage(ERR_MSG_NO_EMAIL);
+      return false;
+    }
+
+    const isEmailValid = formValidation(emailInputElement.value);
+
+    if (!isEmailValid) {
+      showMessage(ERR_MSG_INVALID_EMAIL);
+      return false;
+    }
+
+    const { data, error } = await supabase.from("subscribers").insert([
+      {
+        email: emailInputElement.value,
+      },
+    ]);
+
+    if (error) {
+      showMessage(ERR_MSG_SERVER_ERROR);
+    }
+
+    showMessage("Welcome! You just made me happier =)");
+  };
+
+  // Add listeners
+  formElement.addEventListener("submit", (e) => {
+    e.preventDefault();
+    onSubmit(e);
+  });
+</script>

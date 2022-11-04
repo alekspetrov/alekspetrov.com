@@ -1,12 +1,12 @@
 ---
-import PostList from '../components/PostList.astro'
-import BaseLayout from '../layouts/BaseLayout.astro'
+import PostList from "../components/server/PostList.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   (a, b) =>
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
-)
+);
 ---
 
 <BaseLayout>

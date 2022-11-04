@@ -7,7 +7,12 @@ module.exports = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
+        light: "#121113",
         dark: "#121113",
+        card: {
+          light: "#121113",
+          dark: "#121113",
+        },
       },
       lineHeight: {
         base: "1.625rem",
