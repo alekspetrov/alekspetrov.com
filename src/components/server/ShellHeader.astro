@@ -5,32 +5,40 @@ import { SITE_TITLE } from "../../config";
 <header>
   <div class="layout-wrapper flex justify-between pt-12 pb-16">
     <a href="/" class="title">{SITE_TITLE}</a>
-    <button id="js-theme-toggler">&#9789;</button>
+    <button id="js-theme-toggler"></button>
   </div>
 </header>
 
-<script client:differ>
+<script clien:differ>
+  const isDark = localStorage.theme === "dark";
   const pageBody = document.body;
   const themeTogglBtn = document.getElementById("js-theme-toggler");
 
-  if (localStorage.theme === "dark") {
-    pageBody.classList.add("dark");
-    localStorage.theme = "dark";
-  } else {
+  const sunSymbol = "&#9789;";
+  const moonSymbol = "&#9728;";
+
+  function setLightTheme() {
     pageBody.classList.remove("dark");
-    localStorage.theme = "light";
+    themeTogglBtn.innerHTML = moonSymbol;
   }
 
+  function setDarkTheme() {
+    themeTogglBtn.innerHTML = sunSymbol;
+    pageBody.classList.add("dark");
+  }
+
+  // Set on load
+  isDark ? setDarkTheme() : setLightTheme();
+
+  // Listeners
   themeTogglBtn.addEventListener("click", (e) => {
     const isDark = localStorage.theme === "dark";
 
     if (isDark) {
-      pageBody.classList.remove("dark");
-      themeTogglBtn.innerHTML = "&#9789;";
+      setLightTheme();
       localStorage.theme = "light";
     } else {
-      pageBody.classList.add("dark");
-      themeTogglBtn.innerHTML = "&#9728;";
+      setDarkTheme();
       localStorage.theme = "dark";
     }
   });
