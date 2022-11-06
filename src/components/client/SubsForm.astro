@@ -45,6 +45,8 @@
     document.getElementById(ID_FORM_MESSAGE).innerHTML = message;
   }
 
+  // Loading state
+
   // Validate and submit
   async function onSubmit(e) {
     showMessage(""); // Clear error message in HTML
@@ -60,6 +62,8 @@
       showMessage(ERR_MSG_INVALID_EMAIL);
       return false;
     }
+
+    showMessage("Checking your email...");
 
     const { error, status } = await supabase.from("subscribers").insert([
       {

@@ -17,7 +17,7 @@ module.exports = {
         },
         dark: {
           title: "#e7e8e8",
-          text: "#9F9CA0",
+          text: "#8F9292",
           bg: "#1a181b",
           outline: "#29282a",
           card: "#1f1d20",
