@@ -3,31 +3,30 @@ import { SITE_TITLE } from "../../config";
 ---
 
 <header>
-  <div class="layout-wrapper flex justify-between pt-12 pb-16">
+  <div class="layout-wrapper flex justify-between items-center pt-12 pb-16">
     <a href="/" class="title">{SITE_TITLE}</a>
-    <button id="js-theme-toggler"></button>
+    <button
+      title="Theme"
+      id="js-theme-toggler"
+      class="w-4 h-4 bg-light-title dark:bg-light-text rounded-full transform hover:scale-110 transition-transform ease-in-out duration-200"
+    ></button>
   </div>
 </header>
 
-<script clien:differ>
+<script client:differ>
   const isDark = localStorage.theme === "dark";
   const pageBody = document.body;
   const themeTogglBtn = document.getElementById("js-theme-toggler");
 
-  const sunSymbol = "&#9789;";
-  const moonSymbol = "&#9728;";
-
   function setLightTheme() {
     pageBody.classList.remove("dark");
-    themeTogglBtn.innerHTML = moonSymbol;
   }
 
   function setDarkTheme() {
-    themeTogglBtn.innerHTML = sunSymbol;
     pageBody.classList.add("dark");
   }
 
-  // Set on load
+  // Set theme on load
   isDark ? setDarkTheme() : setLightTheme();
 
   // Listeners
