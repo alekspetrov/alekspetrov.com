@@ -36,58 +36,57 @@
     ID_FORM_INPUT_EMAIL
   ) as HTMLFormElement;
   const formElement = document.getElementById(ID_FORM);
-  if (!formElement) {
-    return false;
+
+  if (formElement) {
+    const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
+
+    function showMessage(message) {
+      document.getElementById(ID_FORM_MESSAGE).innerHTML = message;
+    }
+
+    // Loading state
+
+    // Validate and submit
+    async function onSubmit(e) {
+      showMessage(""); // Clear error message in HTML
+
+      if (!emailInputElement.value) {
+        showMessage(ERR_MSG_NO_EMAIL);
+        return false;
+      }
+
+      const isEmailValid = formValidation(emailInputElement.value);
+
+      if (!isEmailValid) {
+        showMessage(ERR_MSG_INVALID_EMAIL);
+        return false;
+      }
+
+      showMessage(MSG_LOADING_TEXT);
+
+      const { error, status } = await supabase.from("subscribers").insert([
+        {
+          email: emailInputElement.value,
+        },
+      ]);
+
+      if (status === 409) {
+        showMessage(ERR_MSG_USER_EXISTS);
+        return false;
+      }
+
+      if (error) {
+        showMessage(ERR_MSG_SERVER_ERROR);
+        return false;
+      }
+
+      showMessage(MSG_USER_SUBSCRIBED);
+    }
+
+    // Add listeners
+    formElement.addEventListener("submit", (e) => {
+      e.preventDefault();
+      onSubmit(e);
+    });
   }
-
-  const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
-
-  function showMessage(message) {
-    document.getElementById(ID_FORM_MESSAGE).innerHTML = message;
-  }
-
-  // Loading state
-
-  // Validate and submit
-  async function onSubmit(e) {
-    showMessage(""); // Clear error message in HTML
-
-    if (!emailInputElement.value) {
-      showMessage(ERR_MSG_NO_EMAIL);
-      return false;
-    }
-
-    const isEmailValid = formValidation(emailInputElement.value);
-
-    if (!isEmailValid) {
-      showMessage(ERR_MSG_INVALID_EMAIL);
-      return false;
-    }
-
-    showMessage(MSG_LOADING_TEXT);
-
-    const { error, status } = await supabase.from("subscribers").insert([
-      {
-        email: emailInputElement.value,
-      },
-    ]);
-
-    if (status === 409) {
-      showMessage(ERR_MSG_USER_EXISTS);
-      return false;
-    }
-
-    if (error) {
-      showMessage(ERR_MSG_SERVER_ERROR);
-      return false;
-    }
-
-    showMessage(MSG_USER_SUBSCRIBED);
-  }
-
-  // Add listeners
-  formElement.addEventListener("submit", (e) => {
-    e.preventDefault();
-    onSubmit(e);
-  });
 </script>
