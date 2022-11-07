@@ -11,7 +11,7 @@ module.exports = {
         light: {
           title: "#121113",
           text: "#67626A",
-          bg: "#f5f4f5",
+          bg: "#fafafa",
           outline: "#e8e8e9",
           card: "#ffffff",
         },
