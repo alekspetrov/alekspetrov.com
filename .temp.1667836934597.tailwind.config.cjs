@@ -8,8 +8,8 @@ module.exports = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       maxWidth: {
-        default: "512px",
-        callout: "564px",
+        default: "480px",
+        callout: "496"
         wide: "1080px",
       },
       screens: {
@@ -24,6 +24,9 @@ module.exports = {
 
         xl: "1280px",
         // => @media (min-width: 1280px) { ... }
+
+        "2xl": "1536px",
+        // => @media (min-width: 1536px) { ... }
       },
 
       colors: {
