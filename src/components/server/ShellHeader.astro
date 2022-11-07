@@ -1,12 +1,15 @@
 ---
-import { SITE_TITLE } from "../../config";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../config";
 ---
 
 <header>
   <div
     class="layout-wrapper flex justify-between items-center pt-6 pb-8 sm:pt-12 sm:pb-16"
   >
-    <a href="/" class="title">{SITE_TITLE}</a>
+    <div>
+      <a href="/" class="title">{SITE_TITLE}</a>
+      <span>— {SITE_DESCRIPTION}</span>
+    </div>
     <button
       title="Theme"
       id="js-theme-toggler"
