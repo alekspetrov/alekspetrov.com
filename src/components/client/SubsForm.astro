@@ -9,7 +9,7 @@
     />
     <p id="js-form-message"></p>
     <button
-      data-splitbee-event="Click Subscribe"
+      id="js-form-submit-btn"
       title="Submit"
       class="absolute bottom-0 right-0 px-2 rounded bg-light-outline bg-opacity-40 dark:bg-white dark:bg-opacity-5 focus:outline-none focus:text-dark-title"
       >&crarr;</button
@@ -22,6 +22,7 @@
   import "../../utils/bee";
   import { createClient } from "@supabase/supabase-js";
   import { SUPABASE_PUBLIC_KEY, SUPABASE_PUBLIC_URL } from "../../config";
+  import { trackSubscription } from "../../utils/bee";
 
   const MSG_LOADING_TEXT = "Checking your email...";
   const MSG_USER_SUBSCRIBED = "Welcome! You just made me happier &hearts;";
@@ -38,6 +39,7 @@
     ID_FORM_INPUT_EMAIL
   ) as HTMLFormElement;
   const formElement = document.getElementById(ID_FORM);
+  const subsribeButton = document.getElementById("js-form-submit-btn");
 
   if (formElement) {
     const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
@@ -83,6 +85,7 @@
       }
 
       showMessage(MSG_USER_SUBSCRIBED);
+      trackSubscription(emailInputElement.value);
     }
 
     // Add listeners

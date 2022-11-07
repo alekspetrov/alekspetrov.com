@@ -4,3 +4,8 @@ splitbee.init({
   scriptUrl: "/bee.js",
   apiUrl: "/_hive",
 })
+
+export function trackSubscription (email) {
+  console.log(email);
+
+}
