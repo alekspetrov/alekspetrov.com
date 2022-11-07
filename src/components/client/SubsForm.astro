@@ -37,7 +37,7 @@
   ) as HTMLFormElement;
   const formElement = document.getElementById(ID_FORM);
   if (!formElement) {
-    return;
+    return false;
   }
 
   const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
