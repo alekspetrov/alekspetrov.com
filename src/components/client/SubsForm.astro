@@ -21,7 +21,7 @@
   import { createClient } from "@supabase/supabase-js";
   import { SUPABASE_PUBLIC_KEY, SUPABASE_PUBLIC_URL } from "../../config";
 
-  const MSG_LOADING_TEXT = ""Checking your email...""
+  const MSG_LOADING_TEXT = "Checking your email...";
   const MSG_USER_SUBSCRIBED = "Welcome! You just made me happier &hearts;";
   const ID_FORM = "js-form";
   const ID_FORM_INPUT_EMAIL = "js-form-email";
@@ -36,7 +36,7 @@
     ID_FORM_INPUT_EMAIL
   ) as HTMLFormElement;
   const formElement = document.getElementById(ID_FORM);
-  if (!formElement) return
+  if (!formElement) return;
 
   const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
 
