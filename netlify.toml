@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/sb.js"
+  from = "/bee.js"
   to = "https://cdn.splitbee.io/sb.js"
   status = 200
 
