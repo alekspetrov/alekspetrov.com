@@ -8,12 +8,12 @@ module.exports = {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
       maxWidth: {
-        default: "512px",
-        callout: "564px",
+        default: "576px",
+        callout: "600px",
         wide: "1080px",
       },
       screens: {
-        sm: "480px",
+        sm: "576px",
         // => @media (min-width: 640px) { ... }
 
         md: "768px",

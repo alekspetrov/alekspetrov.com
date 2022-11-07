@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = "Aleks Petrov";
-export const SITE_DESCRIPTION = "Product Led";
+export const SITE_DESCRIPTION = "Visionary Designer";
 export const EMAIL = "hello@alekspetrov.com";
 export const SUPABASE_PUBLIC_URL = "https://eathcybqadpvaknyrpsb.supabase.co";
 export const SUPABASE_PUBLIC_KEY =
