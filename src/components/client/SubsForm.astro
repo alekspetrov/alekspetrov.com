@@ -21,6 +21,7 @@
   import { createClient } from "@supabase/supabase-js";
   import { SUPABASE_PUBLIC_KEY, SUPABASE_PUBLIC_URL } from "../../config";
 
+  const MSG_LOADING_TEXT = ""Checking your email...""
   const MSG_USER_SUBSCRIBED = "Welcome! You just made me happier &hearts;";
   const ID_FORM = "js-form";
   const ID_FORM_INPUT_EMAIL = "js-form-email";
@@ -30,14 +31,12 @@
   const ERR_MSG_USER_EXISTS = "Hey, looks like you already subcribed!";
   const ERR_MSG_SERVER_ERROR =
     "Ops, seems like server issue but also check your internet connection.";
-  const ERR_LOG_NO_FORM_ID =
-    "You missed or use different ids on the form and for the script";
 
   const emailInputElement = document.getElementById(
     ID_FORM_INPUT_EMAIL
   ) as HTMLFormElement;
   const formElement = document.getElementById(ID_FORM);
-  if (!formElement) throw new Error(ERR_LOG_NO_FORM_ID);
+  if (!formElement) return
 
   const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
 
@@ -63,7 +62,7 @@
       return false;
     }
 
-    showMessage("Checking your email...");
+    showMessage(MSG_LOADING_TEXT);
 
     const { error, status } = await supabase.from("subscribers").insert([
       {
