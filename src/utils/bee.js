@@ -6,9 +6,9 @@ splitbee.init({
 })
 
 export function trackSubscription (email) {
-  splitbee.track("Click Subscribe")
-
   splitbee.user.set({
     email: email
   })
+
+  splitbee.track("Click Subscribe")
 }
