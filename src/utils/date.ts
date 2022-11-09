@@ -9,7 +9,7 @@ type LocaleOptionsMonthType =
 
 type LocaleOptionsDayType = "numeric" | "2-digit";
 
-interface LocaleOptions {
+export interface LocaleOptions {
   year?: LocaleOptionsYearType;
   month?: LocaleOptionsMonthType;
   day?: LocaleOptionsDayType;

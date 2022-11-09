@@ -1,6 +1,4 @@
 ---
-import { dateToLocale } from "../../utils/date";
-
 const { projects } = Astro.props;
 ---
 
@@ -11,17 +9,10 @@ const { projects } = Astro.props;
         <a href={post.url} class="link-stack">
           <h3 class="text-light-title dark:text-dark-title">
             {post.frontmatter.title}
-            <span class=" text-neutral-500 dark:text-neutral-400">
-              {post.frontmatter.is_pet && "— pet project"}
-            </span>
           </h3>
-          <div class="text-neutral-500 dark:text-neutral-400">
-            <time datetime={post.frontmatter.pubDate}>
-              {dateToLocale(post.frontmatter.pubDate, {
-                year: "numeric",
-              })}
-            </time>
-          </div>
+          {post.frontmatter.project_type && (
+            <span>{post.frontmatter.project_type}</span>
+          )}
         </a>
       </li>
     ))

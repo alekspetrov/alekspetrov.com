@@ -11,18 +11,19 @@ export interface Props {
   content: {
     title: string;
     description: string;
-    pubDate?: string;
+    og_image: string;
+    pub_date?: string;
   };
 }
 
 const {
-  content: { title, description },
+  content: { title, description, og_image },
 } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} og_image={og_image} />
   </head>
   <body>
     <Container>
@@ -57,12 +58,11 @@ const {
   /* TODO: Refacctor this to .contanier cclass for blocks and modificatiors to control their withds behaviour.*/
 
   .blog-content > .callout {
-    @apply max-w-default md:max-w-callout px-6 py-6 rounded-md border border-light-outline dark:border-dark-outline bg-light-card dark:bg-dark-card;
-    @apply mx-2 sm:mx-auto;
+    @apply max-w-default md:max-w-callout px-6 py-6 mx-2 sm:mx-auto rounded-md border border-light-outline dark:border-dark-outline bg-light-card dark:bg-dark-card;
   }
 
   .blog-content > .card {
-    @apply rounded-md  bg-light-outline py-4 px-6 md:py-6 dark:border-dark-outline dark:bg-dark-card;
+    @apply max-w-default md:max-w-callout mx-2 sm:mx-auto rounded-md  bg-light-outline py-4 px-6 md:py-6 dark:border-dark-outline dark:bg-dark-card;
   }
 
   .blog-content a {
