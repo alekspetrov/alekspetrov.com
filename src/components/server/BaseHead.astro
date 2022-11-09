@@ -14,6 +14,8 @@ const {
   description,
   og_image = "https://alekspetrov.com/og_twitter_default_image.png",
 } = Astro.props;
+
+const SITE_URL = "https://alekspetrov.com";
 ---
 
 <!-- Global Metadata -->
@@ -29,17 +31,17 @@ const {
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={SITE_URL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(og_image, Astro.url)} />
+<meta property="og:image" content={new URL(og_image, SITE_URL)} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={SITE_URL} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter.image" content={new URL(og_image, Astro.url)} />
+<meta property="twitter.image" content={new URL(og_image, SITE_URL)} />
 
 <!-- Analytics -->
 <script async data-api="/_hive" src="/bee.js"></script>
