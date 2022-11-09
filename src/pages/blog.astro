@@ -4,8 +4,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const posts = (await Astro.glob("./articles/*.{md,mdx}")).sort(
   (a, b) =>
-    new Date(b.frontmatter.pub_date).valueOf() -
-    new Date(a.frontmatter.pub_date).valueOf()
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
 );
 ---
 

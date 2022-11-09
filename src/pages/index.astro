@@ -12,16 +12,16 @@ const projects = (await Astro.glob("./projects/*.{md,mdx}"))
   )
   .sort(
     (b, a) =>
-      new Date(a.frontmatter.pub_date).valueOf() -
-      new Date(b.frontmatter.pub_date).valueOf()
+      new Date(a.frontmatter.pubDate).valueOf() -
+      new Date(b.frontmatter.pubDate).valueOf()
   );
 
 const posts = (await Astro.glob("./articles/*.{md,mdx}"))
   .filter((post) => post.frontmatter.featured && !post.frontmatter.draft)
   .sort(
     (a, b) =>
-      new Date(b.frontmatter.pub_date).valueOf() -
-      new Date(a.frontmatter.pub_date).valueOf()
+      new Date(b.frontmatter.pubDate).valueOf() -
+      new Date(a.frontmatter.pubDate).valueOf()
   );
 
 type BookStatusType = "In progress" | "Published";
