@@ -1,97 +1,28 @@
 <div class="card">
-  <h3 class="title">Subscribe for updates</h3>
-  <form id="js-form" class="relative" novalidate>
-    <input
-      id="js-form-email"
-      class="min-w-full placeholder-light-text mb-2 focus:outline-none"
-      placeholder="Enter me your email..."
-      type="email"
-    />
-    <p id="js-form-message"></p>
-    <button
-      id="js-form-submit-btn"
-      title="Submit"
-      class="absolute bottom-0 right-0 px-2 rounded bg-light-outline bg-opacity-40 dark:bg-white dark:bg-opacity-5 focus:outline-none focus:text-dark-title"
-      >&crarr;</button
+  <form id="js-form" novalidate>
+    <label for="js-form-email" class="title mb-2 block"
+      >Subscribe for updates</label
     >
+    <div class="relative">
+      <input
+        id="js-form-email"
+        class="bg-light-outline bg-opacity-40 dark:bg-dark-text dark:bg-opacity-5 py-2 min-w-full placeholder-light-text px-4 rounded focus:outline-none mb-2"
+        placeholder="Enter your email..."
+        type="email"
+      />
+      <p class="pb-2" id="js-form-message"></p>
+      <button
+        id="js-form-submit-btn"
+        title="Subscribe"
+        class="md:absolute w-full md:w-auto py-2 top-0 right-0 px-4 rounded-r bg-light-outline bg-opacity-40 dark:bg-dark-text dark:bg-opacity-5 focus:outline-none focus:text-light-title dark:focus:text-dark-title"
+      >
+        <span class="hidden md:block">&crarr;</span>
+        <span class="md:hidden">Subscribe</span>
+      </button>
+    </div>
   </form>
 </div>
 
 <script>
-  import { formValidation } from "../../utils/formValidation";
-  import "../../utils/bee";
-  import { createClient } from "@supabase/supabase-js";
-  import { SUPABASE_PUBLIC_KEY, SUPABASE_PUBLIC_URL } from "../../config";
-  import { trackSubscription } from "../../utils/bee";
-
-  const MSG_LOADING_TEXT = "Checking your email...";
-  const MSG_USER_SUBSCRIBED = "Welcome! You just made me happier &hearts;";
-  const ID_FORM = "js-form";
-  const ID_FORM_INPUT_EMAIL = "js-form-email";
-  const ID_FORM_MESSAGE = "js-form-message";
-  const ERR_MSG_NO_EMAIL = "Where should I send updates? Enter email please.";
-  const ERR_MSG_INVALID_EMAIL = "Is this an email? Check it please.";
-  const ERR_MSG_USER_EXISTS = "Hey, looks like you already subcribed!";
-  const ERR_MSG_SERVER_ERROR =
-    "Ops, seems like server issue but also check your internet connection.";
-
-  const emailInputElement = document.getElementById(
-    ID_FORM_INPUT_EMAIL
-  ) as HTMLFormElement;
-  const formElement = document.getElementById(ID_FORM);
-  const subsribeButton = document.getElementById("js-form-submit-btn");
-
-  if (formElement) {
-    const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
-
-    function showMessage(message) {
-      document.getElementById(ID_FORM_MESSAGE).innerHTML = message;
-    }
-
-    // Loading state
-
-    // Validate and submit
-    async function onSubmit(e) {
-      showMessage(""); // Clear error message in HTML
-
-      if (!emailInputElement.value) {
-        showMessage(ERR_MSG_NO_EMAIL);
-        return false;
-      }
-
-      const isEmailValid = formValidation(emailInputElement.value);
-
-      if (!isEmailValid) {
-        showMessage(ERR_MSG_INVALID_EMAIL);
-        return false;
-      }
-
-      showMessage(MSG_LOADING_TEXT);
-
-      const { error, status } = await supabase.from("subscribers").insert([
-        {
-          email: emailInputElement.value,
-        },
-      ]);
-
-      if (status === 409) {
-        showMessage(ERR_MSG_USER_EXISTS);
-        return false;
-      }
-
-      if (error) {
-        showMessage(ERR_MSG_SERVER_ERROR);
-        return false;
-      }
-
-      showMessage(MSG_USER_SUBSCRIBED);
-      trackSubscription(emailInputElement.value);
-    }
-
-    // Add listeners
-    formElement.addEventListener("submit", (e) => {
-      e.preventDefault();
-      onSubmit(e);
-    });
-  }
+  import "../../scripts/subscription";
 </script>

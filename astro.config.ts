@@ -1,12 +1,13 @@
+import { SITE_URL } from "./src/config";
 import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
-import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import sitemap from "@astrojs/sitemap";
 import image from "@astrojs/image";
 import prefetch from "@astrojs/prefetch";
 
 export default defineConfig({
-  site: "https://alekspetrov.com",
-  integrations: [mdx(), sitemap(), tailwind(), image(), prefetch()],
+  site: SITE_URL,
+  integrations: [mdx(), tailwind(), sitemap(), image(), prefetch()],
 });

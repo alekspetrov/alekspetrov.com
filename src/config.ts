@@ -1,7 +1,7 @@
 // Place any global data in this file.
 // You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_URL = "https://alekspetrov.com"
+export const SITE_URL = "https://alekspetrov.com";
 export const SITE_TITLE = "Aleks Petrov";
 export const SITE_DESCRIPTION = "Visionary Designer";
 export const EMAIL = "hello@alekspetrov.com";
