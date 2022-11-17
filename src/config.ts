@@ -3,7 +3,7 @@
 
 export const SITE_URL = "https://alekspetrov.com";
 export const SITE_TITLE = "Aleks Petrov";
-export const SITE_DESCRIPTION = "Visionary Designer";
+export const SITE_DESCRIPTION = "Product Manager / Designer / Developer";
 export const EMAIL = "hello@alekspetrov.com";
 export const SUPABASE_PUBLIC_URL = "https://eathcybqadpvaknyrpsb.supabase.co";
 export const SUPABASE_PUBLIC_KEY =
