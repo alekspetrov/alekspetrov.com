@@ -1,7 +1,7 @@
 {
   "name": "alekspetrov.com",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.9.0",
   "private": "false",
   "scripts": {
     "dev": "astro dev",
