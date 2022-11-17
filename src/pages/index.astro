@@ -24,14 +24,12 @@ const posts = (await Astro.glob("./articles/*.{md,mdx}"))
       new Date(a.frontmatter.pubDate).valueOf()
   );
 
-type BookStatusType = "In progress" | "Published";
-
 type Book = {
   id: string;
   title: string;
   url: string;
   text: string;
-  status: BookStatusType;
+  status: string;
 };
 
 const books: Array<Book> = [
@@ -39,7 +37,7 @@ const books: Array<Book> = [
     id: "1",
     title: "Who is Product Manager?",
     url: "books/who-is-product-manager",
-    status: "In progress",
+    status: "Idea",
     text: "typeing",
   },
 ];
@@ -53,7 +51,7 @@ const books: Array<Book> = [
     <PostList posts={books} />
   </TitledContainer>
   <TitledContainer title="Projects">
-    <ProjectList projects={projects} />
+    <ProjectList items={projects} />
   </TitledContainer>
   <TitledContainer title="Articles" text="2022">
     <PostList posts={posts} />

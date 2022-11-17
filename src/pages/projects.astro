@@ -22,5 +22,5 @@ const projects = (await Astro.glob("./projects/*.{md,mdx}"))
 
 <BaseLayout>
   <PageHeader title="Projects" />
-  <ProjectList projects={projects} />
+  <ProjectList items={projects} />
 </BaseLayout>

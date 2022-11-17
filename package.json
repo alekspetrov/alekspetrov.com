@@ -1,8 +1,8 @@
 {
-  "name": "@example/blog",
+  "name": "alekspetrov.com",
   "type": "module",
   "version": "0.0.1",
-  "private": true,
+  "private": "false",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
