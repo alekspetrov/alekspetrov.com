@@ -10,4 +10,7 @@ import prefetch from "@astrojs/prefetch";
 export default defineConfig({
   site: SITE_URL,
   integrations: [mdx(), tailwind(), sitemap(), image(), prefetch()],
+  markdown: {
+    syntaxHighlight: "prism",
+  },
 });
