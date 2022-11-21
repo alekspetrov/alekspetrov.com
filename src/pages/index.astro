@@ -1,6 +1,5 @@
 ---
 import BaseBanner from "../components/server/BaseBanner.astro";
-import BaseLink from "../components/server/BaseLink.astro";
 import PostList from "../components/server/PostList.astro";
 import ProjectList from "../components/server/ProjectList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -16,7 +15,9 @@ const projects = (await Astro.glob("./projects/*.{md,mdx}"))
       new Date(b.frontmatter.pubDate).valueOf()
   );
 
-const posts = (await Astro.glob("./articles/*.{md,mdx}"))
+const articles = await Astro.glob("./articles/*.{md,mdx}");
+
+const featuredPosts = articles
   .filter((post) => post.frontmatter.featured && !post.frontmatter.draft)
   .sort(
     (a, b) =>
@@ -32,28 +33,20 @@ type Book = {
   status: string;
 };
 
-const books: Array<Book> = [
-  {
-    id: "1",
-    title: "Who is Product Manager?",
-    url: "books/who-is-product-manager",
-    status: "Idea",
-    text: "typeing",
-  },
-];
+const books = await Astro.glob("./books/*.{md,mdx}");
 ---
 
 <BaseLayout>
   <TitledContainer>
     <BaseBanner />
   </TitledContainer>
-  <TitledContainer title="Books">
+  <TitledContainer title="My Books">
     <PostList posts={books} />
   </TitledContainer>
   <TitledContainer title="Projects">
     <ProjectList items={projects} />
   </TitledContainer>
   <TitledContainer title="Articles" text="2022">
-    <PostList posts={posts} />
+    <PostList posts={featuredPosts} />
   </TitledContainer>
 </BaseLayout>
