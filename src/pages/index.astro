@@ -4,6 +4,7 @@ import PostList from "../components/server/PostList.astro";
 import ProjectList from "../components/server/ProjectList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TitledContainer from "../components/server/TitledContainer.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 
 const projects = (await Astro.glob("./projects/*.{md,mdx}"))
   .filter(

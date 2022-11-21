@@ -1,25 +1,9 @@
 ---
 const { items } = Astro.props;
+
+import ProjectCard from "../ProjectCard.astro";
 ---
 
-<ul>
-  {
-    items.map((item) => (
-      <li class="mb-4">
-        <a href={item.url} class="flex justify-between">
-          <div class="w-2/3">
-            <h3 class="text-light-title dark:text-dark-title">
-              {item.frontmatter.title}
-            </h3>
-            {item.frontmatter.og_description && (
-              <span>{item.frontmatter.og_description}</span>
-            )}
-          </div>
-          {item.frontmatter.project_status && (
-            <span class="w-/3">{item.frontmatter.project_status}</span>
-          )}
-        </a>
-      </li>
-    ))
-  }
+<ul class="space-y-2">
+  {items.map((item) => <ProjectCard item={item} />)}
 </ul>
