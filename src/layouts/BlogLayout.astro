@@ -5,7 +5,6 @@ import Header from "../components/server/ShellHeader.astro";
 import PageHeader from "../components/server/PageHeader.astro";
 import SubsForm from "../components/client/SubsForm.astro";
 import Container from "../components/server/BaseContainer.astro";
-import ReadMore from "../components/server/PageReamMore.astro";
 
 export interface Props {
   content: {
@@ -29,7 +28,11 @@ const {
     <Container>
       <Header />
       <article class="blog-content">
-        <PageHeader title={title} og_description={description} />
+        <PageHeader
+          title={title}
+          og_description={description}
+          description={description}
+        />
         <slot />
         <SubsForm />
         <!-- <ReadMore /> -->
