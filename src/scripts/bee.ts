@@ -1,4 +1,5 @@
 import splitbee from "@splitbee/web";
+import { PostgrestError } from "@supabase/supabase-js";
 
 splitbee.init({
   scriptUrl: "/bee.js",
@@ -14,9 +15,12 @@ export function trackSubscription(email: string): void {
   });
 }
 
-export function trackServerIssues(email: string, error: any): void {
+export function trackServerIssues(email: string, error: PostgrestError): void {
+  splitbee.user.set({ email: email });
+  splitbee.user.set({ source: "alekspetrov.com" });
+
   splitbee.track("Server Error", {
     email: email,
-    error: error,
+    error: error.message,
   });
 }
