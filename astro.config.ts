@@ -13,7 +13,7 @@ export default defineConfig({
     mdx(),
     tailwind(),
     sitemap({
-      filter: (page) => page !== "https://alekspetrov.com/work-experience",
+      filter: (page) => page !== "https://alekspetrov.com/work-experience/",
     }),
     image(),
     prefetch(),
