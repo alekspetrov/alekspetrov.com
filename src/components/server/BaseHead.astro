@@ -3,16 +3,16 @@
 // all pages through the use of the <BaseHead /> component.
 import "../../styles/global.pcss";
 import "../../styles/prism-theme.pcss";
-import { SITE_URL, SITE_DESCRIPTION } from "../../config";
+import { SITE_TITLE, SITE_URL, SITE_DESCRIPTION } from "../../config";
 
 export interface Props {
-  title: string;
-  og_description: string;
+  title?: string;
+  og_description?: string;
   og_image?: string;
 }
 
 const {
-  title,
+  title = SITE_TITLE,
   og_description = SITE_DESCRIPTION,
   og_image = "https://alekspetrov.com/og_twitter_default_image.png",
 } = Astro.props;

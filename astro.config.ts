@@ -9,7 +9,15 @@ import prefetch from "@astrojs/prefetch";
 
 export default defineConfig({
   site: SITE_URL,
-  integrations: [mdx(), tailwind(), sitemap(), image(), prefetch()],
+  integrations: [
+    mdx(),
+    tailwind(),
+    sitemap({
+      filter: (page) => page !== "https://alekspetrov.com/work-experience",
+    }),
+    image(),
+    prefetch(),
+  ],
   markdown: {
     syntaxHighlight: "prism",
   },

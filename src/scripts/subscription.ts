@@ -28,8 +28,6 @@ if (formElement) {
     document.getElementById(ID_FORM_MESSAGE).innerHTML = message;
   }
 
-  function showMessage2(el: HTMLElement, message: string) {}
-
   // Validate and submit
   async function onSubmit(e: Event) {
     e.preventDefault();

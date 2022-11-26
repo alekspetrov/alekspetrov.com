@@ -1,9 +1,9 @@
 ---
 const { items } = Astro.props;
 
-import ProjectCard from "../ProjectCard.astro";
+import ProjectListItem from "./ProjectListItem.astro";
 ---
 
 <ul class="space-y-2">
-  {items.map((item) => <ProjectCard item={item} />)}
+  {items.map((item) => <ProjectListItem item={item} />)}
 </ul>

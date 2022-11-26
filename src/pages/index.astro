@@ -4,7 +4,6 @@ import PostList from "../components/server/PostList.astro";
 import ProjectList from "../components/server/ProjectList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import TitledContainer from "../components/server/TitledContainer.astro";
-import ProjectCard from "../components/ProjectCard.astro";
 
 const projects = (await Astro.glob("./projects/*.{md,mdx}"))
   .filter(
@@ -25,24 +24,11 @@ const featuredPosts = articles
       new Date(b.frontmatter.pubDate).valueOf() -
       new Date(a.frontmatter.pubDate).valueOf()
   );
-
-type Book = {
-  id: string;
-  title: string;
-  url: string;
-  text: string;
-  status: string;
-};
-
-const books = await Astro.glob("./books/*.{md,mdx}");
 ---
 
 <BaseLayout>
   <TitledContainer>
     <BaseBanner />
-  </TitledContainer>
-  <TitledContainer title="My Books">
-    <PostList posts={books} />
   </TitledContainer>
   <TitledContainer title="Projects">
     <ProjectList items={projects} />
