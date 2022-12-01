@@ -5,7 +5,7 @@ import { trackServerIssues, trackSubscription } from "../scripts/bee";
 
 // Messages
 const MSG_LOADING_TEXT = "Checking your email...";
-const MSG_USER_SUBSCRIBED = "Welcome! You just made my day &hearts;";
+const MSG_USER_SUBSCRIBED = "Welcome! You've just made my day &hearts;";
 const ID_FORM = "js-form";
 const ID_FORM_INPUT_EMAIL = "js-form-email";
 const ID_FORM_MESSAGE = "js-form-message";
