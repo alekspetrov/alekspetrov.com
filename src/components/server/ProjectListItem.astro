@@ -9,7 +9,7 @@ const { title, og_description } = item.frontmatter;
   <a href={item.url} class="block px-6 py-4">
     <div class="space-y-2 items-center gap-6 space">
       <div class="flex-1">
-        <h3 class="text-light-title dark:text-dark-title">{title}</h3>
+        <h3 class="title">{title}</h3>
         {item.frontmatter.og_description && <div>{og_description}</div>}
       </div>
     </div>
