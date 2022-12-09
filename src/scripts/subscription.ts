@@ -62,8 +62,8 @@ if (formElement) {
     }
 
     if (error) {
-      showMessage(ERR_MSG_SERVER_ERROR);
       trackServerIssues(emailInputElement.value, error);
+      showMessage(ERR_MSG_SERVER_ERROR);
       return false;
     }
 
