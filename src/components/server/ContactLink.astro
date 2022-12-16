@@ -1,32 +1,26 @@
 ---
 import { EMAIL, TWITTER, LINKEDIN } from "../../config";
-const { type } = Astro.props;
+const { type, className } = Astro.props;
 ---
 
 {
   type === "email" && (
-    <>
-      <a class="link" href={`mailto:${EMAIL}`}>
-        <slot>Email</slot>
-      </a>
-    </>
+    <a class={`link ${className}`} href={`mailto:${EMAIL}`}>
+      <slot>Email</slot>
+    </a>
   )
 }
 {
   type === "twitter" && (
-    <>
-      <a class="link" href={TWITTER}>
-        <slot>Twitter</slot>
-      </a>
-    </>
+    <a class={`link ${className}`} href={TWITTER}>
+      <slot>Twitter</slot>
+    </a>
   )
 }
 {
   type === "linkedin" && (
-    <>
-      <a class="link" href={LINKEDIN}>
-        <slot>LinkedIn</slot>
-      </a>
-    </>
+    <a class={`link ${className}`} href={LINKEDIN}>
+      <slot>LinkedIn</slot>
+    </a>
   )
 }

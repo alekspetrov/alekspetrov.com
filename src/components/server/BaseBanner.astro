@@ -1,5 +1,6 @@
 ---
 import ContactLink from "./ContactLink.astro";
+import { TWITTER } from "../../config";
 ---
 
 <div>
@@ -11,12 +12,12 @@ import ContactLink from "./ContactLink.astro";
       Artificial Intelligence and Web3 technologies.
     </p>
     <div>
-      <div
+      <a
         class="inline-block title border border-light-outline dark:border-dark-outline px-4 py-2 rounded text-center mb-2"
+        href={TWITTER}
       >
-        Follow my <ContactLink type="twitter" />
-      </div>
+        Follow my Twitter
+      </a>
     </div>
-    <p></p>
   </div>
 </div>
