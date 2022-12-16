@@ -4,7 +4,7 @@
 export const SITE_URL = "https://alekspetrov.com";
 export const SITE_TITLE = "Aleks Petrov";
 export const CURRENT_LOCATION = "Central EU (GMT+1)";
-export const SITE_DESCRIPTION = "Product Maker";
+export const SITE_DESCRIPTION = "Product Maker / Indie Hacker";
 export const EMAIL = "hello@alekspetrov.com";
 export const TWITTER = "https://twitter.com/alekspetrov_";
 export const LINKEDIN = "https://www.linkedin.com/in/alekspetrov";
