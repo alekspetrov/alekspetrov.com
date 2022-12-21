@@ -10,17 +10,8 @@ import GridBox from "../components/server/GridBox.astro";
     <BaseHead />
   </head>
   <body>
-    <main class="text-dark-text-default bg-dark-bg p-2">
-      <div class="md:grid md:grid-cols-3 md:grid-rows-4 min-h-screen">
-        <GridBox className="row-span-2 col-span-3 lg:col-span-2">
-          <BaseBanner />
-        </GridBox>
-        <GridBox className="row-span-4">
-          <div class="flex items-center justify-center h-full">Loading...</div>
-        </GridBox>
-        <GridBox className="row-span-2" />
-        <GridBox className="row-span-2" />
-      </div>
+    <main class="text-dark-text-default bg-dark-bg h-screen">
+      <slot />
     </main>
   </body>
 </html>

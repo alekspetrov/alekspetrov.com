@@ -8,18 +8,9 @@ const { posts } = Astro.props;
 <ul>
   {
     posts.map((post) => (
-      <li>
-        <a href={post.url} class="link-stack">
+      <li class="mb-4">
+        <a href={post.url} class="hover:text-dark-text-active">
           <h3>{post.title || post.frontmatter?.title}</h3>
-          {post.frontmatter.status && <div>{post.frontmatter.status}</div>}
-          {!post.frontmatter.status && post.frontmatter?.pubDate && (
-            <time datetime={post.frontmatter.pubDate}>
-              {dateToLocale(post.frontmatter.pubDate, {
-                month: "short",
-                day: "2-digit",
-              } as LocaleOptions)}
-            </time>
-          )}
         </a>
       </li>
     ))

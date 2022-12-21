@@ -5,9 +5,13 @@ const { className } = Astro.props;
 <div class={className}>
   <div class="h-full p-1">
     <div
-      class="bg-dark-card border border-dark-outline text-lg h-full rounded-md overflow-hidden"
+      class="h-full p-[1px] bg-gradient-to-l from-dark-outline to-dark-bg rounded-md"
     >
-      <slot />
+      <div
+        class="rounded-md bg-gradient-to-bl from-dark-card to-dark-bg text-lg h-full"
+      >
+        <slot />
+      </div>
     </div>
   </div>
 </div>
