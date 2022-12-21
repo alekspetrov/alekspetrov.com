@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   box-sizing: border-box;
 }
@@ -32,16 +34,14 @@ h1,
 h2,
 h3,
 .title {
-  @apply text-light-title dark:text-dark-title;
 }
 
 .title {
-  @apply font-medium;
 }
 
 b,
 strong {
-  @apply font-normal text-light-title dark:text-dark-title;
+  /* @apply font-normal text-light-title dark:text-dark-title; */
 }
 
 input {
@@ -58,25 +58,4 @@ input:-webkit-autofill:active {
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
   -webkit-text-fill-color: rgb(143 146 146 / var(--tw-text-opacity));
-}
-
-hr {
-  @apply border-t-light-text border-opacity-10;
-}
-
-.link {
-  @apply text-light-title dark:text-dark-title;
-}
-
-/* Global Layout wrapper*/
-.layout-wrapper {
-  @apply mx-auto max-w-default px-4 md:px-0;
-}
-
-.link {
-  @apply inline-block text-light-title transition-all duration-200 ease-in-out hover:underline dark:text-dark-title;
-}
-
-.link-stack {
-  @apply flex justify-between rounded py-2 outline-none transition-all duration-200 ease-in-out hover:-mx-3 hover:px-2 focus:-mx-3 focus:px-2;
 }

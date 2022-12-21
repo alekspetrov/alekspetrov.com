@@ -28,14 +28,20 @@ module.exports = {
       colors: {
         light: {
           title: "#121113",
-          text: "#67626A",
+          text: {
+            default: "#67626A",
+            active: "#121113",
+          },
           bg: "#fafafa",
           outline: "#e8e8e9",
           card: "#ffffff",
         },
         dark: {
           title: "#e7e8e8",
-          text: "#8f9292",
+          text: {
+            default: "#8f9292",
+            active: "#e7e8e8",
+          },
           bg: "#1a181b",
           outline: "#29282a",
           card: "#1f1d20",

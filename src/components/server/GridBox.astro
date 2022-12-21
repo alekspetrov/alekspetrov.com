@@ -1,0 +1,13 @@
+---
+const { className } = Astro.props;
+---
+
+<div class={className}>
+  <div class="h-full p-1">
+    <div
+      class="bg-dark-card border border-dark-outline text-lg h-full rounded-md overflow-hidden"
+    >
+      <slot />
+    </div>
+  </div>
+</div>

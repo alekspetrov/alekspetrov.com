@@ -27,13 +27,10 @@ const featuredPosts = articles
 ---
 
 <BaseLayout>
-  <TitledContainer>
-    <BaseBanner />
-  </TitledContainer>
-  <TitledContainer title="Side Projects">
-    <ProjectList items={projects} />
-  </TitledContainer>
-  <TitledContainer title="Articles" text="2022">
-    <PostList posts={featuredPosts} />
-  </TitledContainer>
+  <div class="grid grid-cols-6">
+    <div>Intro</div>
+    <div>Twitter</div>
+    <div>Posts</div>
+    <div>Projects</div>
+  </div>
 </BaseLayout>

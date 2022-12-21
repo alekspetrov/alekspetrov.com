@@ -1,23 +1,41 @@
----
-import ContactLink from "./ContactLink.astro";
-import { TWITTER } from "../../config";
----
-
-<div>
-  <div class="leading-7 space-y-6" role="banner">
-    <p class="title">Hello!</p>
-    <p>
-      Welcome to my personal blog. Here I share my process of ideating,
-      planning, building, and launching digital products from scratch using
-      Artificial Intelligence and Web3 technologies.
-    </p>
-    <div>
-      <a
-        class="inline-block title border border-light-outline dark:border-dark-outline px-4 py-2 rounded text-center mb-2"
-        href={TWITTER}
-      >
-        Follow my Twitter
-      </a>
+<div class="md:flex">
+  <div
+    class="md:w-1/3 xl:w-1/4 md:pr-0 h-[580px] md:h-[480px] lg:h-[480px] bg-[url(./author_picture.jpeg)] bg-cover bg-center bg-no-repeat rounded-xl md:m-4"
+  >
+  </div>
+  <div class="flex-1 md:p-8 flex flex-col justify-center">
+    <div
+      class="md:mt-20 flex-1 bg-wite p-8 rounded-top-none md:rounded-xl md:rounded-bl-none max-w-xl"
+    >
+      <p class="mb-4 text-dark-text-active">Hi there!</p>
+      <p class="mb-8">
+        I'm Aleks, experienced Product Designer and Maker. I share my working
+        exerience in this blog and Twitter account to help you create your own
+        products.
+      </p>
+      <div>
+        <a
+          href="https://twitter.com/alekspetrov_"
+          class="block md:inline-block text-center border border-dark-outline rounded-md py-3 px-8 text-dark-text-default hover:text-dark-text-active transition-colors duration-200 ease-in-out"
+        >
+          Follow my Twitter
+        </a>
+      </div>
     </div>
+    <nav class="flex justify-center md:justify-start px-8 py-4 gap-6">
+      <a
+        href="/about"
+        class="text-dark-text-default hover:text-dark-text-active transition-colors duration-200 ease-in-out"
+      >
+        About</a
+      >
+      <a href="/projects" class="text-zinc-500 hover:text-zinc-200">
+        Projects
+      </a>
+      <a href="/blog" class="text-zinc-500 hover:text-zinc-200 hover"> Blog</a>
+      <a href="/contacts" class="text-zinc-500 hover:text-zinc-200">
+        Contacts
+      </a>
+    </nav>
   </div>
 </div>
