@@ -1,15 +1,14 @@
 ---
-// TODO: Rework to stractural component Entity_List + Entity_List_Item that is Astro.property
 import { dateToLocale, LocaleOptions } from "../../utils/date";
 
 const { posts } = Astro.props;
 ---
 
-<ul>
+<ul class="">
   {
     posts.map((post) => (
-      <li class="mb-4">
-        <a href={post.url} class="hover:text-dark-text-active">
+      <li class="mb-2 px-4 py-2 border-b border-dark-outline text-dark-text-default hover:text-dark-text-active bg-dark-outline rounded-lg rounded-bl-none transition-colors duration-200 ease-in-out text-base">
+        <a href={post.url} class="">
           <h3>{post.title || post.frontmatter?.title}</h3>
         </a>
       </li>

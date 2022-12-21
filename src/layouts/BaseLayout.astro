@@ -10,8 +10,10 @@ import GridBox from "../components/server/GridBox.astro";
     <BaseHead />
   </head>
   <body>
-    <main class="text-dark-text-default bg-dark-bg h-screen">
-      <slot />
-    </main>
+    <div class="text-dark-text-default bg-dark-bg">
+      <main class="min-h-screen overflow-x-scroll">
+        <slot />
+      </main>
+    </div>
   </body>
 </html>

@@ -23,25 +23,36 @@ const featuredPosts = articles
     (a, b) =>
       new Date(b.frontmatter.pubDate).valueOf() -
       new Date(a.frontmatter.pubDate).valueOf()
-  );
+  )
+  .slice(0, 5);
 ---
 
 <BaseLayout>
-  <div class="max-h-screen overflow-hidden h-full">
-    <div class="grid grid-flow-col grid-cols-3 grid-rows-2 h-full p-2 gap-2">
+  <div class="max-w-[1440px] mx-auto max-h-screen h-full">
+    <div
+      class="sm:grid grid-flow-col md:grid-cols-3 md:grid-rows-2 h-full p-2 gap-2"
+    >
       <GridBox className="lg:col-span-2">
         <BaseBanner />
       </GridBox>
       <GridBox className="lg:col-span-1">
         <div class="p-8">
-          <div class="mb-8">Articles</div>
-          <div>
-            <PostList posts={featuredPosts} />
+          <div class="mb-8 text-dark-text-active">Latest Articles</div>
+          <PostList posts={featuredPosts} />
+          <div class="mt-8 text-dark-text-active">Read more</div>
+        </div>
+      </GridBox>
+      <GridBox className="lg:col-span-1">
+        <div class="flex flex-col h-full">
+          <div
+            class="p-8 bg-origin-border bg-[url(./content-genius-bg.png)] bg-no-repeat h-full bg-cover"
+          >
+            <h2 class="text-dark-title">Content Genius</h2>
+            <p>AI Powered Publishing Platform</p>
           </div>
         </div>
       </GridBox>
-      <GridBox className="lg:col-span-1">Projects</GridBox>
-      <GridBox className="lg:col-span-1 row-span-2">
+      <GridBox className="col-span-3 lg:col-span-1 row-span-2">
         <div class="flex items-center justify-center h-full">Loading...</div>
       </GridBox>
     </div>
