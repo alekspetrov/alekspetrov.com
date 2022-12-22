@@ -1,9 +1,11 @@
 ---
-const { image, text } = Astro.props;
+const { image, text, reposts, impressions } = Astro.props;
 
 export interface Props {
   image?: string;
   text?: string;
+  reposts?: number;
+  impressions?: number;
 }
 ---
 
@@ -20,10 +22,16 @@ export interface Props {
     </div>
     <div class="flex-1 text-base">
       <div class="font-semibold">Aleks Petrov</div>
-      <div class="text-sm font-mono">@alekspetrov_</div>
+      <div class="text-sm">@alekspetrov_</div>
     </div>
   </a>
-  {text && <div class="text-dark-title">{text}</div>}
-  {image && <img src={image} class="my-4 rounded-xl" alt="twitter_image" />}
-  <div class="text-sm font-mono">10 impressions • 3 reposts</div>
+  {text && <div class="text-dark-title text-base mb-4">{text}</div>}
+  {
+    image && (
+      <img src="/twitter_1.jpeg" class="rounded-xl mb-4" alt="twitter_image" />
+    )
+  }
+  <div class="text-sm text-dark-text-default text-opacity-50">
+    {impressions} impressions • {reposts} reposts
+  </div>
 </div>
