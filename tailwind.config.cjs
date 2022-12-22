@@ -37,11 +37,11 @@ module.exports = {
           card: "#ffffff",
         },
         dark: {
-          title: "#e7e8e8",
+          title: "#C7C9C9",
           text: {
             muted: "#8f9292",
             default: "#8f9292",
-            active: "#e7e8e8",
+            active: "#C7C9C9",
           },
           bg: "#1a181b",
           outline: "#29282a",
