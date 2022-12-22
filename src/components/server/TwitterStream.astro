@@ -1,9 +1,30 @@
 ---
 import SingleTweet from "./SingleTweet.astro";
+
+const tweets = [
+  {
+    text: "Wow, @OpenAI #gtp3chat became much faster! Why? Architecture or people are leaving? 🤔",
+    impressions: 12,
+  },
+  {
+    text: "📬 Year Progress: 97%",
+    impressions: 14,
+  },
+  {
+    text: "Some Tips from #GPT3chat to #GPT3 prompts😉 #promptengineer #promptengineering",
+    image: "twitter_1.jpeg",
+    impressions: 44,
+  },
+  {
+    text: "Hey, @supabase we can't still talk to Twitter API with Twitter Auth because incompatible versions of OAuth?",
+    impressions: 39,
+  },
+];
 ---
 
 <div class="overflow-y-scroll h-full">
-  <SingleTweet text="Here is my First Tweet in the Stream!" />
-  <SingleTweet image="temp.png" text="Text + Image" />
-  <SingleTweet text="One more tweet to test the block" />
+  {tweets.map((tweet) => <SingleTweet {...tweet} />)}
+  <div class="text-center mt-4 mb-8">
+    <a href="https://twitter.com/alekspetrov_" class="button">Show more</a>
+  </div>
 </div>

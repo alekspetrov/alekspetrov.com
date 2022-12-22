@@ -11,11 +11,10 @@ const { post } = Astro.props;
       {
         dateToLocale(post.frontmatter.pubDate, {
           month: "short",
-          day: "numeric",
+          day: "2-digit",
         } as LocaleOptions)
-      }
+      },
     </time>
-    <span> •</span>
-    <span>#GPT3</span>
+    <span class="">{post.frontmatter.tags}</span>
   </p>
 </div>

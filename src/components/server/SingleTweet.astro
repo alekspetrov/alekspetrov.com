@@ -7,7 +7,9 @@ export interface Props {
 }
 ---
 
-<div class="px-4 py-4 lg:px-8 xl:px-12 lg:py-8">
+<div
+  class="px-4 py-4 lg:px-8 xl:px-12 lg:py-8 border-b border-dashed border-dark-outline"
+>
   <a
     href="https://twitter.com/alekspetrov_"
     class="flex items-center gap-4 mb-4 links"
@@ -22,6 +24,6 @@ export interface Props {
     </div>
   </a>
   {text && <div class="text-dark-title">{text}</div>}
+  {image && <img src={image} class="my-4 rounded-xl" alt="IMAGE ALT" />}
   <div class="text-sm font-mono">10 impressions • 3 reposts</div>
-  {image && <img src={image} class="mt-4 rounded-xl" alt="IMAGE ALT" />}
 </div>

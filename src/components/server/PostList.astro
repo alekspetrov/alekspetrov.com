@@ -1,7 +1,20 @@
 ---
 import SinglePostRow from "./SinglePostRow.astro";
 
-const { posts } = Astro.props;
+// export interface Props {
+//   posts: {
+//     url: string;
+//     title: string;
+//     date: string;
+//     tags: string[];
+//   }[];
+//   tags: {
+//     name: string;
+//     url: string;
+//   }[];
+// }
+
+const { posts, tags } = Astro.props;
 ---
 
 <ul class="space-y-5">
@@ -9,7 +22,7 @@ const { posts } = Astro.props;
     posts.map((post) => (
       <li>
         <a href={post.url}>
-          <SinglePostRow post={post} />
+          <SinglePostRow post={post} tags={tags} />
         </a>
       </li>
     ))
