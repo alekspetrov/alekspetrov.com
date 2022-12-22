@@ -13,8 +13,7 @@ const { post } = Astro.props;
           month: "short",
           day: "2-digit",
         } as LocaleOptions)
-      },
+      }<span class="">・{post.frontmatter.tags}</span>
     </time>
-    <span class="">{post.frontmatter.tags}</span>
   </p>
 </div>
