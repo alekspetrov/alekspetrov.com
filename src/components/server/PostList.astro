@@ -1,15 +1,15 @@
 ---
-import { dateToLocale, LocaleOptions } from "../../utils/date";
+import SinglePostRow from "./SinglePostRow.astro";
 
 const { posts } = Astro.props;
 ---
 
-<ul class="">
+<ul class="space-y-5">
   {
     posts.map((post) => (
-      <li class="mb-2 px-4 py-2 border-b border-dark-outline text-dark-text-default hover:text-dark-text-active bg-dark-outline rounded-lg rounded-bl-none transition-colors duration-200 ease-in-out text-base">
-        <a href={post.url} class="">
-          <h3>{post.title || post.frontmatter?.title}</h3>
+      <li>
+        <a href={post.url}>
+          <SinglePostRow post={post} />
         </a>
       </li>
     ))

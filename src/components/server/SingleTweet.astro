@@ -1,0 +1,27 @@
+---
+const { image, text } = Astro.props;
+
+export interface Props {
+  image?: string;
+  text?: string;
+}
+---
+
+<div class="px-4 py-4 lg:px-8 xl:px-12 lg:py-8">
+  <a
+    href="https://twitter.com/alekspetrov_"
+    class="flex items-center gap-4 mb-4 links"
+  >
+    <div
+      class="rounded-full w-10 h-10 flex-shrink-0 bg-[url(./author_picture.jpeg)] bg-cover bg-no-repeat bg-top"
+    >
+    </div>
+    <div class="flex-1 text-base">
+      <div class="font-semibold">Aleks Petrov</div>
+      <div class="text-sm font-mono">@alekspetrov_</div>
+    </div>
+  </a>
+  {text && <div class="text-dark-title">{text}</div>}
+  <div class="text-sm font-mono">10 impressions • 3 reposts</div>
+  {image && <img src={image} class="mt-4 rounded-xl" alt="IMAGE ALT" />}
+</div>

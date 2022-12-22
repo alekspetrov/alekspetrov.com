@@ -1,0 +1,21 @@
+---
+import { dateToLocale, LocaleOptions } from "../../utils/date";
+
+const { post } = Astro.props;
+---
+
+<div class="link">
+  <h3 class="flex-1">{post.title || post.frontmatter?.title}</h3>
+  <p class="text-sm font-mono text-dark-text-default text-opacity-50">
+    <time class="whitespace-prewrap" datetime={post.frontmatter.pubDate}>
+      {
+        dateToLocale(post.frontmatter.pubDate, {
+          month: "short",
+          day: "numeric",
+        } as LocaleOptions)
+      }
+    </time>
+    <span> •</span>
+    <span>#GPT3</span>
+  </p>
+</div>

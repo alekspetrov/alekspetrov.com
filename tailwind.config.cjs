@@ -39,6 +39,7 @@ module.exports = {
         dark: {
           title: "#e7e8e8",
           text: {
+            muted: "#8f9292",
             default: "#8f9292",
             active: "#e7e8e8",
           },

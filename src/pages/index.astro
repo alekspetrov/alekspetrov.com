@@ -1,59 +1,32 @@
 ---
 import BaseBanner from "../components/server/BaseBanner.astro";
-import PostList from "../components/server/PostList.astro";
-import ProjectList from "../components/server/ProjectList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import GridBox from "../components/server/GridBox.astro";
-
-const projects = (await Astro.glob("./projects/*.{md,mdx}"))
-  .filter(
-    (project) => project.frontmatter.featured && !project.frontmatter.draft
-  )
-  .sort(
-    (b, a) =>
-      new Date(a.frontmatter.pubDate).valueOf() -
-      new Date(b.frontmatter.pubDate).valueOf()
-  );
-
-const articles = await Astro.glob("./articles/*.{md,mdx}");
-
-const featuredPosts = articles
-  .filter((post) => post.frontmatter.featured && !post.frontmatter.draft)
-  .sort(
-    (a, b) =>
-      new Date(b.frontmatter.pubDate).valueOf() -
-      new Date(a.frontmatter.pubDate).valueOf()
-  )
-  .slice(0, 5);
+import TwitterStream from "../components/server/TwitterStream.astro";
+import ProjectFaceCard from "../components/server/ProjectFaceCard.astro";
+import FeaturedPostsList from "../components/server/FeaturedPostsList.astro";
 ---
 
 <BaseLayout>
-  <div class="max-w-[1440px] mx-auto max-h-screen h-full">
-    <div
-      class="sm:grid grid-flow-col md:grid-cols-3 md:grid-rows-2 h-full p-2 gap-2"
-    >
-      <GridBox className="lg:col-span-2">
+  <div class="max-w-[1512px] mx-auto h-screen">
+    <div class="md:grid grid-flow-col-dense md:grid-cols-3 h-full md:p-2">
+      <GridBox className="col-span-3 lg:col-span-2 md:row-span-1 order-1">
         <BaseBanner />
       </GridBox>
-      <GridBox className="lg:col-span-1">
-        <div class="p-8">
-          <div class="mb-8 text-dark-text-active">Latest Articles</div>
-          <PostList posts={featuredPosts} />
-          <div class="mt-8 text-dark-text-active">Read more</div>
-        </div>
+      <GridBox
+        className="col-span-3 lg:col-span-1 md:row-span-1 order-2 md:order-3"
+      >
+        <ProjectFaceCard />
       </GridBox>
-      <GridBox className="lg:col-span-1">
-        <div class="flex flex-col h-full">
-          <div
-            class="p-8 bg-origin-border bg-[url(./content-genius-bg.png)] bg-no-repeat h-full bg-cover"
-          >
-            <h2 class="text-dark-title">Content Genius</h2>
-            <p>AI Powered Publishing Platform</p>
-          </div>
-        </div>
+      <GridBox
+        className="col-span-3 lg:col-span-1 md:row-span-1 order-3 md:order-2 overflow-y-scroll"
+      >
+        <FeaturedPostsList />
       </GridBox>
-      <GridBox className="col-span-3 lg:col-span-1 row-span-2">
-        <div class="flex items-center justify-center h-full">Loading...</div>
+      <GridBox
+        className="col-span-3 order-4 lg:row-span-2 lg:col-1 overflow-y-scroll"
+      >
+        <TwitterStream />
       </GridBox>
     </div>
   </div>
