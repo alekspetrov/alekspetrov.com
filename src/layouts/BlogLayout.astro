@@ -1,10 +1,8 @@
 ---
 import BaseHead from "../components/server/BaseHead.astro";
 import Footer from "../components/server/ShellFooter.astro";
-import Header from "../components/server/ShellHeader.astro";
 import PageHeader from "../components/server/PageHeader.astro";
 import SubsForm from "../components/client/SubsForm.astro";
-import Container from "../components/server/BaseContainer.astro";
 
 export interface Props {
   content: {
@@ -25,65 +23,23 @@ const {
     <BaseHead title={title} og_description={description} og_image={og_image} />
   </head>
   <body>
-    <Container>
-      <Header />
-      <article class="blog-content">
-        <PageHeader
-          title={title}
-          og_description={description}
-          description={description}
-        />
-        <slot />
-        <SubsForm />
-        <!-- <ReadMore /> -->
-      </article>
-      <Footer />
-    </Container>
-    <style is:global lang="postcss">
-      .blog-content {
-        @apply space-y-8;
-      }
-
-      .blog-content > *:not(.wide),
-      .blog-content > *:not(.callout) {
-        /*correlated with .layout-wrapper*/
-        @apply mx-auto max-w-default px-4 md:px-0;
-      }
-
-      .blog-content > .wide {
-        /* Image takes all width and the image is huge. Remove padding only on large scerens*/
-        @apply max-w-wide mx-auto px-2 xl:px-0;
-      }
-
-      /* TODO: Refacctor this to .contanier cclass for blocks and modificatiors to control their withds behaviour.*/
-
-      .blog-content > .callout {
-        @apply max-w-default md:max-w-callout px-6 py-6 mx-2 sm:mx-auto rounded-md border border-light-outline dark:border-dark-outline bg-light-card dark:bg-dark-card;
-      }
-
-      .blog-content > .card {
-        @apply max-w-default md:max-w-callout mx-2 sm:mx-auto rounded-md  bg-light-card dark:bg-dark-card py-4 px-6 md:py-6 border-light-outline dark:border-dark-outline;
-      }
-
-      .blog-content a {
-        @apply text-light-title transition-all duration-200 ease-in-out hover:underline dark:text-dark-title;
-      }
-
-      .blog-content img {
-        @apply rounded-lg;
-      }
-
-      .blog-content figure figcaption {
-        @apply text-center text-sm mt-2 md:pt-0;
-      }
-
-      .blog-content ul > li {
-        @apply mb-2 list-disc ml-5;
-      }
-
-      .blog-content ol > li {
-        @apply mb-2 list-decimal ml-5 pl-4;
-      }
-    </style>
+    <div class="text-dark-text-default bg-dark-bg">
+      <main class="min-h-screen overflow-x-scroll">
+        <a
+          class="block px-4 py-2 m-4 fixed top left border bg-dark-bg rounded-md border-dark-outline"
+          href="/">← Go Back</a
+        >
+        <article class="blog-content mt-24">
+          <PageHeader
+            title={title}
+            og_description={description}
+            description={description}
+          />
+          <slot />
+          <SubsForm />
+          <Footer />
+        </article>
+      </main>
+    </div>
   </body>
 </html>

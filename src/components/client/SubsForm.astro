@@ -1,23 +1,22 @@
-<div class="card">
-  <form id="js-form" novalidate>
-    <label for="js-form-email" class="title mb-2 block"
-      >Subscribe for updates</label
+<div>
+  <form
+    id="js-form"
+    class="border border-dark-outline rounded-lg px-6 py-4"
+    novalidate
+  >
+    <label for="js-form-email" class="text-dark-title block mb-4"
+      >Subscribe for Updates</label
     >
     <div class="relative">
       <input
         id="js-form-email"
-        class="bg-light-outline bg-opacity-40 dark:bg-dark-text dark:bg-opacity-5 py-2 min-w-full placeholder-light-text px-4 rounded focus:outline-none mb-2"
+        class="py-3 px-4 min-w-full placeholder-dark-text-default text-dark-text-active rounded-md focus:outline-none mb-2 bg-dark-card"
         placeholder="Enter your email..."
         type="email"
       />
       <p class="pb-2" id="js-form-message"></p>
-      <button
-        id="js-form-submit-btn"
-        title="Subscribe"
-        class="md:absolute w-full md:w-auto py-2 top-0 right-0 px-4 rounded-r bg-light-outline bg-opacity-40 dark:bg-dark-text dark:bg-opacity-5 focus:outline-none focus:text-light-title dark:focus:text-dark-title"
-      >
-        <span class="hidden md:block">&crarr;</span>
-        <span class="md:hidden">Subscribe</span>
+      <button id="js-form-submit-btn" title="Subscribe" class="button w-full">
+        <span>Subscribe</span>
       </button>
     </div>
   </form>
