@@ -89,12 +89,9 @@ input:-webkit-autofill:focus {
 
 /* TODO: Refacctor this to .contanier cclass for blocks and modificatiors to control their withds behaviour.*/
 
-.blog-content > .callout {
-  @apply mx-2 max-w-default rounded-md border border-light-outline bg-light-card px-6 py-6 dark:border-dark-outline dark:bg-dark-card sm:mx-auto md:max-w-callout;
-}
-
+.blog-content > .callout,
 .blog-content > .card {
-  @apply mx-2 max-w-default rounded-md border-light-outline bg-light-card  py-4 px-6 dark:border-dark-outline dark:bg-dark-card sm:mx-auto md:max-w-callout md:py-6;
+  @apply mx-2 max-w-default rounded-md border border-dark-outline bg-dark-card px-6 py-6 sm:mx-auto md:max-w-callout;
 }
 
 .blog-content a {
