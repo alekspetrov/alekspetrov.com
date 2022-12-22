@@ -13,7 +13,7 @@ const featuredPosts = articles
   .slice(0, 5);
 ---
 
-<div class="p-8">
+<div class="overflow-y-scroll h-full p-8">
   <div class="mb-8 text-dark-text-active">Writing</div>
   <PostList posts={featuredPosts} />
   <a href="/articles" class="mt-8 block link"> Read more...</a>

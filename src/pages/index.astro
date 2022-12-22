@@ -9,23 +9,17 @@ import FeaturedPostsList from "../components/server/FeaturedPostsList.astro";
 
 <BaseLayout>
   <div class="max-w-[1512px] mx-auto h-screen">
-    <div class="md:grid grid-flow-col-dense md:grid-cols-3 h-full md:p-2">
-      <GridBox className="col-span-3 lg:col-span-2 md:row-span-1 order-1">
+    <div class="md:grid lg:grid-flow-col lg:grid-cols-3 h-full md:p-2">
+      <GridBox className="lg:col-span-2">
         <BaseBanner />
       </GridBox>
-      <GridBox
-        className="col-span-3 lg:col-span-1 md:row-span-1 order-2 md:order-3"
-      >
+      <GridBox className="lg:col-span-1 order-2">
         <ProjectFaceCard />
       </GridBox>
-      <GridBox
-        className="col-span-3 lg:col-span-1 md:row-span-1 order-3 md:order-2 overflow-y-scroll"
-      >
+      <GridBox className="lg:col-span-1 ">
         <FeaturedPostsList />
       </GridBox>
-      <GridBox
-        className="col-span-3 order-4 lg:row-span-2 lg:col-1 overflow-y-scroll"
-      >
+      <GridBox className="lg:col-span-1 lg:row-span-2 md:order-2 ">
         <TwitterStream />
       </GridBox>
     </div>

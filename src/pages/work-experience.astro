@@ -1,28 +1,23 @@
 ---
 import ContactLink from "../components/server/ContactLink.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
 import EmploymentHistory from "../components/server/EmploymentHistory.astro";
 
 import { EMAIL, CURRENT_LOCATION } from "../config";
+import BlogLayout from "../layouts/BlogLayout.astro";
 ---
 
-<BaseLayout>
+<BlogLayout content={{ title: "Profile" }} hasSubsForm={false}>
   <div class="space-y-16">
     <div>
-      <h2 class="title mb-8">Profile</h2>
       <p>
-        I create a unique vision of digital products and lead teams to translate
-        ideas into reality. Excel at taking startups through extensive user
-        research, interactive prototypes, MVPs and clear roadmap. Enjoy
-        discussing new technologies with developers and new trends with
-        designers. I can act as a bridge between business, customers and
-        engineers or designers using communications skills and deep
-        understanding their pain points.
+        I specialize in developing innovative digital products by conducting
+        user research, creating interactive prototypes, and developing minimum
+        viable products (MVPs). I also help startups define a clear roadmap to
+        ensure that their ideas are successfully brought to fruition.
       </p>
     </div>
-
     <div>
-      <h2 class="title mb-8">Details</h2>
+      <h2 class="mb-8">Details</h2>
       <div class="space-y-4">
         <div class="flex gap-8">
           <div class="w-24">Email</div>
@@ -30,13 +25,12 @@ import { EMAIL, CURRENT_LOCATION } from "../config";
         </div>
         <div class="flex gap-8">
           <div class="w-24">Location</div>
-          <div><ContactLink type="email">{CURRENT_LOCATION}</ContactLink></div>
+          <div><ContactLink type="text">{CURRENT_LOCATION}</ContactLink></div>
         </div>
       </div>
     </div>
-
     <div>
-      <h2 class="title mb-8">Employment History</h2>
+      <h2 class="mb-8">Employment History</h2>
       <EmploymentHistory />
     </div>
     <p>
@@ -45,4 +39,4 @@ import { EMAIL, CURRENT_LOCATION } from "../config";
       />
     </p>
   </div>
-</BaseLayout>
+</BlogLayout>

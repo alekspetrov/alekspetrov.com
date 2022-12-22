@@ -29,19 +29,9 @@ html::-webkit-scrollbar-thumb {
   }
 }
 
-/* All the titles are the same by design*/
-h1,
-h2,
-h3,
-.title {
-}
-
-.title {
-}
-
 b,
 strong {
-  /* @apply font-normal text-light-title dark:text-dark-title; */
+  @apply font-normal  text-dark-text-active;
 }
 
 input {
@@ -62,6 +52,10 @@ input:-webkit-autofill:focus {
 
 /* ELEMENTS */
 
+/* h1, h2, h3 */
+.title {
+}
+
 .link {
   @apply text-dark-text-default transition-colors duration-200 ease-in-out hover:text-dark-text-active;
 }
@@ -78,7 +72,6 @@ input:-webkit-autofill:focus {
 
 .blog-content > *:not(.wide),
 .blog-content > *:not(.callout) {
-  /*correlated with .layout-wrapper*/
   @apply mx-auto max-w-default px-4 md:px-0;
 }
 
@@ -95,7 +88,7 @@ input:-webkit-autofill:focus {
 }
 
 .blog-content a {
-  @apply text-light-title transition-all duration-200 ease-in-out hover:underline dark:text-dark-title;
+  @apply text-dark-text-default transition-all duration-200 ease-in-out hover:underline dark:text-dark-title;
 }
 
 .blog-content img {
@@ -112,4 +105,10 @@ input:-webkit-autofill:focus {
 
 .blog-content ol > li {
   @apply mb-2 ml-5 list-decimal pl-4;
+}
+
+.blog-content h1,
+.blog-content h2,
+.blog-content h3 {
+  @apply text-dark-text-active;
 }

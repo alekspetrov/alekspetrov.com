@@ -5,15 +5,17 @@ import PageHeader from "../components/server/PageHeader.astro";
 import SubsForm from "../components/client/SubsForm.astro";
 
 export interface Props {
+  hasSubsForm?: boolean;
   content: {
     title: string;
-    description: string;
-    og_image: string;
+    description?: string;
+    og_image?: string;
     pubDate?: string;
   };
 }
 
 const {
+  hasSubsForm = true,
   content: { title, description, og_image },
 } = Astro.props;
 ---
@@ -36,7 +38,7 @@ const {
             description={description}
           />
           <slot />
-          <SubsForm />
+          {hasSubsForm && <SubsForm />}
           <Footer />
         </article>
       </main>

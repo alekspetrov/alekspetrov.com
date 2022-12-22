@@ -1,25 +1,32 @@
 ---
-import { EMAIL, TWITTER, LINKEDIN } from "../../config";
+import { EMAIL, TWITTER, LINKEDIN, CURRENT_LOCATION } from "../../config";
 const { type, className } = Astro.props;
 ---
 
 {
+  type === "text" && (
+    <p>
+      <slot>CURRENT_LOCATION</slot>
+    </p>
+  )
+}
+{
   type === "email" && (
-    <a class={`link ${className}`} href={`mailto:${EMAIL}`}>
+    <a href={`mailto:${EMAIL}`} class="underline">
       <slot>Email</slot>
     </a>
   )
 }
 {
   type === "twitter" && (
-    <a class={`link ${className}`} href={TWITTER}>
+    <a class={`${className}`} href={TWITTER}>
       <slot>Twitter</slot>
     </a>
   )
 }
 {
   type === "linkedin" && (
-    <a class={`link ${className}`} href={LINKEDIN}>
+    <a class={`${className}`} href={LINKEDIN}>
       <slot>LinkedIn</slot>
     </a>
   )
