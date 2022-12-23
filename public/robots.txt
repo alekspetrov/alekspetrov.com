@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: / blocks the entire site.
+Disallow: / blocks the entire site.
+Disallow: / blocks the entire site.
+Disallow: / blocks the entire site.
+Disallow: / blocks the entire site.
+Disallow: / blocks the entire site.
+Disallow: / blocks the entire site.
+Allow: /
