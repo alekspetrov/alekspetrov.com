@@ -26,11 +26,7 @@ export interface Props {
     </div>
   </a>
   {text && <div class="text-dark-title text-base mb-4">{text}</div>}
-  {
-    image && (
-      <img src="/twitter-1.jpeg" class="rounded-xl mb-4" alt="twitter_image" />
-    )
-  }
+  {image && <img src={image} class="rounded-xl mb-4" alt="twitter_image" />}
   <div class="text-sm text-dark-text-default text-opacity-50">
     {impressions} impressions・{reposts} reposts
   </div>
