@@ -1,8 +1,5 @@
 ---
-// import Container from "../components/server/BaseContainer.astro";
-import BaseBanner from "../components/server/BaseBanner.astro";
 import BaseHead from "../components/server/BaseHead.astro";
-import GridBox from "../components/server/GridBox.astro";
 ---
 
 <html lang="en">
@@ -10,8 +7,10 @@ import GridBox from "../components/server/GridBox.astro";
     <BaseHead />
   </head>
   <body>
-    <div class="text-dark-text-default bg-dark-bg">
-      <main class="min-h-screen overflow-x-scroll">
+    <div
+      class="text-dark-text-default bg-dark-bg min-h-screen overflow-hidden overflow-y-auto"
+    >
+      <main>
         <slot />
       </main>
     </div>

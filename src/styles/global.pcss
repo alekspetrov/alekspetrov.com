@@ -63,32 +63,30 @@ input:-webkit-autofill:focus {
 /* BLOG */
 
 .blog-content {
-  @apply space-y-8 leading-7;
+  @apply space-y-8 text-lg leading-[30px];
 }
 
-.blog-content > *:not(.wide),
-.blog-content > *:not(.callout) {
-  @apply mx-auto max-w-default px-4 md:px-0;
+.blog-content > *:not(.full-width) {
+  @apply mx-auto max-w-2xl px-4 md:px-0;
 }
 
-.blog-content > .wide {
-  /* Image takes all width and the image is huge. Remove padding only on large scerens*/
-  @apply mx-auto max-w-wide px-2 xl:px-0;
-}
+/* .blog-content > img {
+  @appluy max-w-full;
+} */
 
 /* TODO: Refacctor this to .contanier cclass for blocks and modificatiors to control their withds behaviour.*/
 
-.blog-content > .callout,
+/* .blog-content > .callout,
 .blog-content > .card {
   @apply mx-2 max-w-default rounded-md border border-dark-outline bg-dark-card px-6 py-6 sm:mx-auto md:max-w-callout;
-}
+} */
 
 .blog-content a {
-  @apply text-dark-text-default transition-all duration-200 ease-in-out hover:underline dark:text-dark-title;
+  @apply text-dark-text-default underline transition-colors duration-200 ease-in-out hover:text-dark-text-active;
 }
 
 .blog-content img {
-  @apply rounded-lg;
+  @apply w-full object-cover;
 }
 
 .blog-content figure figcaption {

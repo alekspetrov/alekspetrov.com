@@ -1,0 +1,46 @@
+---
+import BaseHead from "../components/server/BaseHead.astro";
+
+export interface Props {
+  content: {
+    title: string;
+    description?: string;
+    og_image?: string;
+    pubDate?: string;
+    title_image?: string;
+  };
+}
+
+const {
+  content: { title, description, og_image, title_image },
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} og_description={description} og_image={og_image} />
+  </head>
+  <body>
+    <div class="text-dark-text-default bg-dark-bg">
+      <main class="min-h-screen overflow-x-scroll">
+        <a
+          class="block px-4 py-2 m-4 fixed top left border bg-dark-bg rounded-md border-dark-outline"
+          href="/">← Go Back</a
+        >
+        <article class="blog-content">
+          {
+            title_image && (
+              <div class="full-width">
+                <img src={title_image} alt={title} class="min-h-[320px]" />
+              </div>
+            )
+          }
+          <h1 class="text-dark-title text-4xl md:text-6xl font-semibold">
+            {title}
+          </h1>
+          <slot />
+        </article>
+      </main>
+    </div>
+  </body>
+</html>
