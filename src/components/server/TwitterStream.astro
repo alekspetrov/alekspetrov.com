@@ -39,7 +39,7 @@ const tweets = [
 ];
 ---
 
-<div class="overflow-y-scroll h-full">
+<div class="overflow-y-scroll h-full" aria-hidden="true">
   {tweets.map((tweet) => <SingleTweet {...tweet} />)}
   <div class="text-center my-8">
     <a href="https://twitter.com/alekspetrov_" class="button">Show more</a>
