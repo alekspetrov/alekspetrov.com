@@ -31,13 +31,13 @@ const {
           href="/">← Go Back</a
         >
         <article class="blog-content">
-          {
-            title_image && (
-              <div class="full">
-                <img src={title_image} alt={title} class="min-h-[320px]" />
-              </div>
-            )
-          }
+          <div class="full min-h-[160px]">
+            {
+              title_image && (
+                <img src={title_image} alt={title} class="h-auto" />
+              )
+            }
+          </div>
           <h1 class="text-dark-title text-4xl md:text-6xl font-semibold">
             {title}
           </h1>
