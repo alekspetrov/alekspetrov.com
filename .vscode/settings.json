@@ -1,4 +1,5 @@
 {
   "editor.wordWrap": "wordWrapColumn",
-  "html.format.wrapLineLength": 70
+  "html.format.wrapLineLength": 70,
+  "cSpell.words": ["alekspetrov"]
 }

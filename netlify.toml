@@ -7,3 +7,10 @@
   from = "/_hive/*"
   to = "https://hive.splitbee.io/:splat"
   status = 200
+
+[[plugins]]
+  package = "netlify-plugin-cloudinary"
+
+  [plugins.inputs]
+  cloudName = "alekspetrov"
+  imagesPath = "/images"
