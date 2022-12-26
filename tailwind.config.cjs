@@ -52,8 +52,7 @@ module.exports = {
         base: "1.625rem",
       },
       backgroundImage: {
-        author: "url(/author_picture.jpeg)",
-        "content-genius": "url('/content-genius-bg.png')",
+        "content-genius": "url('/images/content-genius-bg.png')",
       },
     },
   },
