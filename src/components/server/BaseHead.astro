@@ -35,12 +35,17 @@ const {
 <meta name="description" content={og_description} />
 <meta name="author" content="Aleksei Petrov" />
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={SITE_URL} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={og_description} />
-<meta property="og:image" content={new URL(og_image, SITE_URL + "/images")} />
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta name="type" property="og:type" content="website" />
+<meta name="url" property="og:url" content={SITE_URL} />
+<meta name="title" property="og:title" content={title} />
+<meta name="description" property="og:description" content={og_description} />
+<meta
+  name="image"
+  property="og:image"
+  content={new URL(og_image, SITE_URL + "/images")}
+/>
+<meta />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
