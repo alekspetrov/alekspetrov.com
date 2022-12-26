@@ -63,23 +63,26 @@ input:-webkit-autofill:focus {
 /* BLOG */
 
 .blog-content {
-  @apply space-y-8 text-lg leading-[30px];
+  @apply mb-16 space-y-6 text-lg leading-[30px];
 }
 
-.blog-content > *:not(.full-width) {
+.blog-content > *:not(.wider, .wide, .full) {
   @apply mx-auto max-w-2xl px-4 md:px-0;
 }
 
-/* .blog-content > img {
-  @appluy max-w-full;
-} */
+.blog-content > .wide {
+  @apply mx-auto max-w-3xl px-4 md:px-0;
+}
+
+.blog-content > .wider {
+  @apply mx-auto max-w-5xl px-4 md:px-0;
+}
 
 /* TODO: Refacctor this to .contanier cclass for blocks and modificatiors to control their withds behaviour.*/
 
-/* .blog-content > .callout,
-.blog-content > .card {
+.blog-content > .callout {
   @apply mx-2 max-w-default rounded-md border border-dark-outline bg-dark-card px-6 py-6 sm:mx-auto md:max-w-callout;
-} */
+}
 
 .blog-content a {
   @apply text-dark-text-default underline transition-colors duration-200 ease-in-out hover:text-dark-text-active;
@@ -105,4 +108,9 @@ input:-webkit-autofill:focus {
 .blog-content h2,
 .blog-content h3 {
   @apply text-dark-text-active;
+}
+
+.blog-content h2,
+.blog-content h3 {
+  @apply pt-12 text-2xl font-semibold;
 }
