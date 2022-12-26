@@ -1,5 +1,11 @@
 ---
 import { EMAIL, TWITTER, LINKEDIN, CURRENT_LOCATION } from "../../config";
+
+interface Props {
+  type: "text" | "email" | "twitter" | "linkedin";
+  className?: string;
+}
+
 const { type, className } = Astro.props;
 ---
 
