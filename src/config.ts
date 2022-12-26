@@ -3,6 +3,8 @@
 
 export const SITE_URL = "https://alekspetrov.com";
 export const SITE_TITLE = "Aleks Petrov";
+export const SITE_OG_IMAGE_URL =
+  "https://alekspetrov.com/images/og_default_image.png";
 export const CURRENT_LOCATION = "Central EU (GMT+1)";
 export const SITE_DESCRIPTION = "Product Designer & Maker";
 export const EMAIL = "hello@alekspetrov.com";
