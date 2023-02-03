@@ -1,0 +1,63 @@
+---
+// Import the global.css file here so that it is included on
+// all pages through the use of the <BaseHead /> component.
+import "../styles/global.pcss";
+import "../styles/fonts.pcss";
+// import "../styles/prism-theme.pcss";
+
+import {
+  SITE_TITLE,
+  SITE_URL,
+  SITE_DESCRIPTION,
+  SITE_OG_IMAGE_URL,
+} from "../config";
+
+export interface Props {
+  title?: string;
+  og_description?: string;
+  og_image?: string;
+}
+
+const {
+  title = SITE_TITLE,
+  og_description = SITE_DESCRIPTION,
+  og_image = SITE_OG_IMAGE_URL,
+} = Astro.props;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/avatar.png" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={og_description} />
+<meta name="author" content="Aleksei Petrov" />
+
+<!-- Open Graph / Facebook / LinkedIn -->
+<meta name="type" property="og:type" content="website" />
+<meta name="url" property="og:url" content={SITE_URL} />
+<meta name="title" property="og:title" content={title} />
+<meta name="description" property="og:description" content={og_description} />
+<meta
+  name="image"
+  property="og:image"
+  content={new URL(og_image, SITE_URL + "/images")}
+/>
+<meta />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={SITE_URL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={og_description} />
+<meta
+  property="twitter.image"
+  content={new URL(og_image, SITE_URL + "/images")}
+/>
+
+<!-- Analytics -->
+<!-- <script async data-api="/_hive" src="/bee.js"></script> -->

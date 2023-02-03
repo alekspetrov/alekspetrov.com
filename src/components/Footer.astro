@@ -1,0 +1,35 @@
+---
+import ArrowUp from "./ArrowUp.astro";
+import ArrowRight from "./ArrowRight.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<div class="mb-7">
+  <div class="mt-14 mb-7 space-y-2 lg:space-y-0 lg:flex gap-2">
+    <a
+      href="mailto:hello@alekspetrov.com"
+      class="border border-graphite-900 dark:border-graphite-100 rounded-full w-full inline-flex items-center justify-center space-x-2 py-4 transition duration-300 ease-in-out hover:bg-graphite-200 dark:hover:bg-graphite-600"
+    >
+      <div>Work with me</div>
+      <ArrowRight />
+    </a>
+    <a
+      href="https://twitter.com/alekspetrov_"
+      class="border border-graphite-900 dark:border-graphite-100 rounded-full w-full inline-flex items-center justify-center space-x-2 py-4 transition duration-300 ease-in-out hover:bg-graphite-200 dark:hover:bg-graphite-600"
+    >
+      <div>Twitter</div>
+      <ArrowUp />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/alekspetrov/"
+      class="border border-graphite-900 dark:border-graphite-100 rounded-full w-full inline-flex items-center justify-center space-x-2 py-4 transition duration-300 ease-in-out hover:bg-graphite-200 dark:hover:bg-graphite-600"
+    >
+      <div>LinkedIn</div>
+      <ArrowUp />
+    </a>
+  </div>
+  <div class="text-center lg:text-left">
+    © {currentYear} Aleks Petrov. All rights reserved.
+  </div>
+</div>
