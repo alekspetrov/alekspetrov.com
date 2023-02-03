@@ -1,52 +1,51 @@
 ---
-import SubsForm from "../components/client/SubsForm.astro";
-import AskToFollow from "../components/server/AskToFollow.astro";
-import BaseHead from "../components/server/BaseHead.astro";
-import Footer from "../components/server/ShellFooter.astro";
+import SubsForm from "../components/SubsForm.astro";
+import BaseHead from "../components/BaseHead.astro";
+import Body from "../components/Body.astro";
+import { dateToLocale } from "../utils/date";
 
 export interface Props {
   content: {
     title: string;
-    description?: string;
-    og_image?: string;
-    pubDate?: string;
-    title_image?: string;
+    description: string;
+    tags: string[];
+    image?: {
+      src: string;
+      alt: string;
+    };
+    openGraph: {
+      image: string;
+      description: string;
+    };
+    publishDate: string;
   };
 }
 
 const {
-  content: { title, description, og_image, title_image },
+  content: { title, description, image, openGraph, publishDate, tags },
 } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} og_description={description} og_image={og_image} />
+    <BaseHead title={title} og_description={description} og_image={image} />
   </head>
-  <body>
-    <div class="text-dark-text-default bg-dark-bg">
-      <main class="min-h-screen overflow-x-scroll">
-        <a
-          class="block px-4 py-2 m-4 fixed top left border bg-dark-bg rounded-full border-dark-outline"
-          href="/">← Go Back</a
-        >
-        <article class="blog-content">
-          <div class="full min-h-[160px]">
-            {
-              title_image && (
-                <img src={title_image} alt={title} class="h-auto" />
-              )
-            }
-          </div>
-          <h1 class="text-dark-title text-4xl md:text-6xl font-semibold">
-            {title}
-          </h1>
-          <slot />
-          <AskToFollow />
-          <SubsForm />
-          <Footer />
-        </article>
-      </main>
-    </div>
-  </body>
+  <Body maxWidth="narrow">
+    <a
+      class="px-4 py-2 fixed top-4 left-4 border bg-dark-bg rounded-full"
+      href="/blog"
+      >← Go Back
+    </a>
+    <article class="blog-content">
+      {image?.src && <img src={image.src} alt={image.alt} />}
+      <h1 class="">
+        {title}
+      </h1>
+      <time datetime={publishDate} class="block mb-8 text-graphite-400">
+        {dateToLocale(publishDate)}
+      </time>
+      <slot />
+      <SubsForm />
+    </article>
+  </Body>
 </html>

@@ -24,7 +24,7 @@ const formElement = document.getElementById(ID_FORM);
 if (formElement) {
   const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
 
-  function showMessage(message) {
+  function showMessage(message: string) {
     document.getElementById(ID_FORM_MESSAGE).innerHTML = message;
   }
 

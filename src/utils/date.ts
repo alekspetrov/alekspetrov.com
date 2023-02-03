@@ -15,10 +15,10 @@ export interface LocaleOptions {
   day?: LocaleOptionsDayType;
 }
 
-const dateToLocale = (date: Date, options?: LocaleOptions): string => {
+const dateToLocale = (date: Date | string, options?: LocaleOptions): string => {
   const defaultOptions: LocaleOptions = {
+    month: "long",
     year: "numeric",
-    month: "short",
     day: "numeric",
   };
 

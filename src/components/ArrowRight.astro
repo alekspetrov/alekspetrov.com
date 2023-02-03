@@ -1,0 +1,22 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className }: Props = Astro.props;
+---
+
+<svg
+  class={`${className} fill-current`}
+  width="24"
+  height="25"
+  viewBox="0 0 24 25"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M11.5001 0.479185L23.5209 12.5L11.5001 24.5208L10.0859 23.1066L19.6925 13.5L0.893462 13.5V11.5L19.6925 11.5L10.0859 1.8934L11.5001 0.479185Z"
+  ></path>
+</svg>
