@@ -1,37 +1,54 @@
 ---
-import BaseBanner from "../components/server/BaseBanner.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import GridBox from "../components/server/GridBox.astro";
-import TwitterStream from "../components/server/TwitterStream.astro";
-import ProjectFaceCard from "../components/server/ProjectFaceCard.astro";
-import FeaturedPostsList from "../components/server/FeaturedPostsList.astro";
+import Card from "../components/Card.astro";
+import Image from "../components/Image.astro";
+import ArrowRight from "../components/ArrowRight.astro";
 ---
 
 <BaseLayout>
-  <div class="max-w-[1512px] mx-auto">
+  <div class="space-y-2">
+    <section class="lg:space-y-0 flex flex-col lg:flex-row gap-2">
+      <Card
+        class="bg-brand-indigo text-graphite-100 flex-1"
+        label="Latest project"
+        title="Content Genius — is an AI-based publishing platform made for creative people"
+        description="Product design & development"
+        link="https://contentgenius.io"
+        arrow="up"
+      />
+      <Image
+        class="flex-1"
+        imageUrl="/images/cg-preview-analytics.png"
+        imageAlt="Content Genius analitics screenshot"
+      />
+    </section>
     <div
-      class="lg:grid lg:grid-cols-3 lg:grid-flow-row lg:auto-rows-auto h-screen"
+      class="text-[24px] leading-[28px] lg:text-[32px] lg:leading-8 py-4 text-graphite-600 dark:text-graphite-200 antialiased"
     >
-      <GridBox
-        className="lg:col-span-2 lg:row-span-1 lg:order-1 lg:overflow-hidden"
-      >
-        <BaseBanner />
-      </GridBox>
-      <GridBox
-        className="lg:col-span-1 lg:row-span-2 lg:order-4 lg:overflow-hidden"
-      >
-        <ProjectFaceCard />
-      </GridBox>
-      <GridBox
-        className="lg:col-span-1  lg:row-span-2 lg:order-3 lg:overflow-hidden"
-      >
-        <FeaturedPostsList />
-      </GridBox>
-      <GridBox
-        className="lg:col-span-1 lg:order-2 lg:row-span-3 lg:h-full lg:overflow-hidden"
-      >
-        <TwitterStream />
-      </GridBox>
+      With extensive experience in Fintech, E-commerce, and AI-innovations,
+      Aleks provides top-notch design solutions and sdevelops high-performing
+      applications that people love to&nbsp;use.
     </div>
+    <section>
+      <a href="https://contentgenius.io">
+        <Image
+          class="mb-4"
+          imageUrl="/images/cg-lp-preview-with-analytics.png"
+          imageAlt="Content Genius Landing Page preview"
+        />
+      </a>
+      <div class="lg:flex justify-between">
+        <div class="font-sans-2">
+          <div
+            class="text-[16px] leading-[24px] lg:text-[28px] lg:leading-[32px] text-graphite-900 dark:text-graphite-200 lg:mb-2"
+          >
+            Landing page for Content Genius.
+          </div>
+          <div class="text-graphite-900 dark:text-graphite-400 opacity-60">
+            Design & development
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </BaseLayout>

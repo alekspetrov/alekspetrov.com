@@ -1,59 +1,41 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class",
+  darkMode: "media",
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
+        sans: ["ClashDisplay-Variable", "system-ui", "sans-serif"],
+        "sans-2": ["Open Sans", "system-ui", "sans-serif"],
       },
-      maxWidth: {
-        default: "38rem",
-        callout: "40rem",
-        wide: "64rem",
-      },
-      screens: {
-        sm: "576px",
-        // => @media (min-width: 640px) { ... }
-
-        md: "768px",
-        // => @media (min-width: 768px) { ... }
-
-        lg: "1024px",
-        // => @media (min-width: 1024px) { ... }
-
-        xl: "1280px",
-        // => @media (min-width: 1280px) { ... }
-      },
+      maxWidth: {},
       colors: {
-        light: {
-          title: "#121113",
-          text: {
-            default: "#67626A",
-            active: "#121113",
-          },
-          bg: "#fafafa",
-          outline: "#e8e8e9",
-          card: "#ffffff",
+        graphite: {
+          900: "#090809",
+          800: "#121212",
+          700: "#181818",
+          600: "#1F1F1F",
+          500: "#2f2f2f",
+
+          400: "#A0A0A0",
+          300: "#BDBDBD",
+          200: "#D9D9D9",
+          100: "#F8F8F8",
         },
-        dark: {
-          title: "#C7C9C9",
-          text: {
-            muted: "#8f9292",
-            default: "#8f9292",
-            active: "#C7C9C9",
-          },
-          bg: "#1a181b",
-          outline: "#29282a",
-          card: "#1f1d20",
+        brand: {
+          indigo: "#7C00AC",
+          pink: "#D7009B",
+          success: "#00D796",
+          warning: "#F5A623",
+          alert: "#D74D00",
+        },
+        social: {
+          twitter: "#1DA1F2",
+          linkedin: "#0A66C2",
         },
       },
-      lineHeight: {
-        base: "1.625rem",
-      },
-      backgroundImage: {
-        "content-genius": "url('/images/content-genius-bg.png')",
-      },
+      lineHeight: {},
+      backgroundImage: {},
     },
   },
   plugins: [],
