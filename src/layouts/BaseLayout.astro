@@ -2,19 +2,16 @@
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Body from "../components/Body.astro";
 ---
 
 <html lang="en">
   <head>
     <BaseHead />
   </head>
-  <body
-    class="bg-graphite-100 text-graphite-900 dark:bg-graphite-900 dark:text-graphite-100"
-  >
-    <main class="max-w-[1440px] mx-auto px-2">
-      <Header />
-      <slot />
-      <Footer />
-    </main>
-  </body>
+  <Body maxWidth="wide">
+    <Header />
+    <slot />
+    <Footer />
+  </Body>
 </html>

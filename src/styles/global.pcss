@@ -17,5 +17,53 @@ html::-webkit-scrollbar-thumb {
   overflow: hidden;
 }
 
-/* .container .wrapper {
-} */
+.blog-content {
+  @apply font-sans-2 text-lg dark:text-graphite-300;
+
+  & > img {
+    @apply mx-auto min-h-[260px] w-full object-cover;
+  }
+
+  & > *:not(img) {
+    @apply mx-auto max-w-[680px];
+  }
+
+  & > ul,
+  & > ol {
+    @apply mb-4 list-outside space-y-4 text-inherit;
+  }
+
+  & > strong {
+    @apply font-medium text-graphite-100;
+  }
+
+  & > ul {
+    @apply list-disc;
+  }
+
+  & > ol {
+    @apply list-decimal;
+  }
+
+  & > p {
+    @apply mb-4 font-sans-2  leading-relaxed;
+  }
+
+  > h1,
+  > h2,
+  > h3 {
+    @apply mt-12 mb-4 font-sans font-medium dark:text-graphite-100;
+  }
+
+  > h1 {
+    @apply text-6xl;
+  }
+
+  > h2 {
+    @apply text-4xl;
+  }
+
+  > h3 {
+    @apply text-3xl;
+  }
+}

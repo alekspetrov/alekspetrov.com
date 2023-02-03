@@ -1,21 +1,27 @@
 <div class="pt-12">
   <form
     id="js-form"
-    class="border border-dark-outline rounded-lg px-6 py-4"
+    class="border border-x-graphite-200 dark:border-graphite-700 rounded-lg px-8 py-8 mb-12"
     novalidate
   >
-    <label for="js-form-email" class="text-dark-title block mb-4"
+    <label
+      for="js-form-email"
+      class="block mb-4 font-sans text-lg font-medium text-graphite-900 dark:text-graphite-100"
       >Subscribe for Updates</label
     >
-    <div class="relative">
+    <div>
       <input
         id="js-form-email"
-        class="py-3 px-4 min-w-full placeholder-dark-text-default text-dark-text-active rounded-md focus:outline-none mb-2 bg-dark-card"
+        class="py-3 px-4 w-full rounded-full focus:outline-none mb-2 dark:bg-graphite-600 border border-graphite-200 dark:border-graphite-700"
         placeholder="Enter your email..."
         type="email"
       />
       <p class="pb-2" id="js-form-message"></p>
-      <button id="js-form-submit-btn" title="Subscribe" class="button w-full">
+      <button
+        id="js-form-submit-btn"
+        title="Subscribe"
+        class="bg-brand-indigo text-graphite-100 w-full py-3 px-4 rounded-full"
+      >
         <span>Subscribe</span>
       </button>
     </div>
@@ -23,5 +29,5 @@
 </div>
 
 <script>
-  import "../../scripts/subscription";
+  import "../scripts/subscription";
 </script>
