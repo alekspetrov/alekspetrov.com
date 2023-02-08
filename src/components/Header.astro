@@ -1,3 +1,7 @@
+---
+import { LINKEDIN, TWITTER } from "../config.js";
+---
+
 <div class="flex flex-wrap gap-2 mt-4 lg:mb-4">
   <a
     href="/"
@@ -13,13 +17,13 @@
   </a>
   <div class="-space-x-4 order-3 lg:order-4">
     <a
-      href="https://twitter.com/alekspetrov_"
+      href={TWITTER}
       class="bg-social-twitter rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-100 dark:border-graphite-900 relative"
     >
       <img src="/images/twitter.svg" alt="Twitter" />
     </a>
     <a
-      href="https://linkedin.com/in/alekspetrov"
+      href={LINKEDIN}
       class="bg-social-linkedin rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-100 dark:border-graphite-900"
     >
       <img src="/images/linkedin.svg" alt="LinkedIn" class="pb-1 -mt-1" />

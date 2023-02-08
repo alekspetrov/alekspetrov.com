@@ -1,6 +1,6 @@
 ---
 import ArrowUp from "./ArrowUp.astro";
-import ArrowRight from "./ArrowRight.astro";
+import { LINKEDIN, TWITTER } from "../config.js";
 
 const currentYear = new Date().getFullYear();
 ---
@@ -15,14 +15,14 @@ const currentYear = new Date().getFullYear();
       <ArrowUp />
     </a>
     <a
-      href="https://twitter.com/alekspetrov_"
+      href={TWITTER}
       class="border border-graphite-200 dark:border-graphite-500 rounded-full w-full inline-flex items-center justify-center space-x-2 py-4 transition duration-300 ease-in-out hover:bg-graphite-200 dark:hover:bg-graphite-600"
     >
       <div>Twitter</div>
       <ArrowUp />
     </a>
     <a
-      href="https://www.linkedin.com/in/alekspetrov/"
+      href={LINKEDIN}
       class="border border-graphite-200 dark:border-graphite-500 rounded-full w-full inline-flex items-center justify-center space-x-2 py-4 transition duration-300 ease-in-out hover:bg-graphite-200 dark:hover:bg-graphite-600"
     >
       <div>LinkedIn</div>
