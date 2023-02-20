@@ -6,6 +6,7 @@ import ArrowUp from "./ArrowUp.astro";
 export interface Props {
   label?: string;
   title?: string;
+  titleBold?: string;
   description?: string;
   imageUrl?: string;
   imageAlt?: string;
@@ -17,6 +18,7 @@ export interface Props {
 const {
   label,
   title,
+  titleBold,
   description,
   imageUrl,
   imageAlt,
@@ -28,24 +30,39 @@ const {
 
 <a
   href={link}
-  class={`${className} rounded-2xl p-6 flex flex-col min-h-[225px] overflow-hidden`}
+  class={`${className} rounded-2xl p-6 lg:p-8 flex flex-col min-h-[225px] overflow-hidden`}
 >
-  {label && <div class="mb-2 font-sans-2 opacity-60">{label}</div>}
   {
-    title && (
-      <h3 class="mb-2 flex-1 text-[1.625rem] leading-[1.75rem]">{title}</h3>
+    label && (
+      <div class="mb-6 font-sans-2 text-sm font-semibold uppercase tracking-widest opacity-70">
+        {label}
+      </div>
     )
   }
-  {imageUrl && <img src={imageUrl} alt={imageAlt} class="inline-block" />}
   {
-    description ||
-      (arrow && (
-        <div class="flex justify-between">
-          {description && <p class="font-sans-2 opacity-60">{description}</p>}
-          {arrow === "up" && <ArrowUp class="lg:h-8 lg:w-8" />}
-          {arrow === "down" && <ArrowDown class="lg:h-8 lg:w-8" />}
-          {arrow === "right" && <ArrowRight class="lg:h-8 lg:w-8" />}
-        </div>
-      ))
+    title && (
+      <h3 class="mb-2 flex-1 text-[1.625rem] leading-[1.75rem]">
+        {titleBold && <span class="font-semibold">{titleBold}</span>} {title}
+      </h3>
+    )
+  }
+  {
+    imageUrl && (
+      <img
+        src={imageUrl}
+        alt={imageAlt}
+        class="orverflow-hidden rounded-6 block w-full rounded-xl border border-graphite-700"
+      />
+    )
+  }
+  {
+    (description || arrow) && (
+      <div class="mt-6 flex items-center justify-between ">
+        <p class="opacity-70">{description}</p>
+        {arrow === "up" && <ArrowUp class="h-3 lg:h-8" />}
+        {arrow === "down" && <ArrowDown class="h-3 lg:h-8" />}
+        {arrow === "right" && <ArrowRight class="h-3 lg:h-8" />}
+      </div>
+    )
   }
 </a>

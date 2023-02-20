@@ -7,6 +7,7 @@ import { dateToLocale } from "../utils/date";
 export interface Props {
   content: {
     title: string;
+    titleBold?: string;
     description: string;
     tags: string[];
     image?: {
@@ -22,13 +23,26 @@ export interface Props {
 }
 
 const {
-  content: { title, description, image, openGraph, publishDate, tags },
+  content: {
+    title,
+    titleBold,
+    description,
+    image,
+    openGraph,
+    publishDate,
+    tags,
+  },
 } = Astro.props;
 ---
 
 <html lang="en">
   <head>
-    <BaseHead title={title} og_description={description} og_image={image} />
+    <BaseHead
+      title={titleBold ? `${titleBold} ${title}` : title}
+      description={description}
+      og_description={openGraph.description}
+      og_image={openGraph.image}
+    />
   </head>
   <Body maxWidth="narrow">
     <a
@@ -36,9 +50,10 @@ const {
       href="/blog"
       >← Go Back
     </a>
-    <article class="blog-content">
+    <article class="blog-content col-span-4 mt-24">
       {image?.src && <img src={image.src} alt={image.alt} />}
-      <h1 class="">
+      <h1>
+        {titleBold && <span class="font-semibold">{titleBold}</span>}
         {title}
       </h1>
       <time datetime={publishDate} class="block mb-8 text-graphite-400">

@@ -102,9 +102,9 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
-"will-ai-replace-designers.mdx": {
-  id: "will-ai-replace-designers.mdx",
-  slug: "will-ai-replace-designers",
+"the-future-of-design-ai-and-human-creativity.mdx": {
+  id: "the-future-of-design-ai-and-human-creativity.mdx",
+  slug: "the-future-of-design-ai-and-human-creativity",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">

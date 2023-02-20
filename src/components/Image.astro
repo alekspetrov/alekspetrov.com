@@ -4,11 +4,19 @@ export interface Props {
   imageAlt: string;
   link?: string;
   class?: string;
+  size?: "half" | "full";
 }
 
-const { imageUrl, imageAlt, link, class: className }: Props = Astro.props;
+const { imageUrl, imageAlt, link, class: className, size }: Props = Astro.props;
 ---
 
-<div class={`${className} lg:p-6 rounded-3xl block overflow-hidden`}>
-  <img src={imageUrl} alt={imageAlt} class="block rounded-xl overflow-hidden" />
-</div>
+<a
+  href={link}
+  class={`${className} rounded-2xl p-2 lg:p-4 flex flex-col overflow-hidden`}
+>
+  <img
+    src={imageUrl}
+    alt={imageAlt}
+    class="block rounded-xl overflow-hidden border border-graphite-700"
+  />
+</a>

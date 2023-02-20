@@ -1,33 +1,38 @@
 ---
 import { LINKEDIN, TWITTER } from "../config.js";
-
-const currentYear = new Date().getFullYear();
 ---
 
-<div class="flex flex-wrap gap-2 bg-graphite-800 rounded-full px-8 py-4">
-  <a
-    href="/info"
-    class="border border-graphite-800 rounded-full px-8 inline-flex items-center text-[20px] my-1 flex-1 justify-center order-2 lg:order-3"
-  >
-    Info
-  </a>
-  <div class="-space-x-4 order-3 lg:order-4">
-    <a
-      href={TWITTER}
-      class="bg-social-twitter rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-800 relative"
-    >
-      <img src="/images/twitter.svg" alt="Twitter" />
-    </a>
-    <a
-      href={LINKEDIN}
-      class="bg-social-linkedin rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-800"
-    >
-      <img src="/images/linkedin.svg" alt="LinkedIn" class="pb-1 -mt-1" />
-    </a>
-  </div>
+<div
+  class="col-span-4 flex justify-between lg:justify-start items-center gap-2 bg-graphite-800 rounded-full pl-10 pr-8 py-4"
+>
   <div
-    class="text-[36px] leading-[32px] lg:leading-[24px] py-4 order-4 lg:order-2 lg:px-4"
+    class="md:flex gap-1 flex-1 text-[24px] leading-[32px] lg:leading-[24px] text-center"
   >
-    Aleks is a product designer and web developer
+    <p class="font-medium">Work with me</p>
+    <a href="mailto:hello@alexpetrov.com" class="underline">
+      hello@alexpetrov.com</a
+    >
+  </div>
+  <div class="hidden flex-1 md:flex-initial md:flex gap-2">
+    <a
+      href="/services"
+      class="flex-1 md:w-64 border rounded-full px-8 inline-flex items-center text-[20px] my-1 justify-center h-12"
+    >
+      Services
+    </a>
+    <div class="-space-x-4">
+      <a
+        href={TWITTER}
+        class="bg-social-twitter rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-800 relative"
+      >
+        <img src="/images/twitter.svg" alt="Twitter" />
+      </a>
+      <a
+        href={LINKEDIN}
+        class="bg-social-linkedin rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-800"
+      >
+        <img src="/images/linkedin.svg" alt="LinkedIn" class="pb-1 -mt-1" />
+      </a>
+    </div>
   </div>
 </div>

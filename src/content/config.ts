@@ -5,6 +5,7 @@ const blogCollection = defineCollection({
     isDraft: z.boolean(),
     isFeatured: z.boolean(),
     layout: z.literal("../../layouts/ArticleLayout.astro"),
+    titleBold: z.string().optional(),
     title: z.string(),
     tags: z.array(z.string()),
     image: z
