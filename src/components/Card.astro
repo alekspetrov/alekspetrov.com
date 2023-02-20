@@ -10,6 +10,7 @@ export interface Props {
   description?: string;
   imageUrl?: string;
   imageAlt?: string;
+  imageRound?: boolean;
   link?: string;
   class?: string;
   arrow?: "up" | "down" | "right";
@@ -22,6 +23,7 @@ const {
   description,
   imageUrl,
   imageAlt,
+  imageRound = true,
   link,
   arrow,
   class: className,
@@ -30,39 +32,46 @@ const {
 
 <a
   href={link}
-  class={`${className} rounded-2xl p-6 lg:p-8 flex flex-col min-h-[225px] overflow-hidden`}
+  class={`${className} p-2 lg:p-4 rounded-2xl flex flex-col min-h-[225px] overflow-hidden`}
 >
-  {
-    label && (
-      <div class="mb-6 font-sans-2 text-sm font-semibold uppercase tracking-widest opacity-70">
-        {label}
-      </div>
-    )
-  }
-  {
-    title && (
-      <h3 class="mb-2 flex-1 text-[1.625rem] leading-[1.75rem]">
-        {titleBold && <span class="font-semibold">{titleBold}</span>} {title}
-      </h3>
-    )
-  }
   {
     imageUrl && (
       <img
         src={imageUrl}
         alt={imageAlt}
-        class="orverflow-hidden rounded-6 block w-full rounded-xl border border-graphite-700"
+        class:list={[
+          "orverflow-hidden block w-full border border-graphite-700",
+          { "rounded-xl": imageRound },
+        ]}
       />
     )
   }
-  {
-    (description || arrow) && (
-      <div class="mt-6 flex items-center justify-between ">
-        <p class="opacity-70">{description}</p>
-        {arrow === "up" && <ArrowUp class="h-3 lg:h-8" />}
-        {arrow === "down" && <ArrowDown class="h-3 lg:h-8" />}
-        {arrow === "right" && <ArrowRight class="h-3 lg:h-8" />}
-      </div>
-    )
-  }
+
+  <div class="p-4 lg:p-6 h-full flex flex-col">
+    {
+      label && (
+        <div class="mb-6 font-sans-2 text-sm font-semibold uppercase tracking-widest opacity-70">
+          {label}
+        </div>
+      )
+    }
+    {
+      (title || titleBold) && (
+        <h3 class="flex-1 text-xl text-white text-opacity-70 md:text-3xl">
+          {titleBold && <span class="font-medium text-white">{titleBold}</span>}
+          {title}
+        </h3>
+      )
+    }
+    {
+      (description || arrow) && (
+        <div class="mt-1 flex items-center justify-between">
+          <p class="text-white text-opacity-70">{description}</p>
+          {arrow === "up" && <ArrowUp class="h-3 lg:h-8" />}
+          {arrow === "down" && <ArrowDown class="h-3 lg:h-8" />}
+          {arrow === "right" && <ArrowRight class="h-3 lg:h-8" />}
+        </div>
+      )
+    }
+  </div>
 </a>

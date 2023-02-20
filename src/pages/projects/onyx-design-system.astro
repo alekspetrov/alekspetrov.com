@@ -1,0 +1,72 @@
+---
+import PageHeader from "../../components/PageHeader.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Image from "../../components/Image.astro";
+import Card from "../../components/Card.astro";
+---
+
+<BaseLayout>
+  <PageHeader
+    class="bg-no-repeat bg-cover bg-center bg-[url(/images/projects/onyx/title_bg.png)]"
+    title="Onyx"
+    text="Design System for data-intensive applications"
+  />
+  <Card
+    imageRound={false}
+    class="bg-graphite-800 col-span-4"
+    imageUrl="/images/projects/onyx/1.png"
+    imageAlt="Onyx based application screenshot"
+    titleBold="Newsletters Management"
+    description="Example of data-intensive application build with Onyx"
+  />
+  <Card
+    class="bg-graphite-800 col-span-4"
+    imageUrl="/images/projects/onyx/2.png"
+    imageAlt="Color combinations"
+    imageAlt="Color combination system"
+    titleBold="Colors combination system"
+    description="Each color and shade has been carefully selected and tested"
+  />
+  <Card
+    class="bg-graphite-800 col-span-4"
+    imageUrl="/images/projects/onyx/3.png"
+    imageAlt="Color paletts"
+    titleBold="Color paletts"
+    description="Color paletts include 12 shades of 7 different colors. Each color has a different purpose and can be used in different contexts. The pallet is easy to use and scale"
+  />
+  <Card
+    class="bg-graphite-800 col-span-4"
+    imageUrl="/images/projects/onyx/4.png"
+    imageAlt="Typography settings"
+    titleBold="Typography settings"
+    description="Onyx contains 40 carefully selected settings to ensure that typography is consistent and covers different products and marketing needs. By following these guidelines, you can create designs that are both visually appealing and easy to read"
+  />
+  <Card
+    class="bg-graphite-800 col-span-4"
+    imageUrl="/images/projects/onyx/5.png"
+    imageAlt="Typography stress test"
+    titleBold="Typography stress test"
+    description="Font styles are tested on different layouts in many contexts"
+  />
+  <Card
+    class="bg-graphite-800 col-span-4"
+    imageUrl="/images/projects/onyx/6.png"
+    imageAlt="Selectors preview"
+    titleBold="UX sidenotes"
+    description="To ensure that the design system is easy to use, I have created a set of guidelines for designers and developers"
+  />
+  <Card
+    class="bg-graphite-800 col-span-4"
+    imageUrl="/images/projects/onyx/7.png"
+    imageAlt="Buttons preview"
+    titleBold="480 Buttons"
+    description="Buttons are the most important element of any interface. Onyx contains a set of 480 styles and sizes for buttons, which can be used in different contexts"
+  />
+  <Card
+    class="bg-graphite-800 col-span-4"
+    imageUrl="/images/projects/onyx/8.png"
+    imageAlt="Icon set"
+    titleBold="Icon set"
+    description="Onyx uses LucidIcons set which is open-source and free to use fork of Fearher icons. It includes 882 icons. This set works extremely well for data-intensive applications"
+  />
+</BaseLayout>

@@ -5,18 +5,29 @@ export interface Props {
   link?: string;
   class?: string;
   size?: "half" | "full";
+  rounded?: boolean;
 }
 
-const { imageUrl, imageAlt, link, class: className, size }: Props = Astro.props;
+const {
+  imageUrl,
+  rounded = true,
+  imageAlt,
+  link,
+  class: className,
+  size,
+}: Props = Astro.props;
 ---
 
 <a
   href={link}
-  class={`${className} rounded-2xl p-2 lg:p-4 flex flex-col overflow-hidden`}
+  class:list={[className, "p-2 lg:p-4 flex flex-col overflow-hidden"]}
 >
   <img
     src={imageUrl}
     alt={imageAlt}
-    class="block rounded-xl overflow-hidden border border-graphite-700"
+    class:list={[
+      "block overflow-hidden border border-graphite-700",
+      { "rounded-2xl": rounded },
+    ]}
   />
 </a>
