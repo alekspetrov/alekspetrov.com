@@ -5,10 +5,10 @@ import Image from "../components/Image.astro";
 ---
 
 <BaseLayout>
-  <div class="space-y-2">
-    <section class="lg:space-y-0 flex flex-col lg:flex-row gap-2">
+  <div class="space-y-4">
+    <div class="flex space-x-4">
       <Card
-        class="bg-brand-indigo text-graphite-100 flex-1"
+        class="bg-brand-indigo flex-1"
         label="Latest project"
         title="Content Genius — is an AI-based publishing platform made for creative people"
         description="Product design & development"
@@ -16,39 +16,48 @@ import Image from "../components/Image.astro";
         arrow="up"
       />
       <Image
-        class="flex-1"
+        class="bg-graphite-800 flex-1"
         imageUrl="/images/cg-preview-analytics.png"
         imageAlt="Content Genius analitics screenshot"
       />
-    </section>
-    <div
-      class="text-[24px] leading-[28px] lg:text-[32px] lg:leading-8 py-4 text-graphite-600 dark:text-graphite-200 antialiased"
-    >
-      Since 2010, Aleks has been providing design and development services for
-      startups and established businesses in the fields of Fintech, E-commerce,
-      and AI innovations. He consistently delivers user-friendly, high-quality
-      solutions that are performance-driven and loved by users.
     </div>
-    <section>
+
+    <div class="bg-graphite-800 rounded-3xl rounded-6 overflow-hidden pb-8">
       <a href="https://contentgenius.io">
         <Image
-          class="mb-4"
           imageUrl="/images/cg-lp-preview-with-analytics.png"
           imageAlt="Content Genius Landing Page preview"
         />
       </a>
-      <div class="lg:flex justify-between">
-        <div class="font-sans-2">
-          <div
-            class="text-[16px] leading-[24px] lg:text-[28px] lg:leading-[32px] text-graphite-900 dark:text-graphite-200 lg:mb-2"
-          >
-            Landing page for Content Genius.
-          </div>
-          <div class="text-graphite-900 dark:text-graphite-400 opacity-60">
-            Design & development
-          </div>
+      <div class="px-10">
+        <div
+          class="text-[16px] leading-[24px] lg:text-[28px] lg:leading-[32px] lg:mb-2"
+        >
+          Landing page for Content Genius
+        </div>
+        <div class="text-graphite-400 opacity-60 font-sans-2 text-xl">
+          Design & development
         </div>
       </div>
-    </section>
+    </div>
+
+    <div class="bg-graphite-800 rounded-3xl rounded-6 overflow-hidden pb-8">
+      <a href="https://contentgenius.io">
+        <Image
+          imageUrl="/images/cg-lp-preview-with-analytics.png"
+          imageAlt="Content Genius Landing Page preview"
+        />
+      </a>
+      <div class="px-10">
+        <div
+          class="text-[16px] leading-[24px] lg:text-[28px] lg:leading-[32px] lg:mb-2"
+        >
+          Landing page for Content Genius
+        </div>
+        <div class="text-graphite-400 opacity-60 font-sans-2 text-xl">
+          Design & development
+        </div>
+      </div>
+    </div>
   </div>
 </BaseLayout>

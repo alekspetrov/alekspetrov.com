@@ -9,8 +9,6 @@ export interface Props {
 const { imageUrl, imageAlt, link, class: className }: Props = Astro.props;
 ---
 
-<div
-  class={`${className} lg:p-5 rounded-3xl border border-graphite-200 dark:border-graphite-600 block overflow-hidden`}
->
+<div class={`${className} lg:p-6 rounded-3xl block overflow-hidden`}>
   <img src={imageUrl} alt={imageAlt} class="block rounded-xl overflow-hidden" />
 </div>

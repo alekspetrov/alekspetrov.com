@@ -2,36 +2,37 @@
 import { LINKEDIN, TWITTER } from "../config.js";
 ---
 
-<div class="flex flex-wrap gap-2 mt-4 lg:mb-4">
-  <a
-    href="/"
-    class="w-14 h-14 border-4 border-graphite-100 dark:border-graphite-900 rounded-full block order-1"
-  >
+<div
+  class="flex justify-between lg:justify-start items-center gap-2 bg-graphite-800 rounded-full px-8 py-4"
+>
+  <a href="/" class="block w-14 h-14 border-4 border-graphite-800 rounded-full">
     <img src="/images/avatar.png" alt="Aleks Petrov" />
   </a>
-  <a
-    href="/blog"
-    class="border border-graphite-900 dark:border-graphite-100 rounded-full px-8 inline-flex items-center text-[20px] my-1 flex-1 justify-center order-2 lg:order-3"
-  >
-    Blog
-  </a>
-  <div class="-space-x-4 order-3 lg:order-4">
-    <a
-      href={TWITTER}
-      class="bg-social-twitter rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-100 dark:border-graphite-900 relative"
-    >
-      <img src="/images/twitter.svg" alt="Twitter" />
-    </a>
-    <a
-      href={LINKEDIN}
-      class="bg-social-linkedin rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-100 dark:border-graphite-900"
-    >
-      <img src="/images/linkedin.svg" alt="LinkedIn" class="pb-1 -mt-1" />
-    </a>
-  </div>
   <div
-    class="text-[36px] leading-[32px] lg:leading-[24px] py-4 order-4 lg:order-2 lg:px-4"
+    class="hidden flex-1 lg:inline-block text-[24px] leading-[32px] lg:leading-[24px]"
   >
-    Aleks is a product designer and web developer
+    Product designer & web developer
+  </div>
+  <div class="flex-1 md:flex-initial flex gap-2">
+    <a
+      href="/blog"
+      class="flex-1 md:w-64 border rounded-full px-8 inline-flex items-center text-[20px] my-1 justify-center h-12"
+    >
+      Blog
+    </a>
+    <div class="-space-x-4">
+      <a
+        href={TWITTER}
+        class="bg-social-twitter rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-800 relative"
+      >
+        <img src="/images/twitter.svg" alt="Twitter" />
+      </a>
+      <a
+        href={LINKEDIN}
+        class="bg-social-linkedin rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-800"
+      >
+        <img src="/images/linkedin.svg" alt="LinkedIn" class="pb-1 -mt-1" />
+      </a>
+    </div>
   </div>
 </div>

@@ -30,17 +30,22 @@ const {
   href={link}
   class={`${className} rounded-2xl p-6 flex flex-col min-h-[225px] overflow-hidden`}
 >
-  <div class="font-sans-2 opacity-60 mb-2">{label}</div>
+  {label && <div class="mb-2 font-sans-2 opacity-60">{label}</div>}
   {
     title && (
       <h3 class="mb-2 flex-1 text-[1.625rem] leading-[1.75rem]">{title}</h3>
     )
   }
-  {imageUrl && <img src={imageUrl} alt={imageAlt} class="block" />}
-  <div class="flex justify-between">
-    <p class="font-sans-2 opacity-60">{description}</p>
-    {arrow === "up" && <ArrowUp class="lg:h-8 lg:w-8" />}
-    {arrow === "down" && <ArrowDown class="lg:h-8 lg:w-8" />}
-    {arrow === "right" && <ArrowRight class="lg:h-8 lg:w-8" />}
-  </div>
+  {imageUrl && <img src={imageUrl} alt={imageAlt} class="inline-block" />}
+  {
+    description ||
+      (arrow && (
+        <div class="flex justify-between">
+          {description && <p class="font-sans-2 opacity-60">{description}</p>}
+          {arrow === "up" && <ArrowUp class="lg:h-8 lg:w-8" />}
+          {arrow === "down" && <ArrowDown class="lg:h-8 lg:w-8" />}
+          {arrow === "right" && <ArrowRight class="lg:h-8 lg:w-8" />}
+        </div>
+      ))
+  }
 </a>

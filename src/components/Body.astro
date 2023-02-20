@@ -12,10 +12,8 @@ const maxWidthClass = {
 }[maxWidth];
 ---
 
-<body
-  class="relative bg-graphite-100 text-graphite-900 dark:bg-graphite-900 dark:text-graphite-100"
->
-  <main class={`${maxWidthClass} mx-auto px-2`}>
+<body class="bg-graphite-900 text-graphite-100">
+  <main class={`${maxWidthClass} mx-auto px-2 space-y-4 py-4`}>
     <slot />
   </main>
 </body>
