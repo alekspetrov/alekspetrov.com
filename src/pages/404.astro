@@ -1,8 +1,16 @@
 ---
+import PageHeader from "../components/PageHeader.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout>
-  <h2 class="title mr-2">404</h2>
-  <p>Page not found.</p>
+<BaseLayout title="Page not found" description="Empty page">
+  <PageHeader title="404" text="Page not found!" />
+  <div class="bg-graphite-800 col-span-4 rounded-2xl py-12 text-center">
+    <a
+      href="/"
+      class="flex-1 md:w-64 border rounded-full px-8 inline-flex items-center text-xl lg:text-2xl my-1 justify-center h-12"
+    >
+      Go to main page
+    </a>
+  </div>
 </BaseLayout>
