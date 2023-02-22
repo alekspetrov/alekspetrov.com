@@ -14,6 +14,6 @@ const allBlogPosts = await getCollection("blog", ({ data }) => {
 // );
 ---
 
-<BaseLayout>
+<BaseLayout title="Blog" description="Product design and development articles.">
   <PostList posts={allBlogPosts} />
 </BaseLayout>

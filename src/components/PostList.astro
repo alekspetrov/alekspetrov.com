@@ -11,7 +11,7 @@ const sortedAscByDatePosts = posts.sort((a, b) => {
 <ul class="space-y-5 col-span-4">
   <li class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
     {
-      sortedAscByDatePosts.map((post) => {
+      sortedAscByDatePosts.map((post) => (
         <div class="rounded-2xl bg-graphite-800">
           <Card
             label={dateToLocale(post.data.publishDate)}
@@ -21,8 +21,8 @@ const sortedAscByDatePosts = posts.sort((a, b) => {
             description={post.data.description}
             arrow={"down"}
           />
-        </div>;
-      })
+        </div>
+      ))
     }
   </li>
 </ul>
