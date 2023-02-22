@@ -7,6 +7,7 @@ export interface Props {
   label?: string;
   title?: string;
   titleBold?: string;
+  text?: string;
   description?: string;
   imageUrl?: string;
   imageAlt?: string;
@@ -21,6 +22,7 @@ const {
   title,
   titleBold,
   description,
+  text,
   imageUrl,
   imageAlt,
   imageRound = true,
@@ -57,16 +59,25 @@ const {
     }
     {
       (title || titleBold) && (
-        <h3 class="flex-1 text-xl text-white text-opacity-70 md:text-3xl">
+        <h3 class="mb-3 flex-1 text-xl text-white text-opacity-70 md:text-3xl">
           {titleBold && <span class="font-medium text-white">{titleBold}</span>}
           {title}
         </h3>
       )
     }
     {
+      text && (
+        <p class="text-md h-full text-white text-opacity-70 md:text-xl">
+          {text}
+        </p>
+      )
+    }
+    {
       (description || arrow) && (
         <div class="mt-1 flex items-center justify-between">
-          <p class="text-white text-opacity-70">{description}</p>
+          <p class="text-md text-white text-opacity-70 md:text-xl">
+            {description}
+          </p>
           {arrow === "up" && <ArrowUp class="h-3 lg:h-8" />}
           {arrow === "down" && <ArrowDown class="h-3 lg:h-8" />}
           {arrow === "right" && <ArrowRight class="h-3 lg:h-8" />}
