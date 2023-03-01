@@ -24,9 +24,12 @@ const { title, titleBold, description } = Astro.props;
       description={description}
     />
   </head>
-  <Body maxWidth="wide">
+
+  <body class="bg-graphite-100 text-graphite-900 antialiased">
     <Header />
-    <slot />
+    <main class="max-w-[1440px] mx-auto grid grid-cols-4 gap-2 p-2">
+      <slot />
+    </main>
     <Footer />
-  </Body>
+  </body>
 </html>
