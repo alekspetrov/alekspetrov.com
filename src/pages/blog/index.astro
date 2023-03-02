@@ -20,9 +20,9 @@ const description =
 <BaseLayout title="Blog" description={description}>
   <div
     role="banner"
-    class="h-[480px] pb-20 justify-center px-16 flex gap-24 items-end"
+    class="h-[480px] pb-20 justify-center px-16 wrapper flex gap-24 items-end"
   >
-    <h1 class="text-huge text-gray-100 mb-8 md:mb-0 flex-1">Articles</h1>
+    <h1 class="text-huge text-gray-100 mb-8 md:mb-0 flex-1">Blog</h1>
     <div class="w-1/3 pl-12">
       <p class="text-gray-300">
         Writing about product design, user experience research, development and
@@ -30,7 +30,9 @@ const description =
       </p>
     </div>
   </div>
-  <div class="px-16 py-12 bg-gray-100">
-    <PostList posts={allBlogPosts} />
+  <div class="bg-gray-100">
+    <div class="wrapper px-16 py-16">
+      <PostList posts={allBlogPosts} />
+    </div>
   </div>
 </BaseLayout>

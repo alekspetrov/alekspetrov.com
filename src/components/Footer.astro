@@ -3,25 +3,13 @@ import { LINKEDIN_URL, TWITTER_URL } from "../config.js";
 const year = new Date().getFullYear();
 ---
 
-<!-- <div class="bg-gray-200 px-16 py-[120px] text-center">
-  <img
-    src="/images/aleks-petrov.png"
-    alt="Aleks Petrov"
-    class="w-32 h-32 rounded-full mx-auto mb-8"
-  />
-  <h3 class="text-title font-bold text-black">
-    I trasform ideas into products
-  </h3>
-  <a
-    href="mailto:hello@alekspetrov.com"
-    class="font-medium border border-gray-300 px-12 py-4 rounded-full inline-block mt-6"
-    >Contact me</a
-  > -->
-<div class="bg-black px-16 py-12 flex justify-between max-w-[1280px] mx-auto">
-  <div>© Aleks Petrov, {year}</div>
-  <div class="space-x-16">
-    <span>Follow me</span>
-    <a href={TWITTER_URL} class="text-gray-100 font-medium">Twitter</a>
-    <a href={LINKEDIN_URL} class="text-gray-100 font-medium">LinkedIn</a>
+<div class="bg-black">
+  <div class="wrapper px-16 py-12 flex justify-between text-gray-500">
+    <div>© Aleks Petrov, {year}</div>
+    <div class="space-x-16">
+      <span>Follow me</span>
+      <a href={TWITTER_URL} class="text-gray-100 font-medium">Twitter</a>
+      <a href={LINKEDIN_URL} class="text-gray-100 font-medium">LinkedIn</a>
+    </div>
   </div>
 </div>

@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Open Sauce", "system-ui", "sans-serif"],
+        sans: ["SF Pro Display", "Open Sauce Sans", "system-ui", "sans-serif"],
       },
     },
     colors: {
