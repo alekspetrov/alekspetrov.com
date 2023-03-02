@@ -1,61 +1,145 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Card from "../components/Card.astro";
-import Image from "../components/Image.astro";
+import { OG_DEFAULT_IMAGE, OG_DEFAULT_DESCRIPTION } from "../config";
 ---
 
-<BaseLayout>
-  <Card
-    class="bg-brand-indigo col-span-4 md:col-span-2"
-    label="In Progress"
-    titleBold="Content Genius"
-    title="is an AI-based publishing platform made for creative people looking for their audience"
-    description="Product design & development"
-    link="https://contentgenius.io"
-    arrow="up"
-  />
-  <Image
-    size="half"
-    class="bg-graphite-800 col-span-4 md:col-span-2"
-    imageUrl="/images/cg-preview-analytics.png"
-    imageAlt="Content Genius analitics screenshot"
-    link="https://contentgenius.io"
-  />
-  <Image
-    size="full"
-    class="bg-graphite-800 col-span-4"
-    link="https://contentgenius.io"
-    imageUrl="/images/cg-lp-preview-with-analytics.png"
-    imageAlt="Content Genius landing page preview"
-  />
-  <a
-    href="/projects/trading-platform"
-    class="col-span-4 bg-graphite-800 rounded-xl overflow-hidden"
+<BaseLayout
+  title="Aleks Petrov | Product Designer & Developer"
+  description="Digital product designer and developer based in Central Europe. I design and build digital products for startups and enterprises."
+  openGraph={{
+    image: OG_DEFAULT_IMAGE,
+    description: OG_DEFAULT_DESCRIPTION,
+  }}
+>
+  <div
+    role="banner"
+    class="h-[480px] pb-[80px] justify-center px-16 flex gap-16 items-end wrapper"
   >
-    <div class="text-center px-6 py-8 md:py-12">
-      <h3 class="flex-1 text-xl md:text-3xl font-medium">
-        Crypto Trading Platform
-      </h3>
-      <p class="text-sm md:text-lg text-graphite-450">Design Concept</p>
+    <h1 class="text-huge text-gray-100 mb-8 md:mb-0 w-2/3">
+      Product Designer <br />& Developer
+    </h1>
+    <div class="w-1/3 pl-12">
+      <p class="text-gray-300">
+        Focusing on data-intensive applications, design systems and user
+        experience researches
+      </p>
     </div>
-    <img
-      class="w-full"
-      src="/images/crypto_trading_platform.png"
-      alt="Crypto Trading Platform UI"
-    />
-  </a>
-  <a
-    href="/projects/corporate-design-system"
-    class="col-span-4 md:col-span-2 bg-graphite-800 rounded-xl overflow-hidden bg-no-repeat bg-cover bg-center bg-[url(/images/projects/corporate-design-system/corporate_banner.png)] min-h-[280px] md:min-h-[320px] flex items-center justify-center text-center"
-  >
-  </a>
-  <Card
-    class="bg-graphite-800 col-span-4 md:col-span-2"
-    label="Coming soon"
-    titleBold="Corporate"
-    title="is a design system made for platforms and data-intensive applications"
-    description="Design"
-    link="/projects/corporate-design-system"
-    arrow="down"
-  />
+  </div>
+  <!-- Selected Projects -->
+  <div class="bg-gray-200 px-16 py-[80px]">
+    <a href="/projects/trading-platform" class="block space-y-8 wrapper">
+      <img
+        class="w-full shadow-xl"
+        src="/images/projects/trading-platform/1.png"
+        alt="Crypto Trading Platform UI"
+      />
+      <div class="text-gray-600 flex px-16">
+        <div class="w-3/4">
+          <h3 class="text-title text-gray-900">Crypto Exchange Platform</h3>
+          <p class="text-small">Design Concept</p>
+        </div>
+        <div class="text-small w-1/4 text-right">2023</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="px-16 py-[80px]">
+    <div class="flex gap-16 wrapper pr-16">
+      <a href="/projects/trading-platform" class="w-3/4">
+        <img
+          class="w-full shadow-xl"
+          src="/images/projects/platforms-ui/1.png"
+          alt="Crypto Trading Platform UI"
+        />
+      </a>
+      <div class="py-4 w-1/4 flex flex-col text-gray-500">
+        <h3 class="text-title text-gray-100 font-bold mb-3">
+          FinTech Dashboard
+        </h3>
+        <p class="flex-1">
+          Dashboard for fintech company to manage their clients, transactions,
+          spikes, and other data.
+        </p>
+        <div class="text-small">
+          <div class="text-gray-100">Responsibilities</div>
+          <p class="mb-4">
+            Product design, design system, frontend development
+          </p>
+          <div>2022</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-[80px] bg-gray-200">
+    <div class="block space-y-12 overflow-x-hidden">
+      <a
+        href="/projects/trading-platform"
+        class="flex justify-center space-x-12 text-gray-600"
+      >
+        <img
+          class="w-full shadow-2xl"
+          src="/images/projects/platforms-ui/3.png"
+          alt="Crypto Trading Platform UI"
+        />
+        <img
+          class="w-full shadow-2xl"
+          src="/images/projects/platforms-ui/4.png"
+          alt="Crypto Trading Platform UI"
+        />
+        <img
+          class="w-full shadow-2xl"
+          src="/images/projects/platforms-ui/5.png"
+          alt="Crypto Trading Platform UI"
+        />
+      </a>
+      <div class="flex gap-16 wrapper px-16 text-gray-600">
+        <div class="w-3/4">
+          <h3 class="text-title text-gray-900 font-bold">Email Automation</h3>
+          <p>Internal usage email automation web-application.</p>
+        </div>
+        <div class="text-small w-1/4">
+          <div class="text-gray-900">Responsibilities</div>
+          <div class="mb-4">Product design, frontend development</div>
+          <div>2022</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Learn more -->
+  <div class="flex justify-center py-16">
+    <a
+      href="/projects"
+      class="font-medium border border-gray-300 px-12 py-4 rounded-full"
+      >See more projects →</a
+    >
+  </div>
+  <!-- Side Projects -->
+  <div>
+    <div class="h-[240px] pt-[170px] justify-center flex gap-16 px-16 wrapper">
+      <h1 class="text-huge text-gray-100 flex-1 flex-end">Side Projects</h1>
+      <div class="w-1/3">
+        <p class="text-gray-300">
+          I'm always looking for new challenges and opportunities to learn new
+          things, and nothing better than side projects to do that
+        </p>
+      </div>
+    </div>
+
+    <!-- 1 -->
+    <div class="block py-[80px] wrapper px-16">
+      <h3 class="text-title text-gray-100">Content Genius</h3>
+      <p class="mb-4">AI-Powered Publishing Platform</p>
+      <a class="text-[#D7009B] inline-block" href="https://contentgenius.io"
+        >https://contentgenius.io</a
+      >
+      <div class="-mx-10 -mt-8">
+        <img
+          class="w-full"
+          src="/images/projects/content-genius/2.png"
+          alt="Crypto Trading Platform UI"
+        />
+      </div>
+    </div>
+  </div>
 </BaseLayout>

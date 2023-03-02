@@ -32,10 +32,7 @@ const {
 }: Props = Astro.props;
 ---
 
-<a
-  href={link}
-  class={`${className} p-2 lg:p-4 rounded-2xl flex flex-col min-h-[225px] overflow-hidden`}
->
+<a href={link} class={`${className} p-6 bg-gray-100 min-h-[760px]`}>
   {
     imageUrl && (
       <img
@@ -49,40 +46,28 @@ const {
     )
   }
 
-  <div class="p-4 lg:p-6 h-full flex flex-col">
+  <!-- <div class="p-4 lg:p-6 h-full flex flex-col">
     {
       label && (
-        <div class="mb-6 font-sans-2 text-sm font-semibold uppercase tracking-widest opacity-70">
+        <div class="text-sm  mb-6 font-semibold uppercase tracking-widest opacity-70">
           {label}
         </div>
       )
     }
     {
       (title || titleBold) && (
-        <h3 class="mb-3 flex-1 text-xl text-white text-opacity-70 md:text-3xl">
-          {titleBold && <span class="font-medium text-white">{titleBold}</span>}
+        <h3 class="text-xl text-white md:text-3xl mb-3 flex-1 text-opacity-70">
+          {titleBold && <span class="text-white font-medium">{titleBold}</span>}
           {title}
         </h3>
       )
     }
     {
       text && (
-        <p class="text-md h-full text-white text-opacity-70 md:text-xl">
+        <p class="text-md text-white md:text-xl h-full text-opacity-70">
           {text}
         </p>
       )
     }
-    {
-      (description || arrow) && (
-        <div class="mt-1 flex items-center justify-between">
-          <p class="text-md text-white text-opacity-70 md:text-xl">
-            {description}
-          </p>
-          {arrow === "up" && <ArrowUp class="h-3 lg:h-8" />}
-          {arrow === "down" && <ArrowDown class="h-3 lg:h-8" />}
-          {arrow === "right" && <ArrowRight class="h-3 lg:h-8" />}
-        </div>
-      )
-    }
-  </div>
+  </div> -->
 </a>

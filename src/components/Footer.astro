@@ -1,30 +1,27 @@
 ---
-import { LINKEDIN, TWITTER } from "../config.js";
+import { LINKEDIN_URL, TWITTER_URL } from "../config.js";
+const year = new Date().getFullYear();
 ---
 
-<div
-  class="col-span-4 flex justify-between lg:justify-start items-center gap-2 bg-graphite-800 rounded-full pl-10 px-4 py-2"
->
-  <div class="md:flex gap-1 flex-1 text-xl md:text-2xl text-center">
-    <p class="font-medium">Work with me</p>
-    <a href="mailto:hello@alexpetrov.com" class="underline">
-      hello@alexpetrov.com</a
-    >
-  </div>
-  <div class="hidden flex-1 md:flex-initial md:flex gap-2">
-    <div class="-space-x-4">
-      <a
-        href={TWITTER}
-        class="bg-social-twitter rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-800 relative"
-      >
-        <img src="/images/twitter.svg" alt="Twitter" />
-      </a>
-      <a
-        href={LINKEDIN}
-        class="bg-social-linkedin rounded-full inline-flex items-center justify-center w-14 h-14 border-4 border-graphite-800"
-      >
-        <img src="/images/linkedin.svg" alt="LinkedIn" class="pb-1 -mt-1" />
-      </a>
-    </div>
+<!-- <div class="bg-gray-200 px-16 py-[120px] text-center">
+  <img
+    src="/images/aleks-petrov.png"
+    alt="Aleks Petrov"
+    class="w-32 h-32 rounded-full mx-auto mb-8"
+  />
+  <h3 class="text-title font-bold text-black">
+    I trasform ideas into products
+  </h3>
+  <a
+    href="mailto:hello@alekspetrov.com"
+    class="font-medium border border-gray-300 px-12 py-4 rounded-full inline-block mt-6"
+    >Contact me</a
+  > -->
+<div class="bg-black px-16 py-12 flex justify-between max-w-[1280px] mx-auto">
+  <div>© Aleks Petrov, {year}</div>
+  <div class="space-x-16">
+    <span>Follow me</span>
+    <a href={TWITTER_URL} class="text-gray-100 font-medium">Twitter</a>
+    <a href={LINKEDIN_URL} class="text-gray-100 font-medium">LinkedIn</a>
   </div>
 </div>

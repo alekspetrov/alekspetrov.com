@@ -8,8 +8,8 @@ import "../styles/fonts.pcss";
 import {
   SITE_TITLE,
   SITE_URL,
-  SITE_DESCRIPTION,
-  SITE_OG_IMAGE_URL,
+  OG_DEFAULT_DESCRIPTION,
+  OG_DEFAULT_IMAGE,
 } from "../config";
 
 export interface Props {
@@ -31,7 +31,7 @@ const { title, description, og_description, og_image } = Astro.props;
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
-<meta name="description" content={description || SITE_DESCRIPTION} />
+<meta name="description" content={description || OG_DEFAULT_DESCRIPTION} />
 <meta name="author" content="Aleksei Petrov" />
 
 <!-- Open Graph / Facebook / LinkedIn -->
@@ -46,7 +46,7 @@ const { title, description, og_description, og_image } = Astro.props;
 <meta
   name="image"
   property="og:image"
-  content={new URL(og_image || SITE_OG_IMAGE_URL, SITE_URL + "/images")}
+  content={new URL(og_image || OG_DEFAULT_IMAGE, SITE_URL + "/images")}
 />
 <meta />
 
@@ -57,7 +57,7 @@ const { title, description, og_description, og_image } = Astro.props;
 <meta property="twitter:description" content={og_description || ""} />
 <meta
   property="twitter.image"
-  content={new URL(og_image || SITE_OG_IMAGE_URL, SITE_URL + "/images")}
+  content={new URL(og_image || OG_DEFAULT_IMAGE, SITE_URL + "/images")}
 />
 
 <!-- Analytics -->

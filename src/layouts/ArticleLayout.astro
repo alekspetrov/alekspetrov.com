@@ -1,8 +1,9 @@
 ---
 import SubsForm from "../components/SubsForm.astro";
 import BaseHead from "../components/BaseHead.astro";
-import Body from "../components/Body.astro";
 import { dateToLocale } from "../utils/date";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 export interface Props {
   content: {
@@ -44,23 +45,22 @@ const {
       og_image={openGraph.image}
     />
   </head>
-  <Body maxWidth="narrow">
-    <a
-      class="px-4 py-2 fixed top-4 left-4 border bg-dark-bg rounded-full"
-      href="/blog"
-      >← Go Back
-    </a>
-    <article class="blog-content col-span-4 mt-24">
-      {image?.src && <img src={image.src} alt={image.alt} />}
-      <h1>
-        {titleBold && <span class="font-semibold">{titleBold}</span>}
-        {title}
-      </h1>
-      <time datetime={publishDate} class="block mb-8 text-graphite-400">
-        {dateToLocale(publishDate)}
-      </time>
-      <slot />
-      <SubsForm />
-    </article>
-  </Body>
+  <body class="bg-gray-100 text-gray-900 text-body antialiased">
+    <Header />
+    <main>
+      <article class="blog-content mt-[12%]">
+        {image?.src && <img src={image.src} alt={image.alt} />}
+        <h1>
+          {titleBold && <span class="">{titleBold}</span>}
+          {title}
+        </h1>
+        <time datetime={publishDate} class="block mb-8 text-graphite-400">
+          {dateToLocale(publishDate)}
+        </time>
+        <slot />
+        <SubsForm />
+      </article>
+    </main>
+    <Footer />
+  </body>
 </html>

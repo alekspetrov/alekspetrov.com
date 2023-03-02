@@ -1,5 +1,4 @@
 ---
-import Card from "./Card.astro";
 import { dateToLocale } from "../utils/date";
 const { posts } = Astro.props;
 
@@ -8,21 +7,26 @@ const sortedAscByDatePosts = posts.sort((a, b) => {
 });
 ---
 
-<ul class="space-y-5 col-span-4">
-  <li class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-    {
-      sortedAscByDatePosts.map((post) => (
-        <div class="rounded-2xl bg-graphite-800">
-          <Card
-            label={dateToLocale(post.data.publishDate)}
-            titleBold={post.data.titleBold}
-            title={post.data.title}
-            link={`/blog/${post.slug}`}
-            description={post.data.description}
-            arrow={"down"}
-          />
-        </div>
-      ))
-    }
-  </li>
+<ul class="grid grid-cols-3 auto-rows-fr">
+  {
+    sortedAscByDatePosts.map((post) => {
+      return (
+        <a
+          href={`/blog/${post.slug}`}
+          class="ml-[-1px] mt-[-1px] flex flex-col border p-8 transition duration-300 ease-in-out hover:relative hover:border-gray-300 hover:bg-white"
+        >
+          <div class="mb-2 text-[16px]">
+            {dateToLocale(post.data.publishDate)}
+          </div>
+          <h3 class="mb-4 text-medium text-gray-900">{post.data.title}</h3>
+          <p class="flex-1">{post.data.openGraph.description}</p>
+          <div class="mt-6 flex space-x-2 text-[16px]">
+            {post.data.tags.map((tag) => (
+              <div class="">#{tag}</div>
+            ))}
+          </div>
+        </a>
+      );
+    })
+  }
 </ul>
