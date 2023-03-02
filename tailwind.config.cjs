@@ -20,7 +20,7 @@ module.exports = {
         400: "#B5B5B5",
         300: "#D5D5D5",
         200: "#E5E6E8",
-        100: "#F4F5F5",
+        100: "#F8F9FA",
       },
       social: {
         twitter: "#1DA1F2",
@@ -40,7 +40,7 @@ module.exports = {
         },
       ],
       large: [
-        "4rem",
+        "3.75rem",
         {
           lineHeight: "1.1em",
           letterSpacing: "-0.01em",
@@ -48,7 +48,7 @@ module.exports = {
         },
       ],
       medium: [
-        "2rem",
+        "1.75rem",
         {
           lineHeight: "1.1em",
           letterSpacing: "-0.01em",
@@ -64,7 +64,7 @@ module.exports = {
         },
       ],
       body: [
-        "1.125rem",
+        "1.09375rem",
         {
           lineHeight: "1.5em",
           letterSpacing: "0",
@@ -72,10 +72,10 @@ module.exports = {
         },
       ],
       small: [
-        "1rem",
+        "0.9375rem",
         {
           lineHeight: "1.5em",
-          letterSpacing: "0",
+          letterSpacing: "-0.01em",
           fontWeight: "400",
         },
       ],

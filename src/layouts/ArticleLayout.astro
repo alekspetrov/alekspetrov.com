@@ -49,14 +49,15 @@ const {
     <Header />
     <main>
       <article class="blog-content">
-        {image?.src && <img src={image.src} alt={image.alt} />}
-        <h1>
-          {titleBold && <span class="">{titleBold}</span>}
-          {title}
-        </h1>
-        <time datetime={publishDate} class="block mb-8 text-graphite-400">
-          {dateToLocale(publishDate)}
-        </time>
+        <header class="border-b pb-8 mb-12">
+          <time
+            datetime={publishDate}
+            class="block mb-8 font-medium text-gray-600 text-small"
+          >
+            {dateToLocale(publishDate)}
+          </time>
+          <h1 class="mb-6 text-large font-extrabold">{title}</h1>
+        </header>
         <slot />
         <SubsForm />
       </article>

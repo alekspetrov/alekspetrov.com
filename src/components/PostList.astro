@@ -7,7 +7,7 @@ const sortedAscByDatePosts = posts.sort((a, b) => {
 });
 ---
 
-<ul class="grid grid-cols-3 auto-rows-fr">
+<ul class="grid md:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
   {
     sortedAscByDatePosts.map((post) => {
       return (
@@ -15,15 +15,10 @@ const sortedAscByDatePosts = posts.sort((a, b) => {
           href={`/blog/${post.slug}`}
           class="ml-[-1px] mt-[-1px] flex flex-col border p-8 text-gray-700 transition duration-300 ease-in-out hover:relative hover:border-gray-900  "
         >
-          <div class="mb-2 text-small">
-            {dateToLocale(post.data.publishDate)}
-          </div>
           <h3 class="mb-4 text-medium text-gray-900">{post.data.title}</h3>
-          <p class="flex-1">{post.data.openGraph.description}</p>
-          <div class="mt-6 flex space-x-2 text-small">
-            {post.data.tags.map((tag) => (
-              <div class="">#{tag}</div>
-            ))}
+          <p class="flex-1 text-small">{post.data.openGraph.description}</p>
+          <div class="mb-2 mt-8 text-small font-medium text-gray-600">
+            {dateToLocale(post.data.publishDate)}
           </div>
         </a>
       );

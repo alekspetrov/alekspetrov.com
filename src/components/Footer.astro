@@ -4,12 +4,12 @@ const year = new Date().getFullYear();
 ---
 
 <div class="bg-black">
-  <div class="wrapper px-16 py-12 flex justify-between text-gray-500">
+  <div
+    class="wrapper px-8 md:px-16 py-12 flex justify-between text-small text-gray-600"
+  >
     <div>© Aleks Petrov, {year}</div>
-    <div class="space-x-16">
-      <span>Follow me</span>
-      <a href={TWITTER_URL} class="text-gray-100 font-medium">Twitter</a>
-      <a href={LINKEDIN_URL} class="text-gray-100 font-medium">LinkedIn</a>
-    </div>
+    <a href="/blog" class="text-gray-100 font-medium">Blog</a>
+    <a href={LINKEDIN_URL} class="text-gray-100 font-medium">LinkedIn</a>
+    <a href={TWITTER_URL} class="text-gray-100 font-medium">Twitter</a>
   </div>
 </div>
