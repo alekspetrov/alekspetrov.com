@@ -1,10 +1,22 @@
 ---
 import { LINKEDIN_URL, TWITTER_URL } from "../config.js";
+
+export interface Props {
+  theme?: "light" | "dark" | "gray";
+}
+
+const { theme = "dark" } = Astro.props;
+
+const classes = {
+  light: "bg-white text-gray-900",
+  dark: "bg-black text-gray-100",
+  gray: "bg-gray-100 text-gray-900",
+};
 ---
 
-<div class="bg-black">
+<div class={classes[theme]}>
   <div
-    class="flex justify-between px-8 md:px-16 py-6 font-medium text-gray-100 max-w-[1280px] mx-auto"
+    class="flex justify-between px-8 md:px-16 py-6 font-medium max-w-[1280px] mx-auto"
   >
     <a href="/">Aleks Petrov</a>
     <a href="/blog">Blog</a>

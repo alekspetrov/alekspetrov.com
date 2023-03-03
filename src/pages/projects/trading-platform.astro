@@ -1,37 +1,29 @@
 ---
-import PageHeader from "../../components/PageHeader.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Image from "../../components/Image.astro";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
 
-const title = "Crypto Trading Platform";
-const description = "Design concept for a modern crypto trading platform.";
+const title = "Crypto Exhange Platform";
+const description = "Design concept of a crypto exchange platform";
 ---
 
-<BaseLayout description={description} title={title}>
-  <PageHeader title={title} text="Design Concept" />
-  <Image
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/trading-platform/1.png"
-    imageAlt="Crypto trading platform screenshot"
-  />
-  <Image
-    class="bg-graphite-800 col-span-2 md:col-span-1"
-    imageUrl="/images/projects/trading-platform/2.png"
-    imageAlt="Crypto trading platform screenshot"
-  />
-  <Image
-    class="bg-graphite-800 col-span-2 md:col-span-1"
-    imageUrl="/images/projects/trading-platform/3.png"
-    imageAlt="Crypto trading platform screenshot"
-  />
-  <Image
-    class="bg-graphite-800 col-span-4 md:col-span-2"
-    imageUrl="/images/projects/trading-platform/6.png"
-    imageAlt="Crypto trading platform screenshot"
-  />
-  <Image
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/trading-platform/4.png"
-    imageAlt="Crypto trading platform screenshot"
-  />
-</BaseLayout>
+<ProjectLayout title={title} description={description}>
+  <div class="text-gray-300">
+    <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
+      <img
+        src="/images/projects/trading-platform/1.png"
+        alt="Crypto Trading Platform UI"
+        class="w-full"
+      />
+      <div class="pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16">
+        <p class="text-small lg:text-body group block max-w-[610px]">
+          The main screen includes all the best practices of trading platforms.
+          With a years of experience in design trading applications I know how
+          important to keep the best practices and make the user experience
+          smooth.
+        </p>
+      </div>
+    </div>
+
+    <p class="mb-20 max-w-[610px] px-8 md:px-16">Widgets</p>
+    <p class="mb-20 max-w-[610px] px-8 md:px-16">Markets info</p>
+  </div>
+</ProjectLayout>

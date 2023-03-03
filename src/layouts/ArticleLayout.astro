@@ -24,39 +24,35 @@ export interface Props {
 }
 
 const {
-  content: {
-    title,
-    titleBold,
-    description,
-    image,
-    openGraph,
-    publishDate,
-    tags,
-  },
+  content: { title, description, openGraph, publishDate },
 } = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <BaseHead
-      title={titleBold ? titleBold + " " + title : title}
+      title={title}
       description={description}
       og_description={openGraph.description}
       og_image={openGraph.image}
     />
   </head>
   <body class="bg-gray-100 text-gray-900 text-body antialiased">
-    <Header />
+    <Header theme="gray" />
     <main>
-      <article class="blog-content">
-        <header class="border-b pb-8 mb-12">
+      <article class="blog-content px-8 pt-12 md:pt-24">
+        <header class="border-b pb-4 md:pb-8 mb-12">
           <time
             datetime={publishDate}
             class="block mb-8 font-medium text-gray-600 text-small"
           >
             {dateToLocale(publishDate)}
           </time>
-          <h1 class="mb-6 text-large font-extrabold">{title}</h1>
+          <h1
+            class="mb-6 font-extrabold text-[3rem] leading-[110%] md:text-large md:font-extrabold"
+          >
+            {title}
+          </h1>
         </header>
         <slot />
         <SubsForm />
