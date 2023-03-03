@@ -1,106 +1,138 @@
 ---
-import PageHeader from "../../components/PageHeader.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Image from "../../components/Image.astro";
-import Card from "../../components/Card.astro";
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+import { TWITTER_URL } from "../../config";
 
 const title = "The Corporate";
 const description = "Design System for data-intensive applications";
 ---
 
-<BaseLayout
-  title={title}
-  description="Design system for data-intensive applicaions and platfroms."
->
-  <PageHeader
-    class="bg-no-repeat bg-cover bg-center bg-[url(/images/projects/corporate-design-system/title_bg.png)]"
-    title={title}
-    text={description}
-  />
-  <Card
-    imageRound={false}
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/corporate-design-system/example-app.png"
-    imageAlt="Corporate based application screenshot"
-    titleBold="Newsletters Management"
-    text="Example of data-intensive application build with Corporate"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4 md:col-span-2"
-    imageUrl="/images/projects/corporate-design-system/color-testers.png"
-    imageAlt="Color combinations"
-    imageAlt="Color combination system"
-    titleBold="Colors combination system"
-    text="Each color and shade has been carefully selected and tested"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4 md:col-span-2"
-    imageUrl="/images/projects/corporate-design-system/color-palette.png"
-    imageAlt="Color paletts"
-    titleBold="Color paletts"
-    text="Color paletts include 12 shades of 7 different colors. Each color has a different purpose and can be used in different contexts. The pallet is easy to use and scale"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4 md:col-span-2"
-    imageUrl="/images/projects/corporate-design-system/typography-set.png"
-    imageAlt="Typography settings"
-    titleBold="Typography settings"
-    text="Corprate contains 40 carefully selected settings to ensure that typography is consistent and covers different products and marketing needs. By following these guidelines, you can create designs that are both visually appealing and easy to read"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4 md:col-span-2"
-    imageUrl="/images/projects/corporate-design-system/lucid-icon-set.png"
-    imageAlt="Icon set"
-    titleBold="Icon set"
-    text="Corporate uses LucidIcons set which is open-source and free to use fork of Fearher icons. It includes 882 icons. This set works extremely well for data-intensive applications"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/corporate-design-system/typography-tester.png"
-    imageAlt="Typography stress test"
-    titleBold="Typography stress test"
-    text="Font styles are tested on different layouts in many contexts"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/corporate-design-system/checkbox.png"
-    imageAlt="Selectors preview"
-    titleBold="UX sidenotes"
-    text="To ensure that the design system is easy to use, I have created a set of guidelines for designers and developers"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/corporate-design-system/button.png"
-    imageAlt="Buttons preview"
-    titleBold="480 Buttons"
-    text="Buttons are the most important element of any interface. Corporate contains a set of 480 styles and sizes for buttons, which can be used in different contexts"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/corporate-design-system/toggle.png"
-    imageAlt="Toggle component"
-    titleBold="Toggle component"
-    text="UX tips included"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/corporate-design-system/avatar.png"
-    imageAlt="Avatars"
-    titleBold="Avatar component"
-    text="Avatars are used in many places in the interface. Corporate contains a set of avatar styles and sizes that can be used in different contexts"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/corporate-design-system/dropdown.png"
-    imageAlt="Dropdown menus"
-    titleBold="Dropdown menus"
-    text="Dropdowns consist of different components which are easy to customize"
-  />
-  <Card
-    class="bg-graphite-800 col-span-4"
-    imageUrl="/images/projects/corporate-design-system/avatar.png"
-    imageAlt="Avatars"
-    titleBold="Avatar component"
-    text="Avatars are used in many places in the interface. Corporate contains a set of avatar styles and sizes that can be used in different contexts"
-  />
-</BaseLayout>
+<ProjectLayout title={title} description={description} theme={"gray"}>
+  <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
+    <img
+      src="/images/projects/corporate-design-system/example-app.png"
+      alt="Crypto Trading Platform UI"
+      class="w-full"
+    />
+    <div class="pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16">
+      <p class="text-small lg:text-body group block max-w-[610px]">
+        Example of data-intensive application build with the Corporate Design
+        system.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-black text-gray-300">
+    <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
+      <div class="grid grid-cols-4">
+        <div
+          class="col-span-4 md:col-span-1 pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16 order-1 md:order-0"
+        >
+          <p
+            class="text-small lg:text-body group block max-w-[610px] sticky top-8"
+          >
+            Color paletts include 12 shades of 7 different colors. Each color
+            has a different purpose and can be used in different contexts. The
+            pallet is easy to use and scale
+          </p>
+        </div>
+        <div class="col-span-4 md:col-span-3">
+          <img
+            src="/images/projects/corporate-design-system/color-palette.png"
+            alt="Crypto Trading Platform UI"
+            class="w-full"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
+    <div class="grid grid-cols-4">
+      <div
+        class="col-span-4 md:col-span-1 pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16"
+      >
+        <p
+          class="text-small lg:text-body group block max-w-[610px] sticky top-8"
+        >
+          Corprate contains 40 carefully selected settings to ensure that
+          typography is consistent and covers different products and marketing
+          needs.
+        </p>
+      </div>
+      <div class="col-span-4 md:col-span-3">
+        <img
+          src="/images/projects/corporate-design-system/typography-set.png"
+          alt="Crypto Trading Platform UI"
+          class="w-full"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
+      <div class="grid grid-cols-4">
+        <div class="col-span-4 md:col-span-3">
+          <img
+            src="/images/projects/corporate-design-system/typography-tester.png"
+            alt="Crypto Trading Platform UI"
+            class="w-full border border-gray-200"
+          />
+        </div>
+        <div
+          class="col-span-4 md:col-span-1 pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16"
+        >
+          <p
+            class="text-small lg:text-body group block max-w-[610px] sticky top-8"
+          >
+            Typography settings are carefuly tested on different layouts in many
+            contexts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white">
+    <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
+      <img
+        src="/images/projects/corporate-design-system/button.png"
+        alt="Crypto Trading Platform UI"
+        class="w-full"
+      />
+      <div class="pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16">
+        <p class="text-small lg:text-body group block max-w-[610px]">
+          Buttons are the most important element of any interface. Corporate
+          contains a set of 480 styles and sizes for buttons, which can be used
+          in different contexts.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
+    <img
+      src="/images/projects/corporate-design-system/dropdown.png"
+      alt="Crypto Trading Platform UI"
+      class="w-full"
+    />
+    <div class="pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16">
+      <p class="text-small lg:text-body group block max-w-[610px]">
+        Dropdowns consist of different components which are easy to customize.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-white text-gray-900">
+    <div class="wrapper px-6 py-6 md:py-8 lg:py-16 2xl:px-0">
+      <div class="wrapper px-3 py-8 lg:py-32">
+        <p class="text-small lg:text-body group block max-w-[610px]">
+          <span class="font-medium inline-block"
+            >Work in active progress. Follow my
+            <a href={TWITTER_URL} class="underline">Twitter</a> for updates.
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</ProjectLayout>

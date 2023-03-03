@@ -1,24 +1,29 @@
 ---
-import SubsForm from "../components/SubsForm.astro";
 import BaseHead from "../components/BaseHead.astro";
-import { dateToLocale } from "../utils/date";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
 export interface Props {
   title: string;
   description: string;
+  theme?: "light" | "dark" | "gray";
 }
 
-const { title, description } = Astro.props;
+const { title, description, theme = "dark" } = Astro.props;
+
+const classes = {
+  light: "bg-white text-gray-900",
+  dark: "bg-black text-gray-300",
+  gray: "bg-gray-100 text-gray-900",
+};
 ---
 
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="text-gray-100 text-body antialiased bg-black">
-    <Header />
+  <body class:list={[classes[theme], "text-gray-100' text-body antialiased"]}>
+    <Header theme={theme} />
     <main>
       <article>
         <div
@@ -26,12 +31,12 @@ const { title, description } = Astro.props;
           class="pt-[120px] md:pt-[320px] pb-12 md:pb-24 justify-center px-8 md:px-16 lg:flex xl:gap-16 lg:items-end wrapper"
         >
           <h1
-            class="text-large md:text-huge font-semibold leading-[1em] text-gray-100 mb-8 lg:mb-0 lg:w-2/3"
+            class="text-large md:text-huge font-semibold leading-[1em] mb-8 lg:mb-0 lg:w-2/3"
           >
-            Crypto Exchange Platform
+            {title}
           </h1>
           <div class="lg:w-1/3 lg:pl-12">
-            <p class="text-gray-300">
+            <p>
               {description}
             </p>
           </div>
