@@ -109,6 +109,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"user-researh-101.mdx": {
+  id: "user-researh-101.mdx",
+  slug: "user-researh-101",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "you-dont-know-your-customers.mdx": {
   id: "you-dont-know-your-customers.mdx",
   slug: "you-dont-know-your-customers",
