@@ -67,6 +67,20 @@ declare module 'astro:content' {
 
 	const entryMap: {
 		"blog": {
+"blank.mdx": {
+  id: "blank.mdx",
+  slug: "blank",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"contextual-inquiry.mdx": {
+  id: "contextual-inquiry.mdx",
+  slug: "contextual-inquiry",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "future-collaboration-with-ai.mdx": {
   id: "future-collaboration-with-ai.mdx",
   slug: "future-collaboration-with-ai",
@@ -109,9 +123,23 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
-"user-researh-101.mdx": {
-  id: "user-researh-101.mdx",
-  slug: "user-researh-101",
+"usability-testing.mdx": {
+  id: "usability-testing.mdx",
+  slug: "usability-testing",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"user-interviews.mdx": {
+  id: "user-interviews.mdx",
+  slug: "user-interviews",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"user-research-comprehensive-guide.mdx": {
+  id: "user-research-comprehensive-guide.mdx",
+  slug: "user-research-comprehensive-guide",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">
