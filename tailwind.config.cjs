@@ -64,7 +64,7 @@ module.exports = {
         },
       ],
       body: [
-        "1.09375rem",
+        "1.125rem",
         {
           lineHeight: "1.5em",
           letterSpacing: "0",

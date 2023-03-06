@@ -4,7 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import { getCollection } from "astro:content";
 const allBlogPosts = await getCollection("blog", ({ data }) => {
-  return data.isDraft !== true;
+  return data.isDraft !== true && data.isFeatured === true;
 });
 
 const posts = allBlogPosts.sort(

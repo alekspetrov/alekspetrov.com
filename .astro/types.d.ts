@@ -67,9 +67,37 @@ declare module 'astro:content' {
 
 	const entryMap: {
 		"blog": {
+"a-b-testing.mdx": {
+  id: "a-b-testing.mdx",
+  slug: "a-b-testing",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "blank.mdx": {
   id: "blank.mdx",
   slug: "blank",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"card-sorting.mdx": {
+  id: "card-sorting.mdx",
+  slug: "card-sorting",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"clickstream-analysis.mdx": {
+  id: "clickstream-analysis.mdx",
+  slug: "clickstream-analysis",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"cognitive-walkthrough.mdx": {
+  id: "cognitive-walkthrough.mdx",
+  slug: "cognitive-walkthrough",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">
@@ -81,9 +109,65 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"customer-satisfaction.mdx": {
+  id: "customer-satisfaction.mdx",
+  slug: "customer-satisfaction",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"diary-studies.mdx": {
+  id: "diary-studies.mdx",
+  slug: "diary-studies",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"ethnographic-research.mdx": {
+  id: "ethnographic-research.mdx",
+  slug: "ethnographic-research",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"field-studies.mdx": {
+  id: "field-studies.mdx",
+  slug: "field-studies",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"focus-groups.mdx": {
+  id: "focus-groups.mdx",
+  slug: "focus-groups",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "future-collaboration-with-ai.mdx": {
   id: "future-collaboration-with-ai.mdx",
   slug: "future-collaboration-with-ai",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"heuristic-evaluation.mdx": {
+  id: "heuristic-evaluation.mdx",
+  slug: "heuristic-evaluation",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"key-performance-indicators.mdx": {
+  id: "key-performance-indicators.mdx",
+  slug: "key-performance-indicators",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"net-promoter-score.mdx": {
+  id: "net-promoter-score.mdx",
+  slug: "net-promoter-score",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">
@@ -102,9 +186,30 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"remote-a-b-testing.mdx": {
+  id: "remote-a-b-testing.mdx",
+  slug: "remote-a-b-testing",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "simplicity-wins.mdx": {
   id: "simplicity-wins.mdx",
   slug: "simplicity-wins",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"surveys.mdx": {
+  id: "surveys.mdx",
+  slug: "surveys",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"system-usability-scale.mdx": {
+  id: "system-usability-scale.mdx",
+  slug: "system-usability-scale",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">
@@ -119,6 +224,13 @@ declare module 'astro:content' {
 "the-future-of-design-ai-and-human-creativity.mdx": {
   id: "the-future-of-design-ai-and-human-creativity.mdx",
   slug: "the-future-of-design-ai-and-human-creativity",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"tree-testing.mdx": {
+  id: "tree-testing.mdx",
+  slug: "tree-testing",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">
@@ -140,6 +252,13 @@ declare module 'astro:content' {
 "user-research-comprehensive-guide.mdx": {
   id: "user-research-comprehensive-guide.mdx",
   slug: "user-research-comprehensive-guide",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
+"web-analytics.mdx": {
+  id: "web-analytics.mdx",
+  slug: "web-analytics",
   body: string,
   collection: "blog",
   data: InferEntrySchema<"blog">
