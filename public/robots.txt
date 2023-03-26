@@ -1,10 +1,7 @@
 User-agent: *
-Disallow: /blog/simplicity-wins
-Disallow: /blog
 Disallow: /nuxt-3-blog-with-notion-api-and-serverless-overview
 Disallow: /projects/wordy/
 Disallow: /projects/availability-monitor
 Disallow: /blog/api-design-recommendations
 Disallow: /projects/web-monitoring
 Disallow: /stack
-Allow: /
