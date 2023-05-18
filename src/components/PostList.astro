@@ -12,7 +12,7 @@ const sortedAscByDatePosts = posts.sort((a, b) => {
     sortedAscByDatePosts.map((post) => {
       return (
         <a
-          href={`/blog/${post.slug}`}
+          href={`/blog/${post.slug}/`}
           class="ml-[-1px] mt-[-1px] flex flex-col border p-8 text-gray-700 transition duration-300 ease-in-out hover:relative hover:border-gray-900  "
         >
           <h3 class="mb-4 text-medium text-gray-900">{post.data.title}</h3>

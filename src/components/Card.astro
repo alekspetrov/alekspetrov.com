@@ -1,8 +1,4 @@
 ---
-import ArrowDown from "./ArrowDown.astro";
-import ArrowRight from "./ArrowRight.astro";
-import ArrowUp from "./ArrowUp.astro";
-
 export interface Props {
   label?: string;
   title?: string;
@@ -18,16 +14,10 @@ export interface Props {
 }
 
 const {
-  label,
-  title,
-  titleBold,
-  description,
-  text,
   imageUrl,
   imageAlt,
   imageRound = true,
   link,
-  arrow,
   class: className,
 }: Props = Astro.props;
 ---
@@ -45,29 +35,4 @@ const {
       />
     )
   }
-
-  <!-- <div class="p-4 lg:p-6 h-full flex flex-col">
-    {
-      label && (
-        <div class="text-sm  mb-6 font-semibold uppercase tracking-widest opacity-70">
-          {label}
-        </div>
-      )
-    }
-    {
-      (title || titleBold) && (
-        <h3 class="text-xl text-white md:text-3xl mb-3 flex-1 text-opacity-70">
-          {titleBold && <span class="text-white font-medium">{titleBold}</span>}
-          {title}
-        </h3>
-      )
-    }
-    {
-      text && (
-        <p class="text-md text-white md:text-xl h-full text-opacity-70">
-          {text}
-        </p>
-      )
-    }
-  </div> -->
 </a>
