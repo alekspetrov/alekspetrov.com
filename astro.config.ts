@@ -8,6 +8,8 @@ import prefetch from "@astrojs/prefetch";
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
+
+// https://astro.build/config
 export default defineConfig({
   site: SITE_URL,
   integrations: [mdx(), tailwind(), sitemap({
