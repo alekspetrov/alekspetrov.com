@@ -18,9 +18,10 @@ export interface Props {
   description?: string;
   og_description?: string;
   og_image?: string;
+  keywords?: string;
 }
 
-const { title, description, og_description, og_image } = Astro.props;
+const { title, description, og_description, og_image, keywords } = Astro.props;
 ---
 
 <GoogleAnalytics />
@@ -30,10 +31,11 @@ const { title, description, og_description, og_image } = Astro.props;
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/images/avatar.png" />
 <meta name="generator" content={Astro.generator} />
+<meta name="keywords" content={keywords} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title} />
+<title>{`Aleks Petrov | ${title}`}</title>
+<meta name="title" content={`Aleks Petrov | ${title}`} />
 <meta name="description" content={description || OG_DEFAULT_DESCRIPTION} />
 <meta name="author" content="Aleksei Petrov" />
 
@@ -56,7 +58,7 @@ const { title, description, og_description, og_image } = Astro.props;
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={SITE_URL} />
-<meta property="twitter:title" content={title} />
+<meta property="twitter:title" content={`Aleks Petrov | ${title}`} />
 <meta property="twitter:description" content={og_description || ""} />
 <meta
   property="twitter.image"

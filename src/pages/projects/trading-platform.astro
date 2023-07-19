@@ -3,78 +3,93 @@ import ProjectLayout from "../../layouts/ProjectLayout.astro";
 
 const title = "Crypto Exhange Platform";
 const description = "Design concept of a crypto exchange platform";
+const keywords = "crypto, trading, uxui, ui design, uxdesign, product design";
 ---
 
-<ProjectLayout title={title} description={description}>
-  <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
-    <img
-      src="/images/projects/trading-platform/preview.png"
-      alt="Crypto Trading Platform UI"
-      class="w-full"
-    />
-    <div class="pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16">
-      <p class="text-small lg:text-body group block max-w-[610px]">
-        The main screen includes all the best practices of trading platforms.
-        With a years of experience in design trading applications I know how
-        important to keep the best practices and make the user experience
-        smooth.
-      </p>
+<ProjectLayout title={title} description={description} keywords={keywords}>
+  <div class="space-y-8 lg:space-y-48 xl:space-y-56 mb-8 md:mb-56">
+    <div class="wrapper px-6 py-6 2xl:px-0">
+      <img
+        src="/images/projects/trading-platform/preview.png"
+        alt="Crypto Trading Platform UI"
+        class="w-full"
+      />
+      <div class="pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16">
+        <p class="text-small lg:text-body group block max-w-[610px]">
+          The main screen includes all the best practices of trading platforms.
+          With a years of experience in design trading applications I know how
+          important to keep the best practices and make the user experience
+          smooth.
+        </p>
+      </div>
+    </div>
+
+    <div class="wrapper px-6 py-6 2xl:px-0">
+      <div class="grid grid-cols-4 gap-2">
+        <img
+          src="/images/projects/trading-platform/widget-1.png"
+          alt="Crypto Trading Platform UI"
+          class="col-span-2 md:col-span-1"
+        />
+        <img
+          src="/images/projects/trading-platform/widget-2.png"
+          alt="Crypto Trading Platform UI"
+          class="col-span-2 md:col-span-1"
+        />
+        <div
+          class="col-span-4 md:col-span-2 pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16"
+        >
+          <p class="text-small lg:text-body group block max-w-[610px]">
+            Interface made of widgets, easy to use and customize for the current
+            needs. Trader always set the configuration he heeds wihout
+            difficulties.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper px-6 py-6 2xl:px-0">
+      <div class="grid grid-cols-4 gap-2">
+        <div class="col-span-4 md:col-span-3 order-1">
+          <img
+            src="/images/projects/trading-platform/history.png"
+            alt="Crypto Trading Platform UI"
+            class="w-full"
+          />
+        </div>
+        <div
+          class="col-span-4 md:col-span-1 pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16"
+        >
+          <p class="text-small lg:text-body group block max-w-[610px]">
+            Orders info and history in a simple and handy way.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper px-6 py-6 2xl:px-0">
+      <img
+        src="/images/projects/trading-platform/markets.png"
+        alt="Crypto Trading Platform UI"
+        class="w-full"
+      />
+      <div class="pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16">
+        <p class="text-small lg:text-body group block max-w-[610px]">
+          Markets info for all the available crypto pairs.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-[1280px] mx-auto px-6 py-24">
+      <div class="text-center">
+        <a
+          class="lg:text-title lg:font-normal max-w-[780px] underline"
+          href="/projects/termsflow/"
+        >
+          Next Project
+        </a>
+      </div>
     </div>
   </div>
 
-  <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
-    <div class="grid grid-cols-4 gap-2">
-      <img
-        src="/images/projects/trading-platform/widget-1.png"
-        alt="Crypto Trading Platform UI"
-        class="col-span-2 md:col-span-1"
-      />
-      <img
-        src="/images/projects/trading-platform/widget-2.png"
-        alt="Crypto Trading Platform UI"
-        class="col-span-2 md:col-span-1"
-      />
-      <div
-        class="col-span-4 md:col-span-2 pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16"
-      >
-        <p class="text-small lg:text-body group block max-w-[610px]">
-          Interface made of widgets, easy to use and customize for the current
-          needs. Trader always set the configuration he heeds wihout
-          difficulties.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
-    <div class="grid grid-cols-4 gap-2">
-      <div class="col-span-4 md:col-span-3 order-1">
-        <img
-          src="/images/projects/trading-platform/history.png"
-          alt="Crypto Trading Platform UI"
-          class="w-full"
-        />
-      </div>
-      <div
-        class="col-span-4 md:col-span-1 pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16"
-      >
-        <p class="text-small lg:text-body group block max-w-[610px]">
-          Orders info and history in a simple and handy way.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="wrapper px-6 py-6 md:py-8 lg:py-32 2xl:px-0">
-    <img
-      src="/images/projects/trading-platform/markets.png"
-      alt="Crypto Trading Platform UI"
-      class="w-full"
-    />
-    <div class="pt-4 md:pt-6 lg:pt-8 px-3 md:px-10 lg:px-16">
-      <p class="text-small lg:text-body group block max-w-[610px]">
-        Markets info for all the available crypto pairs.
-      </p>
-    </div>
-  </div>
   <div class="bg-gray-100 text-gray-900">
     <div class="wrapper px-6 py-6 md:py-8 lg:py-16 2xl:px-0">
       <div class="wrapper px-6 py-8 lg:py-32">
