@@ -6,6 +6,7 @@ import sitemap from "@astrojs/sitemap";
 import image from "@astrojs/image";
 import prefetch from "@astrojs/prefetch";
 import partytown from "@astrojs/partytown";
+import robotsTxt from 'astro-robots-txt';
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,11 +15,25 @@ export default defineConfig({
     mdx(),
     tailwind(),
     sitemap({
-      filter: (page) => page !== "https://alekspetrov.com/work-experience/",
+      filter: (page) => page !== "https://alekspetrov.com/blog/blank/",
+      serialize(item) {
+        if (item.url === `${SITE_URL}`) {
+          item.priority = 1;
+          return item
+        }
+        if (item.url === `${SITE_URL}blog/`) {
+          item.priority = 1;
+          return item
+        }
+        item.priority = 0.8;
+        return item
+      },
+      changefreq: 'hourly',
     }),
     image(),
     prefetch(),
     partytown(),
+    robotsTxt(),
   ],
   markdown: {
     syntaxHighlight: "prism",

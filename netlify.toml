@@ -84,11 +84,6 @@
   status = 301
 
 [[redirects]]
-  from = "/blog/customer-satisfaction"
-  to = "/blog/customer-satisfaction/"
-  status = 301
-
-[[redirects]]
   from = "/bee.js"
   to = "https://cdn.splitbee.io/sb.js"
   status = 200
