@@ -15,13 +15,13 @@ export default defineConfig({
     mdx(),
     tailwind(),
     sitemap({
-      filter: (page) => page !== "https://alekspetrov.com/blog/blank/",
+      filter: (page) => page !== `${SITE_URL}/blog/blank/`,
       serialize(item) {
-        if (item.url === `${SITE_URL}`) {
+        if (item.url === `${SITE_URL}/`) {
           item.priority = 1;
           return item
         }
-        if (item.url === `${SITE_URL}blog/`) {
+        if (item.url === `${SITE_URL}/blog/`) {
           item.priority = 1;
           return item
         }
