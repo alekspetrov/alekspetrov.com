@@ -29,12 +29,15 @@ const {
   og_image = OG_DEFAULT_IMAGE,
   keywords = "Product designer, web developer, freelance, blog, ai, user research, product design, react.js, js, jamstack",
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/images/avatar.png" />
+<link rel="canonical" href={canonicalURL} />
 
 <!-- Title -->
 <title>{`Aleks Petrov | ${title}`}</title>
