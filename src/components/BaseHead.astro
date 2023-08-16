@@ -11,7 +11,8 @@ import {
   OG_DEFAULT_DESCRIPTION,
   OG_DEFAULT_IMAGE,
 } from "../config";
-import GoogleAnalytics from "./GoogleAnalytics.astro";
+// import GoogleAnalytics from "./GoogleAnalytics.astro";
+import GoogleTagManager from "./GoogleTagManager.astro";
 
 export interface Props {
   title: string;
@@ -49,16 +50,23 @@ const {
 <meta property="og:type" content="website" />
 <meta property="og:url" content={SITE_URL} />
 <meta property="og:title" content={title || SITE_TITLE} />
-<meta property="og:description" content={og_description || ""} />
+<meta
+  property="og:description"
+  content={og_description || description || OG_DEFAULT_DESCRIPTION}
+/>
 <meta property="og:image" content={SITE_URL + og_image} />
 <meta />
 
 <!-- Twitter -->
+<meta name="twitter:site" content="@aleks_maker" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={SITE_URL} />
 <meta name="twitter:title" content={`${title} ${title && "| "}Aleks Petrov`} />
-<meta name="twitter:description" content={og_description} />
+<meta
+  name="twitter:description"
+  content={og_description || description || OG_DEFAULT_DESCRIPTION}
+/>
 <meta property="twitter.image" content={SITE_URL + og_image} />
 
 <!-- Analytics -->
-<GoogleAnalytics />
+<GoogleTagManager id="GTM-NGTXJC7G" />
