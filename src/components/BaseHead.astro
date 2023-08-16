@@ -51,7 +51,7 @@ const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
 
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={SITE_URL} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title || SITE_TITLE} />
 <meta
   property="og:description"
@@ -64,7 +64,7 @@ const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
 <meta name="twitter:site" content="@aleks_maker" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={SITE_URL} />
-<meta name="twitter:title" content={`${title} ${title && "| "}Aleks Petrov`} />
+<meta name="twitter:title" content={title || SITE_TITLE} />
 <meta
   name="twitter:description"
   content={og_description || description || OG_DEFAULT_DESCRIPTION}
