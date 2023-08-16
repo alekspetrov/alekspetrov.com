@@ -1,4 +1,94 @@
 [[redirects]]
+  from = "/articles/future-collaboration-with-ai/"
+  to = "/blog/future-collaboration-with-ai/"
+  status = 301
+
+[[redirects]]
+  from = "/Aleks"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/you-dont-know-your-customers/"
+  to = "/blog/you-dont-know-your-customers/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/tactical-vs-strategic-programming/"
+  to = "/blog/tactical-vs-strategic-programming/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/prioritization-the-key-to-product-design-success/"
+  to = "/blog/prioritization-the-key-to-product-design-success/"
+  status = 301
+
+[[redirects]]
+  from = "/experience"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/simplicity-wins/"
+  to = "/blog/simplicity-wins/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/prompt-engineers-is-the-future-position/"
+  to = "/blog/prompt-engineers-is-the-future-position/"
+  status = 301
+
+[[redirects]]
+  from = "/~partytown/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/simplicity-wins"
+  to = "/blog/simplicity-wins/"
+  status = 301
+
+[[redirects]]
+  from = "/tech-stack-of-the-blog"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/books/who-is-product-manager/*"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/future-collaboration-with-ai"
+  to = "/blog/future-collaboration-with-ai/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/gpt3-developers-and-the-future-of-ai-development"
+  to = "/blog/the-future-of-design-ai-and-human-creativity/"
+  status = 301
+
+[[redirects]]
+  from = "/articles/prompt-engineers-is-the-future-position"
+  to = "/blog/prompt-engineers-is-the-future-position/"
+  status = 301
+
+[[redirects]]
+  from = "/projects/availability-monitor"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/blank/"
+  to = "/blog/"
+  status = 301
+
+[[redirects]]
+  from = "/blog/customer-satisfaction"
+  to = "/blog/customer-satisfaction/"
+  status = 301
+
+[[redirects]]
   from = "/bee.js"
   to = "https://cdn.splitbee.io/sb.js"
   status = 200
