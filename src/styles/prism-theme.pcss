@@ -1,20 +1,17 @@
 code[class*="language-"],
 pre[class*="language-"] {
-  @apply text-light-title dark:text-dark-title;
+  @apply text-gray-800 dark:text-gray-200;
 
-  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono",
-    "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
-    "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
-    "Courier New", Courier, monospace;
-  line-height: 1.5;
+  font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  line-height: 1.7; /* Better rhythm for code readability */
   direction: ltr;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
 
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2; /* Reduced for better density */
 
   -webkit-hyphens: none;
   -moz-hyphens: none;
@@ -23,7 +20,16 @@ pre[class*="language-"] {
 }
 
 pre > code[class*="language-"] {
-  font-size: 0.875em;
+  font-size: 0.9em; /* Better proportion with body text */
+}
+
+/* Block code containers */
+pre[class*="language-"] {
+  @apply rounded-lg border border-gray-700 bg-gray-900;
+  padding: 1.5rem;
+  margin: 1.5rem 0; /* Proper typographic spacing */
+  overflow: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 pre[class*="language-"]::-moz-selection,
@@ -43,77 +49,203 @@ code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
   overflow: auto;
+  max-width: 680px;
+  margin: 16px auto;
 }
 
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em;
+/* Inline code - proper typographic treatment */
+:not(pre) > code[class*="language-"],
+:not(pre) > code {
+  @apply bg-gray-100 dark:bg-gray-800;
+  @apply text-gray-800 dark:text-gray-200;
+  @apply border border-gray-200 dark:border-gray-700;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.375rem;
+  font-size: 0.875em;
+  font-weight: 500;
+  letter-spacing: -0.025em; /* Tighter tracking for code */
 }
 
+/* Comments - muted but readable */
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  @apply text-light-text-default dark:text-dark-text-default;
+  color: #6B7280; /* gray-500 */
+  font-style: italic;
 }
 
+@media (prefers-color-scheme: dark) {
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #9CA3AF; /* gray-400 in dark mode */
+  }
+}
+
+/* Punctuation - subtle */
 .token.punctuation {
-  @apply text-light-text-default dark:text-dark-text-default;
+  color: #9CA3AF; /* gray-400 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .token.punctuation {
+    color: #6B7280; /* gray-500 in dark mode */
+  }
 }
 
 .token.namespace {
   opacity: 0.7;
 }
 
+/* Tags and operators - medium emphasis */
 .token.tag,
 .token.operator {
-  @apply text-light-text-default dark:text-dark-text-default;
+  color: #DC2626; /* red-600 */
 }
 
+@media (prefers-color-scheme: dark) {
+  .token.tag,
+  .token.operator {
+    color: #F87171; /* red-400 in dark mode */
+  }
+}
+
+/* Numbers - distinct color */
 .token.number {
-  @apply text-light-title dark:text-dark-title;
+  color: #7C3AED; /* violet-600 */
 }
 
+@media (prefers-color-scheme: dark) {
+  .token.number {
+    color: #A78BFA; /* violet-400 in dark mode */
+  }
+}
+
+/* Functions and properties - important */
 .token.property,
 .token.function {
-  @apply text-light-title dark:text-dark-title;
+  color: #2563EB; /* blue-600 */
+  font-weight: 500;
 }
 
+@media (prefers-color-scheme: dark) {
+  .token.property,
+  .token.function {
+    color: #60A5FA; /* blue-400 in dark mode */
+  }
+}
+
+/* Selectors and IDs */
 .token.tag-id,
 .token.selector,
 .token.atrule-id {
-  @apply text-light-text-default dark:text-dark-text-default;
+  color: #059669; /* emerald-600 */
 }
 
+@media (prefers-color-scheme: dark) {
+  .token.tag-id,
+  .token.selector,
+  .token.atrule-id {
+    color: #34D399; /* emerald-400 in dark mode */
+  }
+}
+
+/* Attributes */
 code.language-javascript,
 .token.attr-name {
-  @apply text-light-text-default dark:text-dark-text-default;
+  color: #D97706; /* amber-600 */
 }
 
-code.language-css,
-code.language-scss,
-.token.boolean,
+@media (prefers-color-scheme: dark) {
+  code.language-javascript,
+  .token.attr-name {
+    color: #FBBF24; /* amber-400 in dark mode */
+  }
+}
+
+/* Strings and keywords - high contrast */
 .token.string,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.language-scss .token.string,
-.style .token.string,
-.token.attr-value,
+.token.attr-value {
+  color: #16A34A; /* green-600 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .token.string,
+  .token.attr-value {
+    color: #4ADE80; /* green-400 in dark mode */
+  }
+}
+
 .token.keyword,
 .token.control,
 .token.directive,
+.token.statement {
+  color: #DC2626; /* red-600 */
+  font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+  .token.keyword,
+  .token.control,
+  .token.directive,
+  .token.statement {
+    color: #F87171; /* red-400 in dark mode */
+  }
+}
+
+/* CSS specific */
+code.language-css,
+code.language-scss,
+.language-css .token.string,
+.language-scss .token.string,
+.style .token.string {
+  color: #16A34A; /* green-600 */
+}
+
+@media (prefers-color-scheme: dark) {
+  code.language-css,
+  code.language-scss,
+  .language-css .token.string,
+  .language-scss .token.string,
+  .style .token.string {
+    color: #4ADE80; /* green-400 in dark mode */
+  }
+}
+
+/* Special tokens */
+.token.boolean {
+  color: #7C3AED; /* violet-600 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .token.boolean {
+    color: #A78BFA; /* violet-400 in dark mode */
+  }
+}
+
+.token.entity,
+.token.url,
 .token.unit,
-.token.statement,
 .token.regex,
 .token.atrule {
-  @apply text-light-text-default dark:text-dark-text-default;
+  color: #0891B2; /* cyan-600 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .token.entity,
+  .token.url,
+  .token.unit,
+  .token.regex,
+  .token.atrule {
+    color: #22D3EE; /* cyan-400 in dark mode */
+  }
 }
 
 .token.placeholder,
 .token.variable {
-  @apply text-light-text-default dark:text-dark-text-default;
+  @apply text-gray-800 dark:text-gray-200;
 }
 
 .token.deleted {
@@ -121,7 +253,7 @@ code.language-scss,
 }
 
 .token.inserted {
-  @apply border border-b border-dotted border-light-outline dark:border-dark-outline;
+  @apply border border-b border-dotted border-gray-300 dark:border-gray-600;
   text-decoration: none;
 }
 
@@ -135,7 +267,7 @@ code.language-scss,
 }
 
 .token.important {
-  @apply text-light-text-default dark:text-dark-text-default;
+  @apply text-gray-800 dark:text-gray-200;
 }
 
 .token.entity {
