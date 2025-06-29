@@ -18,12 +18,10 @@ This guide covers what Docker added, why it matters, and how to implement secure
 ## Table of contents
 
 - [What Docker added](#what-docker-added)
-- [Before Docker's MCP integration](#before-dockers-mcp-integration)
-- [After Docker's MCP integration](#after-dockers-mcp-integration)
-- [Setup guide: Implementing Docker MCP](#setup-guide-implementing-docker-mcp)
+- [Before vs After: The transformation](#before-vs-after-the-transformation)
 - [Understanding the bridge architecture](#understanding-the-bridge-architecture)
-- [Security considerations and solutions](#security-considerations-and-solutions)
-- [Common security pitfalls to avoid](#common-security-pitfalls-to-avoid)
+- [Setup guide: Implementing Docker MCP](#setup-guide-implementing-docker-mcp)
+- [Security implementation guide](#security-implementation-guide)
 - [Final thoughts](#final-thoughts)
 
 ## What Docker added
@@ -42,19 +40,53 @@ Handles installation, credential management, access control, and runtime securit
 
 The `docker mcp gateway run` command creates a secure bridge between AI clients (like Claude) and containerized MCP servers. This centralizes authentication and eliminates direct container exposure.
 
-## Before Docker's MCP integration
+## Before vs After: The transformation
 
-Before Docker's MCP toolkit, setting up AI tools locally was a mess. Each tool demanded its own custom installation process and configuration setup (e.g. `pip install` or `npm install`), creating a patchwork of different setups on your development machine.
+### Before Docker's MCP integration
 
-Security implementations varied wildly from service to service—some tools had robust authentication systems while others didn't have any.
+Setting up AI tools locally was chaotic:
 
-Dependency conflicts were inevitable when different AI services required incompatible Python versions or conflicting package dependencies on your local machine.
+- Each tool demanded custom installation (`pip install`, `npm install`)
+- Security implementations varied wildly between services
+- Dependency conflicts were inevitable with incompatible versions
+- No standardized management approach
 
-## After Docker's MCP integration
+### After Docker's MCP integration
 
-Docker's MCP integration brings order to this chaos. Every MCP server now follows the same uniform setup process, whether you're configuring a simple time utility or a complex GitHub integration.
+Docker brings order through:
 
-The security architecture becomes consistent across all MCP servers, eliminating the need to learn and maintain different authentication patterns for each service. MCP containers solve dependency conflicts by giving each tool its own isolated environment on your local machine, and the gateway pattern provides standard management approaches across your entire local MCP setup.
+- Uniform setup process for all MCP servers
+- Consistent security architecture across services
+- Isolated environments eliminating dependency conflicts
+- Standardized gateway pattern for centralized management
+
+## Understanding the bridge architecture
+
+The gateway bridge is the key security component of Docker's MCP implementation:
+
+```
+Claude Code/Desktop
+    ↓
+docker mcp gateway run
+    ↓
+Docker Bridge Network
+    ↓
+Individual MCP Containers
+```
+
+### Communication flow
+
+1. AI clients connect only to the gateway
+2. Gateway authenticates and routes requests
+3. MCP containers receive requests via internal Docker networking
+4. Responses flow back through the same secure channel
+
+### Security benefits
+
+- Single point of authentication management
+- No direct container exposure to external clients
+- Centralized logging and monitoring
+- Load balancing across multiple MCP servers
 
 ## Setup guide: Implementing Docker MCP
 
@@ -71,7 +103,7 @@ Based on our local setup of 7 MCP servers, here's how to implement Docker's MCP 
 Pull the MCP server images you need from the Docker Dashboard "MCP Toolkit" or by Docker CLI.
 
 ```bash
-# Core MCP servers
+# Pull and run core MCP servers
 docker pull mcp/time
 docker pull mcp/atlas-docs
 docker pull mcp/duckduckgo
@@ -79,15 +111,11 @@ docker pull mcp/fetch
 docker pull mcp/puppeteer
 docker pull ghcr.io/github/github-mcp-server:latest
 docker pull mcp/context7
-```
 
-Deploy containers with resource limits:
-
-```bash
-# Deploy with resource constraints
-docker run -d --name time-server --memory=256m --cpus=0.25 mcp/time
-docker run -d --name atlas-docs --memory=512m --cpus=0.5 mcp/atlas-docs
-docker run -d --name github-mcp --memory=512m --cpus=0.5 ghcr.io/github/github-mcp-server:latest
+# Deploy containers (security configurations covered in security section)
+docker run -d --name time-server mcp/time
+docker run -d --name atlas-docs mcp/atlas-docs
+docker run -d --name github-mcp ghcr.io/github/github-mcp-server:latest
 ```
 
 ### Step 2: Gateway configuration
@@ -149,35 +177,7 @@ docker run -d --network mcp-isolated --name secure-mcp mcp/your-server
 
 This ensures MCP containers can communicate with each other but remain isolated from other processes on your local machine.
 
-## Understanding the bridge architecture
-
-The gateway bridge is the key security component of Docker's MCP implementation:
-
-```
-Claude Code/Desktop
-    ↓
-docker mcp gateway run
-    ↓
-Docker Bridge Network
-    ↓
-Individual MCP Containers
-```
-
-### Communication flow
-
-1. AI clients connect only to the gateway
-2. Gateway authenticates and routes requests
-3. MCP containers receive requests via internal Docker networking
-4. Responses flow back through the same secure channel
-
-### Security benefits
-
-- Single point of authentication management
-- No direct container exposure to external clients
-- Centralized logging and monitoring
-- Load balancing across multiple MCP servers
-
-## Security considerations and solutions
+## Security implementation guide
 
 Docker's MCP integration addresses many security concerns but introduces new considerations that require attention.
 
@@ -228,25 +228,12 @@ Minimize port exposure to reduce attack surface, but understand that some MCP se
 
 Unlike other MCP servers that communicate through JSON-RPC via the gateway, Context7 serves documentation content over HTTP and needs direct network access. This demonstrates an important principle: security best practices must accommodate real-world architectural constraints. The key is understanding why each port is exposed and ensuring it's actually necessary.
 
-## Common security pitfalls to avoid
+### Common pitfalls to avoid
 
-Based on our local development experience, avoid these common mistakes:
-
-### Direct container exposure
-
-Don't expose MCP containers directly to AI clients. Always use the gateway pattern for centralized security and authentication.
-
-### Configuration file secrets
-
-Don't store API keys or OAuth tokens in configuration files. Use container environment variables for secure credential storage.
-
-### Privileged containers
-
-Don't run MCP servers with elevated permissions. Use capability dropping and security profiles to minimize privileges.
-
-### Network access
-
-Don't allow MCP containers unrestricted network access. Use isolated networks and proper firewall rules.
+- **Direct container exposure**: Always use the gateway pattern instead of exposing containers directly to AI clients
+- **Configuration file secrets**: Store credentials in environment variables, never in `.mcp.json` files
+- **Privileged containers**: Use capability dropping and security profiles to minimize permissions
+- **Unrestricted network access**: Use isolated networks and proper firewall rules
 
 ## Final thoughts
 
