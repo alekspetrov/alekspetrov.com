@@ -3,7 +3,7 @@
 // all pages through the use of the <BaseHead /> component.
 import "../styles/global.pcss";
 import "../styles/fonts.pcss";
-// import "../styles/prism-theme.pcss";
+import "../styles/prism-theme.pcss";
 
 import {
   SITE_TITLE,
@@ -52,24 +52,23 @@ const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL} />
-<meta property="og:title" content={title || SITE_TITLE} />
+<meta property="og:title" content={`Aleks Petrov | ${title}`} />
 <meta
   property="og:description"
   content={og_description || description || OG_DEFAULT_DESCRIPTION}
 />
 <meta property="og:image" content={SITE_URL + og_image} />
-<meta />
 
 <!-- Twitter -->
 <meta name="twitter:site" content="@aleks_maker" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={SITE_URL} />
-<meta name="twitter:title" content={title || SITE_TITLE} />
+<meta name="twitter:title" content={`Aleks Petrov | ${title}`} />
 <meta
   name="twitter:description"
   content={og_description || description || OG_DEFAULT_DESCRIPTION}
 />
-<meta property="twitter.image" content={SITE_URL + og_image} />
+<meta name="twitter:image" content={SITE_URL + og_image} />
 
 <!-- Analytics -->
 <GoogleTagManager id="GTM-NGTXJC7G" />

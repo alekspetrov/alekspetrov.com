@@ -21,6 +21,8 @@ const { title, titleBold, description, openGraph } = Astro.props;
     <BaseHead
       title={titleBold ? titleBold + " " + title : title}
       description={description}
+      og_description={openGraph?.description || description}
+      og_image={openGraph?.image}
     />
   </head>
   <body class="text-gray-100 text-body antialiased bg-black">

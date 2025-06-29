@@ -8,9 +8,13 @@ export interface Props {
   description?: string;
   theme?: "light" | "dark" | "gray";
   keywords?: string;
+  openGraph?: {
+    image?: string;
+    description?: string;
+  };
 }
 
-const { title, description, theme = "dark", keywords } = Astro.props;
+const { title, description, theme = "dark", keywords, openGraph } = Astro.props;
 
 const classes = {
   light: "bg-white text-gray-900",
@@ -21,7 +25,13 @@ const classes = {
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} keywords={keywords} />
+    <BaseHead 
+      title={title} 
+      description={description} 
+      keywords={keywords}
+      og_description={openGraph?.description || description}
+      og_image={openGraph?.image}
+    />
   </head>
   <body class:list={[classes[theme], "text-gray-100' text-body antialiased"]}>
     <Header theme={theme} />

@@ -123,6 +123,13 @@ declare module 'astro:content' {
   collection: "blog",
   data: InferEntrySchema<"blog">
 },
+"docker-mcp-integration-developer-guide.mdx": {
+  id: "docker-mcp-integration-developer-guide.mdx",
+  slug: "docker-mcp-integration-developer-guide",
+  body: string,
+  collection: "blog",
+  data: InferEntrySchema<"blog">
+},
 "ethnographic-research.mdx": {
   id: "ethnographic-research.mdx",
   slug: "ethnographic-research",
