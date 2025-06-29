@@ -9,8 +9,9 @@ export const OG_DEFAULT_IMAGE =
 export const CURRENT_LOCATION = "Central EU (GMT+1)";
 
 export const EMAIL = "hello@alekspetrov.com";
-export const TWITTER_URL = "https://twitter.com/aleks_maker/";
+export const THREADS_URL = "https://www.threads.com/@alekseipetrov.me";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/alekspetrov/";
+export const DOCKER_URL = "https://hub.docker.com/u/alekspetrov";
 export const SUPABASE_PUBLIC_URL = "https://eathcybqadpvaknyrpsb.supabase.co";
 export const SUPABASE_PUBLIC_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVhdGhjeWJxYWRwdmFrbnlycHNiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njc0OTAzMTMsImV4cCI6MTk4MzA2NjMxM30.zeWfDRE_mRWl3KnrcBvbHv_GLfU3fcOFy7yJj0hzFiM";
