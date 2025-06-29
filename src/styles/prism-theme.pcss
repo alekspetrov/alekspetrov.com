@@ -1,9 +1,9 @@
 code[class*="language-"],
 pre[class*="language-"] {
-  @apply text-gray-800 dark:text-gray-200;
+  color: #1f2937;
 
   font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  line-height: 1.7; /* Better rhythm for code readability */
+  line-height: 1.7;
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -11,7 +11,7 @@ pre[class*="language-"] {
 
   -moz-tab-size: 2;
   -o-tab-size: 2;
-  tab-size: 2; /* Reduced for better density */
+  tab-size: 2;
 
   -webkit-hyphens: none;
   -moz-hyphens: none;
@@ -23,13 +23,23 @@ pre > code[class*="language-"] {
   font-size: 0.9em; /* Better proportion with body text */
 }
 
-/* Block code containers */
+/* Block code containers - Apple Liquid Glass */
 pre[class*="language-"] {
-  @apply rounded-lg border border-gray-700 bg-gray-900;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7));
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
   padding: 1.5rem;
-  margin: 1.5rem 0; /* Proper typographic spacing */
+  margin: 1.5rem 0;
   overflow: auto;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  
+  /* Apple-style shadows with top inner light highlight */
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.03),
+    0 1px 2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 pre[class*="language-"]::-moz-selection,
@@ -49,21 +59,26 @@ code[class*="language-"] ::selection {
 /* Code blocks */
 pre[class*="language-"] {
   overflow: auto;
-  max-width: 680px;
+  max-width: 860px;
   margin: 16px auto;
 }
 
-/* Inline code - proper typographic treatment */
+/* Inline code - Apple liquid glass style */
 :not(pre) > code[class*="language-"],
 :not(pre) > code {
-  @apply bg-gray-100 dark:bg-gray-800;
-  @apply text-gray-800 dark:text-gray-200;
-  @apply border border-gray-200 dark:border-gray-700;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+  color: #1f2937;
   padding: 0.125rem 0.375rem;
-  border-radius: 0.375rem;
+  border-radius: 6px;
   font-size: 0.875em;
   font-weight: 500;
-  letter-spacing: -0.025em; /* Tighter tracking for code */
+  letter-spacing: -0.025em;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 /* Comments - muted but readable */
@@ -75,24 +90,9 @@ pre[class*="language-"] {
   font-style: italic;
 }
 
-@media (prefers-color-scheme: dark) {
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata {
-    color: #9CA3AF; /* gray-400 in dark mode */
-  }
-}
-
 /* Punctuation - subtle */
 .token.punctuation {
   color: #9CA3AF; /* gray-400 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .token.punctuation {
-    color: #6B7280; /* gray-500 in dark mode */
-  }
 }
 
 .token.namespace {
@@ -105,22 +105,9 @@ pre[class*="language-"] {
   color: #DC2626; /* red-600 */
 }
 
-@media (prefers-color-scheme: dark) {
-  .token.tag,
-  .token.operator {
-    color: #F87171; /* red-400 in dark mode */
-  }
-}
-
 /* Numbers - distinct color */
 .token.number {
   color: #7C3AED; /* violet-600 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .token.number {
-    color: #A78BFA; /* violet-400 in dark mode */
-  }
 }
 
 /* Functions and properties - important */
@@ -130,26 +117,11 @@ pre[class*="language-"] {
   font-weight: 500;
 }
 
-@media (prefers-color-scheme: dark) {
-  .token.property,
-  .token.function {
-    color: #60A5FA; /* blue-400 in dark mode */
-  }
-}
-
 /* Selectors and IDs */
 .token.tag-id,
 .token.selector,
 .token.atrule-id {
   color: #059669; /* emerald-600 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .token.tag-id,
-  .token.selector,
-  .token.atrule-id {
-    color: #34D399; /* emerald-400 in dark mode */
-  }
 }
 
 /* Attributes */
@@ -158,24 +130,10 @@ code.language-javascript,
   color: #D97706; /* amber-600 */
 }
 
-@media (prefers-color-scheme: dark) {
-  code.language-javascript,
-  .token.attr-name {
-    color: #FBBF24; /* amber-400 in dark mode */
-  }
-}
-
 /* Strings and keywords - high contrast */
 .token.string,
 .token.attr-value {
   color: #16A34A; /* green-600 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .token.string,
-  .token.attr-value {
-    color: #4ADE80; /* green-400 in dark mode */
-  }
 }
 
 .token.keyword,
@@ -184,15 +142,6 @@ code.language-javascript,
 .token.statement {
   color: #DC2626; /* red-600 */
   font-weight: 500;
-}
-
-@media (prefers-color-scheme: dark) {
-  .token.keyword,
-  .token.control,
-  .token.directive,
-  .token.statement {
-    color: #F87171; /* red-400 in dark mode */
-  }
 }
 
 /* CSS specific */
@@ -204,25 +153,9 @@ code.language-scss,
   color: #16A34A; /* green-600 */
 }
 
-@media (prefers-color-scheme: dark) {
-  code.language-css,
-  code.language-scss,
-  .language-css .token.string,
-  .language-scss .token.string,
-  .style .token.string {
-    color: #4ADE80; /* green-400 in dark mode */
-  }
-}
-
 /* Special tokens */
 .token.boolean {
   color: #7C3AED; /* violet-600 */
-}
-
-@media (prefers-color-scheme: dark) {
-  .token.boolean {
-    color: #A78BFA; /* violet-400 in dark mode */
-  }
 }
 
 .token.entity,
@@ -233,19 +166,9 @@ code.language-scss,
   color: #0891B2; /* cyan-600 */
 }
 
-@media (prefers-color-scheme: dark) {
-  .token.entity,
-  .token.url,
-  .token.unit,
-  .token.regex,
-  .token.atrule {
-    color: #22D3EE; /* cyan-400 in dark mode */
-  }
-}
-
 .token.placeholder,
 .token.variable {
-  @apply text-gray-800 dark:text-gray-200;
+  color: #1F2937; /* gray-800 */
 }
 
 .token.deleted {
@@ -253,7 +176,7 @@ code.language-scss,
 }
 
 .token.inserted {
-  @apply border border-b border-dotted border-gray-300 dark:border-gray-600;
+  border-bottom: 1px dotted #D1D5DB; /* gray-300 */
   text-decoration: none;
 }
 
@@ -267,7 +190,7 @@ code.language-scss,
 }
 
 .token.important {
-  @apply text-gray-800 dark:text-gray-200;
+  color: #1F2937; /* gray-800 */
 }
 
 .token.entity {
