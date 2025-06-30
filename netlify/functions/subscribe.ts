@@ -1,4 +1,5 @@
 import { neon } from '@netlify/neon';
+import { sendEmail } from '@netlify/emails';
 
 export default async (req: Request) => {
   if (req.method !== 'POST') {
@@ -58,23 +59,13 @@ export default async (req: Request) => {
     
     // Send welcome email
     try {
-      const emailResponse = await fetch('/.netlify/functions/emails/welcome', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json',
-          'netlify-emails-secret': process.env.NETLIFY_EMAILS_SECRET!
-        },
-        body: JSON.stringify({ 
-          to: email,
-          from: 'hello@alekspetrov.com',
-          subject: 'Welcome to the Newsletter! 🎉',
-          parameters: {}
-        })
+      await sendEmail({
+        template: 'welcome',
+        to: email,
+        from: 'hello@alekspetrov.com',
+        subject: 'Welcome to the Newsletter! 🎉',
+        parameters: {}
       });
-      
-      if (!emailResponse.ok) {
-        console.error('Email send failed:', await emailResponse.text());
-      }
     } catch (emailError) {
       console.error('Email error:', emailError);
       // Don't fail the subscription if email fails
