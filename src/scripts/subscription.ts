@@ -1,6 +1,4 @@
 import { formValidation } from "../utils/formValidation";
-import { createClient } from "@supabase/supabase-js";
-import { SUPABASE_PUBLIC_KEY, SUPABASE_PUBLIC_URL } from "../config";
 import { trackServerIssues, trackSubscription } from "../scripts/bee";
 
 // Messages
@@ -22,8 +20,6 @@ const emailInputElement = document.getElementById(
 const formElement = document.getElementById(ID_FORM);
 
 if (formElement) {
-  const supabase = createClient(SUPABASE_PUBLIC_URL, SUPABASE_PUBLIC_KEY);
-
   function showMessage(message: string) {
     document.getElementById(ID_FORM_MESSAGE).innerHTML = message;
   }
@@ -50,25 +46,38 @@ if (formElement) {
     // Loading
     showMessage(MSG_LOADING_TEXT);
 
-    const { error, status } = await supabase.from("subscribers").insert([
-      {
-        email: emailInputElement.value,
-      },
-    ]);
+    try {
+      const response = await fetch('/.netlify/functions/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: emailInputElement.value,
+        }),
+      });
 
-    if (status === 409) {
-      showMessage(ERR_MSG_USER_EXISTS);
-      return false;
-    }
+      const result = await response.json();
 
-    if (error) {
+      if (response.status === 409) {
+        showMessage(ERR_MSG_USER_EXISTS);
+        return false;
+      }
+
+      if (!response.ok) {
+        trackServerIssues(emailInputElement.value, result.error);
+        showMessage(ERR_MSG_SERVER_ERROR);
+        return false;
+      }
+
+      trackSubscription(emailInputElement.value);
+      showMessage(MSG_USER_SUBSCRIBED);
+      emailInputElement.value = "";
+    } catch (error) {
       trackServerIssues(emailInputElement.value, error);
       showMessage(ERR_MSG_SERVER_ERROR);
       return false;
     }
-
-    trackSubscription(emailInputElement.value);
-    showMessage(MSG_USER_SUBSCRIBED);
   }
 
   // Add listeners
