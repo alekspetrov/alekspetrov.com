@@ -46,6 +46,29 @@ if (formElement) {
     // Loading
     showMessage(MSG_LOADING_TEXT);
 
+    // Try Netlify Forms first (more reliable)
+    try {
+      const formData = new FormData();
+      formData.append('form-name', 'newsletter');
+      formData.append('email', emailInputElement.value);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString()
+      });
+
+      if (response.ok) {
+        trackSubscription(emailInputElement.value);
+        showMessage(MSG_USER_SUBSCRIBED);
+        emailInputElement.value = "";
+        return;
+      }
+    } catch (error) {
+      console.warn('Netlify Forms failed, trying function:', error);
+    }
+
+    // Fallback to function if forms fail
     try {
       const response = await fetch('/.netlify/functions/subscribe', {
         method: 'POST',

@@ -1,5 +1,6 @@
 <div class="pt-12">
-  <form id="js-form" class="border rounded-lg px-8 py-8 mb-12" novalidate>
+  <form id="js-form" name="newsletter" method="POST" data-netlify="true" class="border rounded-lg px-8 py-8 mb-12" novalidate>
+    <input type="hidden" name="form-name" value="newsletter" />
     <label for="js-form-email" class="block mb-4 font-semibold"
       >Subscribe for updates</label
     >
@@ -10,6 +11,7 @@
         class="py-3 px-4 w-full rounded-md focus:outline-none dark:bg-graphite-600 border border-graphite-200 dark:border-graphite-700"
         placeholder="Enter your email..."
         type="email"
+        required
       />
       <button
         id="js-form-submit-btn"
