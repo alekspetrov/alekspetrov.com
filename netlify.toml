@@ -107,6 +107,3 @@
   cloudName = "alekspetrov"
   deliveryType = "upload"
   imagesPath = "/images"
-
-[[plugins]]
-  package = "@netlify/plugin-emails"

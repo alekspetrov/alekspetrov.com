@@ -1,4 +1,6 @@
 import { neon } from '@netlify/neon';
+import FormData from 'form-data';
+import Mailgun from 'mailgun.js';
 
 export default async (req: Request) => {
   if (req.method !== 'POST') {
@@ -56,11 +58,14 @@ export default async (req: Request) => {
       throw dbError;
     }
     
-    // Send welcome email via Mailgun API
+    // Send welcome email via Mailgun SDK
     try {
-      const mailgunDomain = process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!;
-      const mailgunApiKey = process.env.NETLIFY_EMAILS_PROVIDER_API_KEY!;
-      
+      const mailgun = new Mailgun(FormData);
+      const mg = mailgun.client({
+        username: 'api',
+        key: process.env.NETLIFY_EMAILS_PROVIDER_API_KEY!
+      });
+
       const emailHtml = `<html>
 <head>
   <meta charset="UTF-8">
@@ -103,26 +108,14 @@ export default async (req: Request) => {
 </body>
 </html>`;
 
-      const formData = new FormData();
-      formData.append('from', 'Aleks Petrov <hello@alekspetrov.com>');
-      formData.append('to', email);
-      formData.append('subject', 'Welcome to the Newsletter! 🎉');
-      formData.append('html', emailHtml);
-
-      const mailgunResponse = await fetch(`https://api.mailgun.net/v3/${mailgunDomain}/messages`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Basic ${Buffer.from(`api:${mailgunApiKey}`).toString('base64')}`
-        },
-        body: formData
+      const data = await mg.messages.create(process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!, {
+        from: `Aleks Petrov <postmaster@${process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!}>`,
+        to: [email],
+        subject: 'Welcome to the Newsletter! 🎉',
+        html: emailHtml
       });
 
-      if (!mailgunResponse.ok) {
-        const errorText = await mailgunResponse.text();
-        console.error('Mailgun API error:', errorText);
-      } else {
-        console.log('Welcome email sent successfully');
-      }
+      console.log('Welcome email sent:', data);
     } catch (emailError) {
       console.error('Email error:', emailError);
       // Don't fail the subscription if email fails
