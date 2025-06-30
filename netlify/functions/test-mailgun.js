@@ -10,6 +10,7 @@ exports.handler = async (event, context) => {
     console.log('MAILGUN_DOMAIN:', mailgunDomain);
     console.log('MAILGUN_API_KEY exists:', !!mailgunApiKey);
     console.log('MAILGUN_API_KEY length:', mailgunApiKey ? mailgunApiKey.length : 0);
+    console.log('MAILGUN_API_KEY starts with key-:', mailgunApiKey ? mailgunApiKey.startsWith('key-') : false);
     
     if (!mailgunDomain || !mailgunApiKey) {
       return {
@@ -31,9 +32,11 @@ exports.handler = async (event, context) => {
     
     console.log('Attempting to send test email...');
     
+    // For sandbox domains, you need to send to authorized recipients
+    // Try sending to your own email first
     const data = await mg.messages.create(mailgunDomain, {
       from: `Test <mailgun@${mailgunDomain}>`,
-      to: ['test@example.com'],
+      to: ['mr.alex.petrov@gmail.com'], // Use your email for sandbox testing
       subject: 'Test Email',
       text: 'This is a test email from Netlify function'
     });
