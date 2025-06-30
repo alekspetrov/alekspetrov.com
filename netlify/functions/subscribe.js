@@ -1,15 +1,18 @@
-import { neon } from '@netlify/neon';
-
-// Use require for Mailgun as per their documentation
+const { neon } = require('@netlify/neon');
 const formData = require('form-data');
 const Mailgun = require('mailgun.js');
 
-export default async (req: Request) => {
+exports.handler = async (event, context) => {
+  const req = {
+    method: event.httpMethod,
+    text: () => Promise.resolve(event.body || '{}')
+  };
   if (req.method !== 'POST') {
-    return new Response(
-      JSON.stringify({ error: 'Method not allowed' }), 
-      { status: 405, headers: { 'Content-Type': 'application/json' } }
-    );
+    return {
+      statusCode: 405,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ error: 'Method not allowed' })
+    };
   }
 
   try {
@@ -20,21 +23,23 @@ export default async (req: Request) => {
       const parsed = JSON.parse(body);
       email = parsed.email;
     } catch (parseError) {
-      return new Response(
-        JSON.stringify({ error: 'Invalid JSON' }), 
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Invalid JSON' })
+      };
     }
     
     if (!email || !email.includes('@')) {
-      return new Response(
-        JSON.stringify({ error: 'Valid email required' }), 
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Valid email required' })
+      };
     }
 
     // Initialize Neon database
-    const sql = neon(process.env.DATABASE_URL!);
+    const sql = neon(process.env.DATABASE_URL);
     
     // Create table if not exists
     await sql`
@@ -52,10 +57,11 @@ export default async (req: Request) => {
       `;
     } catch (dbError) {
       if (dbError.code === '23505') { // Unique constraint violation
-        return new Response(
-          JSON.stringify({ error: 'Already subscribed' }), 
-          { status: 409, headers: { 'Content-Type': 'application/json' } }
-        );
+        return {
+          statusCode: 409,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ error: 'Already subscribed' })
+        };
       }
       throw dbError;
     }
@@ -65,7 +71,7 @@ export default async (req: Request) => {
       const mailgun = new Mailgun(formData);
       const mg = mailgun.client({
         username: 'api',
-        key: process.env.NETLIFY_EMAILS_PROVIDER_API_KEY!
+        key: process.env.NETLIFY_EMAILS_PROVIDER_API_KEY
       });
 
       const emailHtml = `<html>
@@ -110,8 +116,8 @@ export default async (req: Request) => {
 </body>
 </html>`;
 
-      const data = await mg.messages.create(process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!, {
-        from: `Aleks Petrov <mailgun@${process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!}>`,
+      const data = await mg.messages.create(process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN, {
+        from: `Aleks Petrov <mailgun@${process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN}>`,
         to: [email],
         subject: 'Welcome to the Newsletter! 🎉',
         text: 'Welcome to the newsletter! Thanks for subscribing.',
@@ -124,23 +130,25 @@ export default async (req: Request) => {
       // Don't fail the subscription if email fails
     }
     
-    return new Response(
-      JSON.stringify({ 
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
         success: true, 
         message: 'Subscription saved and welcome email sent',
         email: email
-      }), 
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
-    );
+      })
+    };
 
   } catch (error) {
     console.error('Function error:', error);
-    return new Response(
-      JSON.stringify({ 
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
         error: 'Server error', 
         details: error.message
-      }), 
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+      })
+    };
   }
 };
