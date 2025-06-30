@@ -1,56 +1,63 @@
-import { getStore } from '@netlify/blobs';
-import type { Context } from '@netlify/functions';
+export default async (req: Request) => {
+  // Add detailed logging
+  console.log('Function called:', {
+    method: req.method,
+    url: req.url,
+    headers: Object.fromEntries(req.headers.entries())
+  });
 
-export default async (req: Request, context: Context) => {
   if (req.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 });
+    return new Response(
+      JSON.stringify({ error: 'Method not allowed' }), 
+      { status: 405, headers: { 'Content-Type': 'application/json' } }
+    );
   }
 
   try {
-    const { email } = await req.json();
+    const body = await req.text();
+    console.log('Request body:', body);
+    
+    let email;
+    try {
+      const parsed = JSON.parse(body);
+      email = parsed.email;
+    } catch (parseError) {
+      console.error('JSON parse error:', parseError);
+      return new Response(
+        JSON.stringify({ error: 'Invalid JSON' }), 
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
     
     if (!email || !email.includes('@')) {
+      console.log('Invalid email:', email);
       return new Response(
         JSON.stringify({ error: 'Valid email required' }), 
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    const store = getStore('subscribers');
+    // Simple success response for now (no Blobs dependency)
+    console.log('Email received:', email);
     
-    // Check if email already exists
-    const existing = await store.get(email);
-    if (existing) {
-      return new Response(
-        JSON.stringify({ error: 'Already subscribed', status: 409 }), 
-        { status: 409, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    // Store the subscriber
-    const subscriber = {
-      email,
-      subscribedAt: new Date().toISOString(),
-      id: crypto.randomUUID()
-    };
-
-    await store.set(email, JSON.stringify(subscriber));
-
-    // Also maintain a list for easy retrieval
-    const allSubs = await store.get('_all_subscribers');
-    const subsList = allSubs ? JSON.parse(allSubs) : [];
-    subsList.push(email);
-    await store.set('_all_subscribers', JSON.stringify(subsList));
-
     return new Response(
-      JSON.stringify({ success: true }), 
+      JSON.stringify({ 
+        success: true, 
+        message: 'Subscription received',
+        email: email,
+        timestamp: new Date().toISOString()
+      }), 
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
 
   } catch (error) {
-    console.error('Subscription error:', error);
+    console.error('Function error:', error);
     return new Response(
-      JSON.stringify({ error: 'Server error' }), 
+      JSON.stringify({ 
+        error: 'Server error', 
+        details: error.message,
+        stack: error.stack 
+      }), 
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
