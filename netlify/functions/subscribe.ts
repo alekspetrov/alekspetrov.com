@@ -60,11 +60,15 @@ export default async (req: Request) => {
     try {
       const emailResponse = await fetch('/.netlify/functions/emails/welcome', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'netlify-emails-secret': process.env.NETLIFY_EMAILS_SECRET!
+        },
         body: JSON.stringify({ 
           to: email,
           from: 'hello@alekspetrov.com',
-          subject: 'Welcome to the Newsletter! 🎉'
+          subject: 'Welcome to the Newsletter! 🎉',
+          parameters: {}
         })
       });
       
