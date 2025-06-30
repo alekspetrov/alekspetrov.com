@@ -68,10 +68,21 @@ exports.handler = async (event, context) => {
     
     // Send welcome email via Mailgun SDK
     try {
+      // Try both Netlify Email variables and manual variables
+      const mailgunDomain = process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN || process.env.MAILGUN_DOMAIN;
+      const mailgunApiKey = process.env.NETLIFY_EMAILS_PROVIDER_API_KEY || process.env.MAILGUN_API_KEY;
+      
+      console.log('Mailgun domain:', mailgunDomain);
+      console.log('Mailgun API key exists:', !!mailgunApiKey);
+      
+      if (!mailgunDomain || !mailgunApiKey) {
+        throw new Error('Missing Mailgun configuration');
+      }
+      
       const mailgun = new Mailgun(formData);
       const mg = mailgun.client({
         username: 'api',
-        key: process.env.NETLIFY_EMAILS_PROVIDER_API_KEY
+        key: mailgunApiKey
       });
 
       const emailHtml = `<html>
@@ -116,8 +127,8 @@ exports.handler = async (event, context) => {
 </body>
 </html>`;
 
-      const data = await mg.messages.create(process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN, {
-        from: `Aleks Petrov <mailgun@${process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN}>`,
+      const data = await mg.messages.create(mailgunDomain, {
+        from: `Aleks Petrov <mailgun@${mailgunDomain}>`,
         to: [email],
         subject: 'Welcome to the Newsletter! 🎉',
         text: 'Welcome to the newsletter! Thanks for subscribing.',
@@ -125,6 +136,7 @@ exports.handler = async (event, context) => {
       });
 
       console.log('Welcome email sent:', data);
+      console.log('Mailgun response status:', data.status || 'unknown');
     } catch (emailError) {
       console.error('Email error:', emailError);
       // Don't fail the subscription if email fails
