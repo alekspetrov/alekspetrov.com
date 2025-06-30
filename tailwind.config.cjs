@@ -36,7 +36,7 @@ module.exports = {
         {
           lineHeight: "1em",
           letterSpacing: "-0.01em",
-          fontWeight: "700",
+          fontWeight: "500",
         },
       ],
       large: [
@@ -44,7 +44,7 @@ module.exports = {
         {
           lineHeight: "1.1em",
           letterSpacing: "-0.01em",
-          fontWeight: "700",
+          fontWeight: "600",
         },
       ],
       medium: [
@@ -52,7 +52,7 @@ module.exports = {
         {
           lineHeight: "1.1em",
           letterSpacing: "-0.01em",
-          fontWeight: "700",
+          fontWeight: "600",
         },
       ],
       title: [
@@ -60,7 +60,7 @@ module.exports = {
         {
           lineHeight: "1.5em",
           letterSpacing: "-0.01em",
-          fontWeight: "700",
+          fontWeight: "600",
         },
       ],
       body: [

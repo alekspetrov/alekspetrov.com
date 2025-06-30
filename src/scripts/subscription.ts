@@ -1,5 +1,4 @@
 import { formValidation } from "../utils/formValidation";
-import { trackServerIssues, trackSubscription } from "../scripts/bee";
 
 // Messages
 const MSG_LOADING_TEXT = "Checking your email...";
@@ -59,7 +58,6 @@ if (formElement) {
       });
 
       if (response.ok) {
-        trackSubscription(emailInputElement.value);
         showMessage(MSG_USER_SUBSCRIBED);
         emailInputElement.value = "";
         return;
@@ -88,16 +86,15 @@ if (formElement) {
       }
 
       if (!response.ok) {
-        trackServerIssues(emailInputElement.value, result.error);
+        console.error('Function error:', result.error);
         showMessage(ERR_MSG_SERVER_ERROR);
         return false;
       }
 
-      trackSubscription(emailInputElement.value);
       showMessage(MSG_USER_SUBSCRIBED);
       emailInputElement.value = "";
     } catch (error) {
-      trackServerIssues(emailInputElement.value, error);
+      console.error('Network error:', error);
       showMessage(ERR_MSG_SERVER_ERROR);
       return false;
     }
