@@ -1,6 +1,8 @@
 import { neon } from '@netlify/neon';
-import FormData from 'form-data';
-import Mailgun from 'mailgun.js';
+
+// Use require for Mailgun as per their documentation
+const formData = require('form-data');
+const Mailgun = require('mailgun.js');
 
 export default async (req: Request) => {
   if (req.method !== 'POST') {
@@ -60,7 +62,7 @@ export default async (req: Request) => {
     
     // Send welcome email via Mailgun SDK
     try {
-      const mailgun = new Mailgun(FormData);
+      const mailgun = new Mailgun(formData);
       const mg = mailgun.client({
         username: 'api',
         key: process.env.NETLIFY_EMAILS_PROVIDER_API_KEY!
@@ -109,9 +111,10 @@ export default async (req: Request) => {
 </html>`;
 
       const data = await mg.messages.create(process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!, {
-        from: `Aleks Petrov <postmaster@${process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!}>`,
+        from: `Aleks Petrov <mailgun@${process.env.NETLIFY_EMAILS_MAILGUN_DOMAIN!}>`,
         to: [email],
         subject: 'Welcome to the Newsletter! 🎉',
+        text: 'Welcome to the newsletter! Thanks for subscribing.',
         html: emailHtml
       });
 
