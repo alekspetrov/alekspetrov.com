@@ -1,11 +1,19 @@
+import { neon } from '@netlify/neon';
+
 export default async (req: Request) => {
   try {
-    // Since we removed Blobs storage, let's check what we can access
+    const sql = neon(process.env.DATABASE_URL!);
+    
+    const subscribers = await sql`
+      SELECT email, subscribed_at 
+      FROM subscribers 
+      ORDER BY subscribed_at DESC
+    `;
+    
     return new Response(
       JSON.stringify({ 
-        message: 'Subscribers are stored in Netlify Forms',
-        instructions: 'Check Netlify Dashboard → Forms → Newsletter submissions',
-        note: 'Function method was simplified for debugging - no database storage currently',
+        subscribers,
+        count: subscribers.length,
         timestamp: new Date().toISOString()
       }), 
       { 

@@ -1,11 +1,6 @@
-export default async (req: Request) => {
-  // Add detailed logging
-  console.log('Function called:', {
-    method: req.method,
-    url: req.url,
-    headers: Object.fromEntries(req.headers.entries())
-  });
+import { neon } from '@netlify/neon';
 
+export default async (req: Request) => {
   if (req.method !== 'POST') {
     return new Response(
       JSON.stringify({ error: 'Method not allowed' }), 
@@ -15,14 +10,12 @@ export default async (req: Request) => {
 
   try {
     const body = await req.text();
-    console.log('Request body:', body);
-    
     let email;
+    
     try {
       const parsed = JSON.parse(body);
       email = parsed.email;
     } catch (parseError) {
-      console.error('JSON parse error:', parseError);
       return new Response(
         JSON.stringify({ error: 'Invalid JSON' }), 
         { status: 400, headers: { 'Content-Type': 'application/json' } }
@@ -30,22 +23,64 @@ export default async (req: Request) => {
     }
     
     if (!email || !email.includes('@')) {
-      console.log('Invalid email:', email);
       return new Response(
         JSON.stringify({ error: 'Valid email required' }), 
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    // Simple success response for now (no Blobs dependency)
-    console.log('Email received:', email);
+    // Initialize Neon database
+    const sql = neon(process.env.DATABASE_URL!);
+    
+    // Create table if not exists
+    await sql`
+      CREATE TABLE IF NOT EXISTS subscribers (
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `;
+    
+    // Insert subscriber
+    try {
+      await sql`
+        INSERT INTO subscribers (email) VALUES (${email})
+      `;
+    } catch (dbError) {
+      if (dbError.code === '23505') { // Unique constraint violation
+        return new Response(
+          JSON.stringify({ error: 'Already subscribed' }), 
+          { status: 409, headers: { 'Content-Type': 'application/json' } }
+        );
+      }
+      throw dbError;
+    }
+    
+    // Send welcome email
+    try {
+      const emailResponse = await fetch('/.netlify/functions/emails/welcome', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          to: email,
+          from: 'hello@alekspetrov.com',
+          subject: 'Welcome to the Newsletter! 🎉'
+        })
+      });
+      
+      if (!emailResponse.ok) {
+        console.error('Email send failed:', await emailResponse.text());
+      }
+    } catch (emailError) {
+      console.error('Email error:', emailError);
+      // Don't fail the subscription if email fails
+    }
     
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: 'Subscription received',
-        email: email,
-        timestamp: new Date().toISOString()
+        message: 'Subscription saved and welcome email sent',
+        email: email
       }), 
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
@@ -55,8 +90,7 @@ export default async (req: Request) => {
     return new Response(
       JSON.stringify({ 
         error: 'Server error', 
-        details: error.message,
-        stack: error.stack 
+        details: error.message
       }), 
       { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
